@@ -9,6 +9,29 @@ module.exports = {
     'gatsby-plugin-mdx',
     'gatsby-transformer-sharp',
     {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          src: `${__dirname}/src`,
+          components: `${__dirname}/src/components`,
+          layouts: `${__dirname}/src/layouts`,
+          pages: `${__dirname}/src/pages`,
+          templates: `${__dirname}/src/templates`,
+          assets: `${__dirname}/src/assets`,
+          images: `${__dirname}/src/assets/images`,
+        },
+        extensions: ['js'],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: `${__dirname}/src/assets/images/svg`,
+        },
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',

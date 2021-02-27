@@ -1,0 +1,13 @@
+{
+  "path-autocomplete.pathMappings": {
+    "src": "${folder}/src",
+    "assets": "${folder}/src/assets",
+    "images": "${folder}/src/assets/images",
+    "components": "${folder}/src/components",
+    "pages": "${folder}/src/pages",
+    "templates": "${folder}/src/templates"
+  },
+  "cSpell.words": [
+    "Libraria"
+  ]
+}
