@@ -10,7 +10,6 @@ import {
 import { Link } from 'gatsby'
 import Logo from 'images/svg/logo.svg'
 import Menu from 'images/svg/menu.svg'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { RiMoonFill, RiSunFill } from 'react-icons/ri'
 import Emoji from './emoji'
@@ -18,7 +17,16 @@ import Emoji from './emoji'
 const lang = 'english'
 const toggleLang = () => {}
 
-export default function Header({ navLinks, ...props }) {
+export type NavLink = {
+  text: string
+  uri: string
+}
+
+type Props = {
+  navLinks: NavLink[]
+}
+
+export default function Header({ navLinks, ...props }: Props) {
   const { colorMode, toggleColorMode } = useColorMode()
   const [show, setShow] = React.useState(false)
   const handleToggle = () => setShow(!show)
@@ -95,24 +103,15 @@ export default function Header({ navLinks, ...props }) {
   )
 }
 
-Header.propTypes = {
-  navLinks: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string,
-      uri: PropTypes.string,
-    }),
-  ),
+type NavLinkProps = {
+  href: string
+  children: string
 }
 
-const NavLink = ({ href, children }) => (
+const NavLink = ({ href, children }: NavLinkProps) => (
   <Link to={href}>
     <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
       {children}
     </Text>
   </Link>
 )
-
-NavLink.propTypes = {
-  href: PropTypes.string,
-  children: PropTypes.node,
-}

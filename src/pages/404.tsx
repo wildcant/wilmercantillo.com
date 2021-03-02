@@ -1,8 +1,8 @@
-import * as React from 'react'
-import { Link } from 'gatsby'
 import { Container, Heading } from '@chakra-ui/react'
+import { Link } from 'gatsby'
+import React from 'react'
 
-const NotFoundPage = () => {
+export default function NotFoundPage() {
   return (
     <Container as="main" textAlign="center">
       <Heading>Page not found | 404</Heading>
@@ -10,5 +10,3 @@ const NotFoundPage = () => {
     </Container>
   )
 }
-
-export default NotFoundPage

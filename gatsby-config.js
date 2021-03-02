@@ -9,6 +9,15 @@ module.exports = {
     'gatsby-plugin-mdx',
     'gatsby-transformer-sharp',
     {
+      resolve: `gatsby-plugin-i18n`,
+      options: {
+        langKeyDefault: 'es',
+        langKeyForNull: 'es',
+        prefixDefault: false,
+        useLangKeyLayout: false,
+      },
+    },
+    {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
@@ -20,7 +29,7 @@ module.exports = {
           assets: `${__dirname}/src/assets`,
           images: `${__dirname}/src/assets/images`,
         },
-        extensions: ['js'],
+        extensions: ['ts'],
       },
     },
     {
@@ -35,7 +44,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: './src/images/',
+        path: './src/assets/images/',
       },
       __key: 'images',
     },
