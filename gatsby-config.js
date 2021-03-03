@@ -1,7 +1,13 @@
 /* eslint-disable no-undef */
+const langKeyDefault = 'es'
 module.exports = {
   siteMetadata: {
     title: 'wilmercantillo',
+    supportedLanguages: ['es', 'en'],
+    langKeyDefault,
+  },
+  flags: {
+    DEV_SSR: false,
   },
   plugins: [
     'gatsby-plugin-sharp',
@@ -11,7 +17,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-i18n`,
       options: {
-        langKeyDefault: 'es',
+        langKeyDefault,
         langKeyForNull: 'es',
         prefixDefault: false,
         useLangKeyLayout: false,

@@ -1,26 +1,17 @@
-import { Box } from '@chakra-ui/react'
-import React, { ReactChildren } from 'react'
+import React, { ReactNode } from 'react'
 import Footer from './footer'
-import Header, { NavLink } from './header'
-
-const links: NavLink[] = [
-  { text: 'Blog', uri: '#' },
-  { text: 'Library', uri: '#' },
-  { text: 'About', uri: '#' },
-  { text: 'Curriculum', uri: '#' },
-  { text: 'Contact', uri: '#' },
-]
+import Header from './header'
 
 type Props = {
-  children: ReactChildren
+  children: ReactNode
 }
 
 export default function Layout({ children }: Props) {
   return (
-    <Box as="div">
-      <Header navLinks={links} />
+    <>
+      <Header />
       <main>{children}</main>
       <Footer />
-    </Box>
+    </>
   )
 }

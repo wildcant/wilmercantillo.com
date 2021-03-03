@@ -7,62 +7,25 @@ import {
   useColorMode,
   VisuallyHidden,
 } from '@chakra-ui/react'
-import { Link } from 'gatsby'
 import Logo from 'images/svg/logo.svg'
 import Menu from 'images/svg/menu.svg'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { RiMoonFill, RiSunFill } from 'react-icons/ri'
-import Emoji from './emoji'
+import LangPicker from './lang-picker'
+import Link from './link'
 
-const lang = 'english'
-const toggleLang = () => {}
+type Props = {}
 
-export type NavLink = {
-  text: string
-  uri: string
-}
-
-type Props = {
-  navLinks: NavLink[]
-}
-
-export default function Header({ navLinks, ...props }: Props) {
+export default function Header(props: Props) {
   const { colorMode, toggleColorMode } = useColorMode()
   const [show, setShow] = React.useState(false)
   const handleToggle = () => setShow(!show)
 
-  const toggleButtons = (
-    <>
-      <IconButton
-        aria-label="theme-mode"
-        onClick={toggleLang}
-        bg="transparent"
-        fontSize="2xl"
-        icon={
-          lang === 'english' ? (
-            <Emoji symbol="🇬🇧" label="England flag" />
-          ) : (
-            <Emoji symbol="🇨🇴" label="Colombian flag" />
-          )
-        }
-      />
-      <IconButton
-        aria-label="theme-mode"
-        onClick={toggleColorMode}
-        bg="transparent"
-        icon={
-          colorMode === 'light' ? (
-            <RiMoonFill size={25} />
-          ) : (
-            <RiSunFill size={25} />
-          )
-        }
-      />
-    </>
-  )
+  const { t } = useTranslation()
+
   return (
     <Flex
-      as="header"
       align="center"
       justify="space-between"
       wrap="wrap"
@@ -76,7 +39,19 @@ export default function Header({ navLinks, ...props }: Props) {
         </Box>
       </Link>
       <Box display={{ base: 'block', md: 'none' }}>
-        {toggleButtons}
+        <LangPicker />
+        <IconButton
+          aria-label="theme-mode"
+          onClick={toggleColorMode}
+          bg="transparent"
+          icon={
+            colorMode === 'light' ? (
+              <RiMoonFill size={25} />
+            ) : (
+              <RiSunFill size={25} />
+            )
+          }
+        />
         <Button onClick={handleToggle} bg="transparent">
           <VisuallyHidden>Open Menu</VisuallyHidden>
           <Menu />
@@ -90,14 +65,26 @@ export default function Header({ navLinks, ...props }: Props) {
         alignItems="center"
         flexGrow={1}
       >
-        {navLinks.map((navLink, idx) => (
-          <NavLink key={idx} href={navLink.uri}>
-            {navLink.text}
-          </NavLink>
-        ))}
+        <NavLink href="/blog">{t('header.blog')}</NavLink>
+        <NavLink href="/library">{t('header.lib')}</NavLink>
+        <NavLink href="/about">{t('header.about')}</NavLink>
+        <NavLink href="/projects">{t('header.projects')}</NavLink>
+        <NavLink href="/contact">{t('header.contact')}</NavLink>
       </Box>
       <Box display={{ base: 'none', md: 'block' }} mt={{ base: 4, md: 0 }}>
-        {toggleButtons}
+        <LangPicker />
+        <IconButton
+          aria-label="theme-mode"
+          onClick={toggleColorMode}
+          bg="transparent"
+          icon={
+            colorMode === 'light' ? (
+              <RiMoonFill size={25} />
+            ) : (
+              <RiSunFill size={25} />
+            )
+          }
+        />
       </Box>
     </Flex>
   )

@@ -1,25 +1,29 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
-const path = require('path')
+const config = require('./gatsby-config')
 
-exports.onPostBuild = ({ reporter }) => {
-  reporter.info(`Your Gatsby site has been built!`)
-}
-
-const blogQuery = `
-  query {
-    allSamplePages {
-      edged {
-        node {
-          slug
-        }
-      }
-    }
+exports.onCreatePage = async ({ page, actions }) => {
+  if (!page.path.includes('blog')) {
+    // For pages that are not inside blog, generate page for each lang
+    const { createPage, deletePage } = actions
+    await deletePage(page)
+    const { supportedLanguages, langKeyDefault } = config.siteMetadata
+    await Promise.all(
+      supportedLanguages.map(async lang => {
+        const originalPath = page.path
+        const localizedPath =
+          lang === langKeyDefault ? originalPath : `/${lang}${page.path}`
+        await createPage({
+          ...page,
+          path: localizedPath,
+          context: {
+            ...page.context,
+            langKey: lang,
+          },
+        })
+      }),
+    )
   }
-`
-
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPages } = actions
-  blogPost = path.resolve(`src/templates/blog-post.js`)
-  const result = await graphql(blogQuery)
+  // For blog pages langKey and path will be alright
+  // since I'm using gatsby i18n and mdx plugins
 }
