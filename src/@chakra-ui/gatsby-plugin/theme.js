@@ -69,7 +69,7 @@ export const Fonts = () => (
       font-family: "Josefin Sans";
       font-weight: 400;
       font-style: normal;
-      src: url("/fonts/Josefin-Sans-400-Regular.ttf");
+      src: url("/fonts/Josefin_Sans/400-Regular.ttf");
     }
     @font-face {
       font-family: "Josefin Sans";

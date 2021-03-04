@@ -8,7 +8,7 @@ export default function IndexPage() {
   return (
     <Layout>
       <Container as="section" maxWidth="full" pos="relative" h="90vh" p="4">
-        <Heading>{t('home.myName')}</Heading>
+        <Heading fontFamily="Rouge Script">{t('home.myName')}</Heading>
       </Container>
     </Layout>
   )
