@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext } from 'react'
+import React, { createContext, ReactNode, useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
 const LangContext = createContext('')
@@ -11,9 +11,12 @@ type Props = {
 export default function LangContextProvider(props: Props) {
   const { lang, children } = props
   const { i18n } = useTranslation()
-  if (lang !== i18n.language) {
-    i18n.changeLanguage(lang)
-  }
+
+  useEffect(() => {
+    if (lang !== i18n.language) {
+      i18n.changeLanguage(lang)
+    }
+  }, [lang])
 
   return <LangContext.Provider value={lang}>{children}</LangContext.Provider>
 }

@@ -1,3 +1,51 @@
 {
-  "title": "Bienvenido"
+  "myName": "Wilmer Cantillo",
+  "intro": {
+    "buttonText": "Mi Historia",
+    "description": "Intentaré ayudarte a comprender conceptos sobre tecnología e ingeniería a través de mi blog con publicaciones concretas y fáciles de entender.",
+    "title": "Ingenierio y Desarrollador, Establecido en Colombia.",
+    "name": "Introducción"
+  },
+  "blog": {
+    "buttonText": "Blog",
+    "description": "Echa un vistazo al contenido de mi blog, aquí encontrarás información útil para comenzar o mejorar tu carrera.",
+    "title": "¿Quieres comenzar tu propia carrera tecnologíca?",
+    "name": "Blog",
+    "messageOne": "¿Quieres saber más sobre mi carrera?",
+    "messageTwo": "Sigue desplazándote"
+  },
+  "contact": {
+    "buttonText": "Escribeme",
+    "description": "Tienes proyectos, ideas de negocio, preguntas?",
+    "title": "Cualquier tipo de consulta o discusión.",
+    "name": "Contacto",
+    "quote": "I’m a greater believer in luck, and I find the harder I work the more I have of it.",
+    "quoteAuthor": "Thomas Jefferson",
+    "years": "1",
+    "yearsExperience": "Años de experiencia",
+    "clients": "6",
+    "satisfiedClients": "Clientes satisfechos.",
+    "softwareLabel": "Desarrollo Full Stack",
+    "softwareProjects": "6 Proyectos",
+    "electronicsLabel": "Ingenieria Electronica",
+    "electronicsProjects": "1 Proyecto"
+  },
+  "projects": {
+    "buttonText": "Explorar",
+    "description": "Siempre trabajando en proyectos interesantes con pasión disfrutando del proceso y logrando resultados excelentes.",
+    "title": "Proyectos seleccionados.",
+    "name": "Proyectos"
+  },
+  "testimonials": {
+    "title": "¿Qué piensan los clientes y socios?",
+    "name": "Testimonios"
+  },
+  "quotes": [
+    {
+      "text": "Fue un placer trabajar con Wilmer en este proyecto urgente. Espero volver a hacerlo en el futuro.",
+      "author": "Kisha",
+      "ocupation": "Web developer"
+    },
+    { "text": "Lorem Ipsum", "author": "John Doe", "ocupation": "Admin" }
+  ]
 }

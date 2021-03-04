@@ -12,7 +12,7 @@ export default function LangPicker() {
   const newPath = location.pathname?.includes('en')
     ? '/' + location.pathname.split('/').splice(2).join('/') || '/'
     : `/en${location.pathname}`
-  
+
   const toggleLang = () => navigate(newPath, { replace: true })
 
   return (
@@ -23,9 +23,9 @@ export default function LangPicker() {
       fontSize="2xl"
       icon={
         lang === defaultLanguage ? (
-          <Emoji symbol="🇨🇴" label="Colombian flag" />
-        ) : (
           <Emoji symbol="🇬🇧" label="England flag" />
+        ) : (
+          <Emoji symbol="🇨🇴" label="Colombian flag" />
         )
       }
     />

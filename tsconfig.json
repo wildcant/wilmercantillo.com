@@ -19,8 +19,7 @@
       "layouts/*": ["src/layouts/*"],
       "pages/*": ["src/pages/*"],
       "templates/*": ["src/templates/*"],
-      "assets/*": ["src/assets/*"],
-      "images/*": ["src/assets/images/*"]
+      "images/*": ["src/images/*"]
     }
   },
   "include": ["./src/**/*", "index.d.ts"]

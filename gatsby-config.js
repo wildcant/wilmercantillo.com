@@ -32,8 +32,7 @@ module.exports = {
           layouts: `${__dirname}/src/layouts`,
           pages: `${__dirname}/src/pages`,
           templates: `${__dirname}/src/templates`,
-          assets: `${__dirname}/src/assets`,
-          images: `${__dirname}/src/assets/images`,
+          images: `${__dirname}/src/images`,
         },
         extensions: ['ts'],
       },
@@ -42,7 +41,7 @@ module.exports = {
       resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
-          include: `${__dirname}/src/assets/images/svg`,
+          include: `${__dirname}/src/images/svg`,
         },
       },
     },
@@ -50,7 +49,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: './src/assets/images/',
+        path: './src/images/',
       },
       __key: 'images',
     },
