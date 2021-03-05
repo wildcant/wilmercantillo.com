@@ -10,10 +10,11 @@ module.exports = {
     DEV_SSR: false,
   },
   plugins: [
+    `gatsby-plugin-image`,
     'gatsby-plugin-sharp',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-mdx',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-mdx',
+    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-i18n`,
       options: {
