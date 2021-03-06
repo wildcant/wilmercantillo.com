@@ -18,11 +18,11 @@ import Link from './link'
 type Props = {}
 
 export default function Header(props: Props) {
+  const { t } = useTranslation()
   const { colorMode, toggleColorMode } = useColorMode()
   const [show, setShow] = React.useState(false)
   const handleToggle = () => setShow(!show)
-
-  const { t } = useTranslation()
+  const isLight = colorMode === 'light'
 
   return (
     <Flex
@@ -33,7 +33,7 @@ export default function Header(props: Props) {
       {...props}
     >
       <Link to="/">
-        <Box mr={5} color="red.600">
+        <Box mr={5} color={isLight ? 'primary.500' : 'purple.500'}>
           <VisuallyHidden>Logo</VisuallyHidden>
           <Logo />
         </Box>
@@ -44,15 +44,13 @@ export default function Header(props: Props) {
           aria-label="theme-mode"
           onClick={toggleColorMode}
           bg="transparent"
-          icon={
-            colorMode === 'light' ? (
-              <RiMoonFill size={25} />
-            ) : (
-              <RiSunFill size={25} />
-            )
-          }
+          icon={isLight ? <RiMoonFill size={25} /> : <RiSunFill size={25} />}
         />
-        <Button onClick={handleToggle} bg="transparent">
+        <Button
+          onClick={handleToggle}
+          bg="transparent"
+          color={isLight ? 'primary.500' : 'purple.500'}
+        >
           <VisuallyHidden>Open Menu</VisuallyHidden>
           <Menu />
         </Button>
@@ -77,13 +75,7 @@ export default function Header(props: Props) {
           aria-label="theme-mode"
           onClick={toggleColorMode}
           bg="transparent"
-          icon={
-            colorMode === 'light' ? (
-              <RiMoonFill size={25} />
-            ) : (
-              <RiSunFill size={25} />
-            )
-          }
+          icon={isLight ? <RiMoonFill size={25} /> : <RiSunFill size={25} />}
         />
       </Box>
     </Flex>

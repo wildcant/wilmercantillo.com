@@ -6414,6 +6414,11 @@ focus-lock@^0.8.1:
   dependencies:
     tslib "^1.9.3"
 
+focus-visible@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/focus-visible/-/focus-visible-5.2.0.tgz#3a9e41fccf587bd25dcc2ef045508284f0a4d6b3"
+  integrity sha512-Rwix9pBtC1Nuy5wysTmKy+UjbDJpIfg8eHjw0rjZ1mX4GNLz1Bmd16uDpI3Gk1i70Fgcs8Csg2lPm8HULFg9DQ==
+
 folktale@^2.0.1:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/folktale/-/folktale-2.3.2.tgz#38231b039e5ef36989920cbf805bf6b227bf4fd4"
@@ -6653,15 +6658,6 @@ gatsby-graphiql-explorer@^1.0.0:
   integrity sha512-1ZoeCAEWDLhHLlRwIWG8HjiylgezSXksOYgVn3GfkgwySzFrpqR2CZQlPF342RCoIX2LgcOs2s9It8WT1MDc1A==
   dependencies:
     "@babel/runtime" "^7.12.5"
-
-gatsby-image@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-3.0.0.tgz#8c2bf2a335c956decf72bf74a2681742d8db9813"
-  integrity sha512-8Ma2ay4KAs9JR+Y2BiSw3jqiNLAAR4V1ZBC5Pjuf3fEzSONHjhOmZ7hOw8TzYHV32MQWYVFiOiHVHjLQDjH7jw==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    object-fit-images "^3.2.4"
-    prop-types "^15.7.2"
 
 gatsby-legacy-polyfills@^1.0.0:
   version "1.0.0"
@@ -10103,11 +10099,6 @@ object-copy@^0.1.0:
     copy-descriptor "^0.1.0"
     define-property "^0.2.5"
     kind-of "^3.0.3"
-
-object-fit-images@^3.2.4:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/object-fit-images/-/object-fit-images-3.2.4.tgz#6c299d38fdf207746e5d2d46c2877f6f25d15b52"
-  integrity sha512-G+7LzpYfTfqUyrZlfrou/PLLLAPNC52FTy5y1CBywX+1/FkxIloOyQXBmZ3Zxa2AWO+lMF0JTuvqbr7G5e5CWg==
 
 object-inspect@^1.9.0:
   version "1.9.0"

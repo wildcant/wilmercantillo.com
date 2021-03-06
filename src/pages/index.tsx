@@ -1,16 +1,23 @@
-import { Box, Container, Heading } from '@chakra-ui/react'
+import { Box, Container, Heading, useColorMode } from '@chakra-ui/react'
 import Layout from 'components/layout'
 import { graphql, PageProps } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import LandingSection from 'src/components/landing-section'
 
-interface Props extends PageProps {}
+type Props = PageProps & {
+  data: {
+    personImg: IGatsbyImageData
+  }
+}
 
 export default function IndexPage(props: Props) {
-  console.log({ props })
-  // const image = getImage('person.png')
   const { t } = useTranslation()
+  const { colorMode } = useColorMode()
+  const isLight = colorMode === 'light'
+  const image = getImage(props.data.personImg)
+
   return (
     <Layout>
       <Container
@@ -26,7 +33,7 @@ export default function IndexPage(props: Props) {
         <Heading
           fontFamily="Rouge Script"
           fontWeight="normal"
-          color="#1D3557"
+          color={'#1D3557'}
           fontSize={['5xl', '8xl', '9xl']}
           textAlign={['center', 'left']}
           width={{ md: '42%' }}
@@ -34,14 +41,23 @@ export default function IndexPage(props: Props) {
           {t('home.myName')}
         </Heading>
         <Box
-          zIndex="0"
           position="absolute"
-          bottom={0}
-          left={{ md: '25%' }}
-          height="100%"
+          bottom="0"
+          width={['200px', '400px', '600px']}
+          height="200px"
         >
-          <StaticImage src="../images/person.png" alt="Person" />
+          {image && <GatsbyImage image={image} alt="Person sitting" />}
         </Box>
+        <Box>
+          <LandingSection
+            name={t('home.intro.name')}
+            title={t('home.intro.title')}
+            description={t('home.intro.description')}
+            buttonText={t('home.intro.buttonText')}
+          />
+        </Box>
+        <br />
+        <br />
       </Container>
     </Layout>
   )
@@ -50,7 +66,7 @@ export const query = graphql`
   {
     personImg: file(relativePath: { eq: "person.png" }) {
       childImageSharp {
-        gatsbyImageData(layout: FIXED)
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
   }
