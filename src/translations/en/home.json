@@ -1,3 +1,51 @@
 {
-  "title": "Welcome"
+  "myName": "Wilmer Cantillo",
+  "intro": {
+    "buttonText": "Mi Story",
+    "description": "Help you understand engineering and tech concepts through my blog with concrete and easy to read posts.",
+    "title": "Engineer and developer based in Colombia.",
+    "name": "Intro"
+  },
+  "blog": {
+    "buttonText": "Blog",
+    "description": "Take a look at my blog, here you will you will find useful information that will help you start or boost your career.",
+    "title": "Want to start your career in tech?",
+    "name": "Blog",
+    "messageOne": "Do you want to learn more about my career?",
+    "messageTwo": "Keep scrolling"
+  },
+  "contact": {
+    "buttonText": "Escribeme",
+    "description": "Tienes proyectos, ideas de negocio, preguntas?",
+    "title": "Cualquier tipo de consulta o discusión.",
+    "name": "Contacto",
+    "quote": "I’m a greater believer in luck, and I find the harder I work the more I have of it.",
+    "quoteAuthor": "Thomas Jefferson",
+    "years": "1",
+    "yearsExperience": "Años de experiencia",
+    "clients": "6",
+    "satisfiedClients": "Clientes satisfechos.",
+    "softwareLabel": "Desarrollo Full Stack",
+    "softwareProjects": "6 Proyectos",
+    "electronicsLabel": "Ingenieria Electronica",
+    "electronicsProjects": "1 Proyecto"
+  },
+  "projects": {
+    "buttonText": "Explorar",
+    "description": "Siempre trabajando en proyectos interesantes con pasión disfrutando del proceso y logrando resultados excelentes.",
+    "title": "Proyectos seleccionados.",
+    "name": "Proyectos"
+  },
+  "testimonials": {
+    "title": "¿Qué piensan los clientes y socios?",
+    "name": "Testimonios"
+  },
+  "quotes": [
+    {
+      "text": "Fue un placer trabajar con Wilmer en este proyecto urgente. Espero volver a hacerlo en el futuro.",
+      "author": "Kisha",
+      "ocupation": "Web developer"
+    },
+    { "text": "Lorem Ipsum", "author": "John Doe", "ocupation": "Admin" }
+  ]
 }

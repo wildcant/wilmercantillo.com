@@ -3,7 +3,7 @@
 const config = require('./gatsby-config')
 
 exports.onCreatePage = async ({ page, actions }) => {
-  if (!page.path.includes('blog')) {
+  if (!page.path.includes('posts')) {
     // For pages that are not inside blog, generate page for each lang
     const { createPage, deletePage } = actions
     await deletePage(page)
