@@ -5,7 +5,7 @@ export const fonts = {
   heading: 'Josefin Sans',
   body: 'Sf Pro Display',
 }
-
+// TODO - Find a different place to store fonts
 export const Fonts = () => (
   <Global
     styles={`

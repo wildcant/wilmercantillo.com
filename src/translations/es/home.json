@@ -11,6 +11,7 @@
     "description": "Echa un vistazo al contenido de mi blog, aquí encontrarás información útil para comenzar o mejorar tu carrera.",
     "title": "¿Quieres comenzar tu propia carrera tecnologíca?",
     "name": "Blog",
+    "latestPosts": "Publicaciones mas recientes",
     "messageOne": "¿Quieres saber más sobre mi carrera?",
     "messageTwo": "Sigue desplazándote"
   },

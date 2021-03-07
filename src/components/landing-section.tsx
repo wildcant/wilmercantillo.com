@@ -27,7 +27,7 @@ const SectionContent = ({ name, title, description, buttonText }: Props) => (
       </Text>
     )}
     {buttonText && (
-      <Button variant="solid" m="1rem 0">
+      <Button variant="solid" m={{ base: '0 0 1rem 0', md: '1rem 0' }}>
         {buttonText}
       </Button>
     )}

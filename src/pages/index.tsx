@@ -1,15 +1,29 @@
-import { Box, Flex, Heading, useColorMode } from '@chakra-ui/react'
+import { Box, Flex, Heading, Icon, Text, useColorMode } from '@chakra-ui/react'
 import Layout from 'components/layout'
 import { graphql, PageProps } from 'gatsby'
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { TiArrowDownThick } from 'react-icons/ti'
+import BounceAnimation from 'src/components/animations/bounce'
+import BlogCard from 'src/components/blog-card'
 import SectionContent from 'src/components/landing-section'
 import { ComponentSizer } from 'src/components/styled/generic'
+import { BlogPost } from 'src/types'
+
+type PostNode = {
+  node: {
+    id: string
+    frontmatter: BlogPost
+  }
+}
 
 type Props = PageProps & {
   data: {
     personImg: IGatsbyImageData
+    featuredPosts: {
+      edges: PostNode[]
+    }
   }
 }
 
@@ -62,7 +76,11 @@ export default function IndexPage(props: Props) {
           </Box>
         </Box>
       </ComponentSizer>
-      <ComponentSizer h="100vh" minH={{ base: '400px', lg: '600px' }}>
+      <ComponentSizer
+        h="100vh"
+        minH={{ base: '400px', lg: '600px' }}
+        maxH={{ base: '650px' }}
+      >
         <Flex
           as="section"
           pos="relative"
@@ -86,6 +104,23 @@ export default function IndexPage(props: Props) {
               description={t('home.blog.description')}
               buttonText={t('home.blog.buttonText')}
             />
+            <Heading as="h3" size="md">
+              {t('home.blog.latestPosts')}
+            </Heading>
+            <Flex direction="column" align="center">
+              {props.data.featuredPosts.edges.map(postNode => (
+                <BlogCard
+                  key={postNode.node.id}
+                  size="sm"
+                  {...postNode.node.frontmatter}
+                />
+              ))}
+              <Text>{t('home.blog.messageOne')}</Text>
+              <Text>{t('home.blog.messageTwo')}</Text>
+              <BounceAnimation>
+                <Icon as={TiArrowDownThick} />
+              </BounceAnimation>
+            </Flex>
           </Box>
         </Flex>
       </ComponentSizer>
@@ -93,10 +128,32 @@ export default function IndexPage(props: Props) {
   )
 }
 export const query = graphql`
-  {
+  query LandingPage($langKey: String) {
     personImg: file(relativePath: { eq: "person.png" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: TRACED_SVG)
+      }
+    }
+    featuredPosts: allMdx(
+      filter: { frontmatter: { lang: { eq: $langKey } } }
+      sort: { order: DESC, fields: frontmatter___date }
+      limit: 2
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            slug
+            date
+            readTime
+            banner {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
+            }
+          }
+        }
       }
     }
   }
