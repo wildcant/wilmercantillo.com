@@ -2,7 +2,7 @@
   "myName": "Wilmer Cantillo",
   "intro": {
     "buttonText": "Mi Historia",
-    "description": "Intentaré ayudarte a comprender conceptos sobre tecnología e ingeniería a través de mi blog con publicaciones concretas y fáciles de entender.",
+    "description": "Te ayudare a comprender conceptos sobre tecnología e ingeniería a través de mi blog con publicaciones concretas y fáciles de entender.",
     "title": "Ingenierio y Desarrollador, Establecido en Colombia.",
     "name": "Intro"
   },
@@ -20,15 +20,15 @@
     "description": "Tienes proyectos, ideas de negocio, preguntas?",
     "title": "Cualquier tipo de consulta o discusión.",
     "name": "Contacto",
-    "quote": "I’m a greater believer in luck, and I find the harder I work the more I have of it.",
+    "quote": "Yo creo bastante en la suerte. Y he constatado que, cuanto más duro trabajo, más suerte tengo.",
     "quoteAuthor": "Thomas Jefferson",
     "years": "1",
     "yearsExperience": "Años de experiencia",
     "clients": "6",
     "satisfiedClients": "Clientes satisfechos.",
-    "softwareLabel": "Desarrollo Full Stack",
+    "softwareLabel": "Software",
     "softwareProjects": "6 Proyectos",
-    "electronicsLabel": "Ingenieria Electronica",
+    "electronicsLabel": "Electronica",
     "electronicsProjects": "1 Proyecto"
   },
   "projects": {

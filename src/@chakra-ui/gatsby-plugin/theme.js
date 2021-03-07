@@ -11,13 +11,14 @@ const config = {
 const theme = extendTheme({
   sizes: {},
   config,
-  textStyles: {},
   fonts,
   colors,
   components: { Button },
   styles: {
     global: {
-      colorScheme: 'purple',
+      p: {
+        fontSize: [{ base: '1rem', lg: '1.2rem', xl: '1.4rem' }],
+      },
     },
   },
 })

@@ -31,14 +31,7 @@ type Props = BlogPost & {
 
 const SmallBlogCard = (props: Props) => (
   <Link to={`/posts/${props.slug}`}>
-    <Flex
-      p="2"
-      minH="6rem"
-      boxShadow="xs"
-      width={['100%', 'md']}
-      minW="250px"
-      margin="0.5rem 0"
-    >
+    <Flex p="2" minH="6rem" boxShadow="xs" width={['100%', 'md']} minW="250px">
       <Flex width="65%" direction="column" justify="space-between">
         <Heading
           as="h3"
@@ -69,7 +62,6 @@ const MediumBlogCard = (props: Props) => (
     minH="6rem"
     boxShadow="xs"
     width="100%"
-    // width={{ base: '100%', xl: 'lg' }}
     minW="250px"
     maxW="550px"
     margin="1rem 0"
