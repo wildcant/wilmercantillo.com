@@ -1,4 +1,14 @@
-import { Box, Flex, Heading, Icon, Text, useColorMode } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Icon,
+  Text,
+  useBreakpointValue,
+  useColorMode,
+} from '@chakra-ui/react'
 import Layout from 'components/layout'
 import { graphql, PageProps } from 'gatsby'
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image'
@@ -20,7 +30,8 @@ type PostNode = {
 
 type Props = PageProps & {
   data: {
-    personImg: IGatsbyImageData
+    personImg: { childImageSharp: { gatsbyImageData: IGatsbyImageData } }
+    personSittingImg: { childImageSharp: { gatsbyImageData: IGatsbyImageData } }
     featuredPosts: {
       edges: PostNode[]
     }
@@ -28,11 +39,15 @@ type Props = PageProps & {
 }
 
 export default function IndexPage(props: Props) {
+  const { personImg, personSittingImg, featuredPosts } = props.data
   const { t } = useTranslation()
   const { colorMode } = useColorMode()
-  const isLight = colorMode === 'light'
-  const image = getImage(props.data.personImg)
+  const blogCardSize = useBreakpointValue({ base: 'sm', md: 'md' }) || 'sm'
 
+  const isLight = colorMode === 'light'
+  const introImage = getImage(personImg.childImageSharp.gatsbyImageData)
+  const blogImage = getImage(personSittingImg.childImageSharp.gatsbyImageData)
+  console.log({ featuredPosts })
   return (
     <Layout>
       <ComponentSizer
@@ -64,7 +79,7 @@ export default function IndexPage(props: Props) {
             right={{ base: '0', md: '50%', lg: '40%' }}
             transform={{ md: 'scaleX(-1)' }}
           >
-            {image && <GatsbyImage image={image} alt="Person sitting" />}
+            {introImage && <GatsbyImage image={introImage} alt="Person" />}
           </Box>
           <Box width={{ md: '50%' }}>
             <SectionContent
@@ -78,51 +93,68 @@ export default function IndexPage(props: Props) {
       </ComponentSizer>
       <ComponentSizer
         h="100vh"
-        minH={{ base: '400px', lg: '600px' }}
-        maxH={{ base: '650px' }}
+        minH={{ base: '400px', sm: '640px' }}
+        maxH={{ base: '700px' }}
+        pos="relative"
       >
-        <Flex
-          as="section"
-          pos="relative"
-          direction="column"
-          justifyContent={['space-around']}
-        >
+        <Box as="section" height="100%">
           <Box
             position="absolute"
-            bottom="0px"
-            width={['100px', '300px', '600px']}
-            height="200px"
-            right={['1rem', '50%']}
-            transform="revert"
+            bottom="10%"
+            width={{ base: '0', md: '200px', lg: '300px' }}
+            height="auto"
+            left="0"
+            transform={{ md: 'scaleX(-1)' }}
           >
-            {/* {image && <GatsbyImage image={image} alt="Person sitting" />} */}
+            {blogImage && (
+              <GatsbyImage image={blogImage} alt="Person sitting" />
+            )}
           </Box>
-          <Box width={{ md: '50%' }}>
-            <SectionContent
-              name={t('home.blog.name')}
-              title={t('home.blog.title')}
-              description={t('home.blog.description')}
-              buttonText={t('home.blog.buttonText')}
-            />
-            <Heading as="h3" size="md">
-              {t('home.blog.latestPosts')}
-            </Heading>
-            <Flex direction="column" align="center">
-              {props.data.featuredPosts.edges.map(postNode => (
-                <BlogCard
-                  key={postNode.node.id}
-                  size="sm"
-                  {...postNode.node.frontmatter}
-                />
-              ))}
-              <Text>{t('home.blog.messageOne')}</Text>
-              <Text>{t('home.blog.messageTwo')}</Text>
-              <BounceAnimation>
-                <Icon as={TiArrowDownThick} />
-              </BounceAnimation>
-            </Flex>
-          </Box>
-        </Flex>
+          <Grid
+            h={{ base: 'calc(100% - 4rem)' }}
+            templateColumns={{ md: '50% 50%' }}
+            templateRows={{
+              base: '60% 40%',
+              sm: '50% 50%',
+              md: 'repeat(4, 25%)',
+            }}
+          >
+            <GridItem gridRow={{ md: '1 / span 2' }}>
+              <SectionContent
+                name={t('home.blog.name')}
+                title={t('home.blog.title')}
+                description={t('home.blog.description')}
+                buttonText={t('home.blog.buttonText')}
+              />
+            </GridItem>
+            <GridItem gridColumn={{ md: '2' }} gridRow={{ md: '2 / span 3' }}>
+              <Heading as="h3" size="md">
+                {t('home.blog.latestPosts')}
+              </Heading>
+              <Flex
+                direction="column"
+                width="100%"
+                height="100%"
+                alignItems={{ base: 'center', md: 'flex-start' }}
+              >
+                {featuredPosts.edges.map(postNode => (
+                  <BlogCard
+                    key={postNode.node.id}
+                    size={blogCardSize}
+                    {...postNode.node.frontmatter}
+                  />
+                ))}
+              </Flex>
+            </GridItem>
+          </Grid>
+          <Flex height={{ base: '4rem' }} direction="column" align="center">
+            <Text>{t('home.blog.messageOne')}</Text>
+            <Text>{t('home.blog.messageTwo')}</Text>
+            <BounceAnimation>
+              <Icon as={TiArrowDownThick} />
+            </BounceAnimation>
+          </Flex>
+        </Box>
       </ComponentSizer>
     </Layout>
   )
@@ -130,6 +162,11 @@ export default function IndexPage(props: Props) {
 export const query = graphql`
   query LandingPage($langKey: String) {
     personImg: file(relativePath: { eq: "person.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: TRACED_SVG)
+      }
+    }
+    personSittingImg: file(relativePath: { eq: "person-sitting.png" }) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: TRACED_SVG)
       }
@@ -147,6 +184,7 @@ export const query = graphql`
             slug
             date
             readTime
+            description
             banner {
               childImageSharp {
                 gatsbyImageData(layout: FULL_WIDTH)

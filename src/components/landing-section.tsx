@@ -1,16 +1,22 @@
 import { Button } from '@chakra-ui/button'
-import { Box, Heading, Text } from '@chakra-ui/layout'
+import { Box, BoxProps, Heading, Text } from '@chakra-ui/layout'
 import React from 'react'
 
-type Props = {
+type Props = BoxProps & {
   name: string
   title: string
   description?: string
   buttonText?: string
 }
 
-const SectionContent = ({ name, title, description, buttonText }: Props) => (
-  <Box as="section">
+const SectionContent = ({
+  name,
+  title,
+  description,
+  buttonText,
+  ...props
+}: Props) => (
+  <Box as="section" {...props}>
     <Text as="small" fontFamily="Fira Code" letterSpacing="0.1em" opacity="0.5">
       •{name}
     </Text>
