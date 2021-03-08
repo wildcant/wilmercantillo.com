@@ -34,20 +34,27 @@
   "projects": {
     "buttonText": "Explorar",
     "description": "Siempre trabajando en proyectos interesantes con pasión disfrutando del proceso y logrando resultados excelentes.",
-    "title": "Proyectos seleccionados.",
+    "title": "Proyectos destacados.",
     "name": "Proyectos",
     "seeMore": "Ver mas"
   },
   "testimonials": {
     "title": "¿Qué piensan los clientes y socios?",
-    "name": "Testimonios"
+    "name": "Testimonios",
+    "description": "¿No confías en mi? Mira lo que otros dicen"
   },
   "quotes": [
     {
+      "id": "1",
       "text": "Fue un placer trabajar con Wilmer en este proyecto urgente. Espero volver a hacerlo en el futuro.",
       "author": "Kisha",
-      "ocupation": "Web developer"
+      "occupation": "Web developer"
     },
-    { "text": "Lorem Ipsum", "author": "John Doe", "ocupation": "Admin" }
+    {
+      "id": "2",
+      "text": "Lorem Ipsum",
+      "author": "John Doe",
+      "occupation": "Admin"
+    }
   ]
 }

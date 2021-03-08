@@ -1,7 +1,7 @@
 {
   "myName": "Wilmer Cantillo",
   "intro": {
-    "buttonText": "Mi Story",
+    "buttonText": "My Story",
     "description": "Help you understand engineering and tech concepts through my blog with concrete and easy to read posts.",
     "title": "Engineer and developer based in Colombia.",
     "name": "Intro"
@@ -38,14 +38,21 @@
   },
   "testimonials": {
     "title": "¿Qué piensan los clientes y socios?",
-    "name": "Testimonios"
+    "name": "Testimonios",
+    "description": "Don't trust me? See what others say"
   },
   "quotes": [
     {
+      "id": "1",
       "text": "Fue un placer trabajar con Wilmer en este proyecto urgente. Espero volver a hacerlo en el futuro.",
       "author": "Kisha",
-      "ocupation": "Web developer"
+      "occupation": "Web developer"
     },
-    { "text": "Lorem Ipsum", "author": "John Doe", "ocupation": "Admin" }
+    {
+      "id": "2",
+      "text": "Lorem Ipsum",
+      "author": "John Doe",
+      "occupation": "Admin"
+    }
   ]
 }

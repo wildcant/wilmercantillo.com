@@ -27,3 +27,10 @@ export type ProjectPost = {
   bannerCredit: string
   featured?: boolean
 }
+
+export type Quote = {
+  id: string
+  text: string
+  author: string
+  occupation: string
+}

@@ -8,7 +8,7 @@ import {
   Icon,
   Text,
   useBreakpointValue,
-  useColorMode
+  useColorMode,
 } from '@chakra-ui/react'
 import Layout from 'components/layout'
 import { graphql, PageProps } from 'gatsby'
@@ -24,8 +24,9 @@ import BlogCard from 'src/components/blog-card'
 import SectionContent from 'src/components/landing-section'
 import Link from 'src/components/link'
 import ProjectCard from 'src/components/project-card'
+import Quotes from 'src/components/quotes'
 import { ComponentSizer } from 'src/components/styled/generic'
-import { BlogPost, ProjectPost } from 'src/types'
+import { BlogPost, ProjectPost, Quote } from 'src/types'
 
 type PostNode = {
   node: {
@@ -70,7 +71,8 @@ export default function IndexPage(props: Props) {
   const isLight = colorMode === 'light'
   const introImage = getImage(personImg.childImageSharp.gatsbyImageData)
   const blogImage = getImage(personSittingImg.childImageSharp.gatsbyImageData)
-  
+  const quotes: Array<Quote> = t('home.quotes', { returnObjects: true })
+
   return (
     <Layout>
       {/* Home Section */}
@@ -233,7 +235,7 @@ export default function IndexPage(props: Props) {
                     color="gray.600"
                     pr={{ md: '2rem' }}
                   >
-                    {t('home.contact.quoteAuthor')}
+                    - {t('home.contact.quoteAuthor')}
                   </Text>
                 </Box>
               </Flex>
@@ -340,6 +342,23 @@ export default function IndexPage(props: Props) {
             </Button>
           </GridItem>
         </Grid>
+      </ComponentSizer>
+      {/*  Testimonials Section */}
+      <ComponentSizer
+        h={{ base: '50vh', md: '40vh' }}
+        minH={{ base: '200px', sm: '300px' }}
+        maxH={{ base: '600px' }}
+        pos="relative"
+      >
+        <Box as="section" height="100%">
+          <SectionContent
+            name={t('home.testimonials.name')}
+            title={t('home.testimonials.title')}
+            description={t('home.testimonials.description')}
+          />
+          <Icon as={FaQuoteLeft} fontSize="2em" color="gray.200" />
+          <Quotes quotes={quotes} />
+        </Box>
       </ComponentSizer>
     </Layout>
   )
