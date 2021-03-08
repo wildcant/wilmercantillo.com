@@ -37,6 +37,7 @@ const SmallBlogCard = (props: Props) => (
           <Heading
             as="h3"
             size="sm"
+            noOfLines={2}
             _hover={{ color: props.isLight ? 'primary.500' : 'purple.500' }}
           >
             {props.title}
@@ -83,7 +84,7 @@ const MediumBlogCard = (props: Props) => (
           </Heading>
         </Link>
         <Link to={`/posts/${props.slug}`}>
-          <Text>{props.description}</Text>
+          <Text noOfLines={3}>{props.description}</Text>
         </Link>
       </Box>
       <Text as="span" fontWeight="light" color="gray.600">

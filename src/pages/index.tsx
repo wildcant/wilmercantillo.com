@@ -8,7 +8,7 @@ import {
   Icon,
   Text,
   useBreakpointValue,
-  useColorMode
+  useColorMode,
 } from '@chakra-ui/react'
 import Layout from 'components/layout'
 import { graphql, PageProps } from 'gatsby'
@@ -63,7 +63,7 @@ export default function IndexPage(props: Props) {
     <Layout>
       {/* Home Section */}
       <ComponentSizer
-        h="90vh"
+        h="100vh"
         minH={{ base: '400px', lg: '600px' }}
         maxH={{ base: '650px' }}
         pos="relative"
@@ -72,6 +72,7 @@ export default function IndexPage(props: Props) {
           as="section"
           d={{ md: 'flex' }}
           justifyContent={{ md: 'space-between' }}
+          marginTop="10vh"
         >
           <Heading
             fontFamily="Rouge Script"

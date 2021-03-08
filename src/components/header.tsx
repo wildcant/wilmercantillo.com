@@ -10,23 +10,59 @@ import {
 } from '@chakra-ui/react'
 import Logo from 'images/svg/logo.svg'
 import Menu from 'images/svg/menu.svg'
-import React from 'react'
+import React, { createRef, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { RiMoonFill, RiSunFill } from 'react-icons/ri'
+import { useWindowScroll } from 'react-use'
 import LangPicker from './lang-picker'
 import Link from './link'
 import { ComponentSizer } from './styled/generic'
 
+const delta = 5
 export default function Header(props: FlexProps) {
   const { t } = useTranslation()
   const { colorMode, toggleColorMode } = useColorMode()
-  const [show, setShow] = React.useState(false)
-  const handleToggle = () => setShow(!show)
+  const [showHeader, setShowHeader] = useState(true)
+  const [headerHeight, setHeaderHeight] = useState(0)
+  const [showMenu, setShowMenu] = useState(false)
+  const { y } = useWindowScroll()
+  const lastPosition = useRef(0)
+
+  const header = createRef<HTMLDivElement>()
+  const toggleMenu = () => setShowMenu(prevMenuStatus => !prevMenuStatus)
   const isLight = colorMode === 'light'
 
+  useEffect(() => {
+    if (header.current) {
+      setHeaderHeight(header.current.offsetHeight)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (Math.abs(lastPosition.current - y) <= delta) return
+    if (y > lastPosition.current && y > headerHeight) {
+      setShowHeader(false)
+    } else {
+      setShowHeader(true)
+    }
+    lastPosition.current = y
+  }, [y])
+
   return (
-    <Box as="header">
-      <ComponentSizer height="10vh" minHeight="60px">
+    <Box
+      as="div"
+      ref={header}
+      position="fixed"
+      zIndex="2"
+      width="100%"
+      height="10vh"
+      minHeight="60px"
+      transition="top 0.2s ease-in-out"
+      boxShadow={y > headerHeight ? 'lg' : ''}
+      top={showHeader ? 0 : -headerHeight}
+      backgroundColor={isLight ? 'white' : 'gray.800'}
+    >
+      <ComponentSizer>
         <Flex wrap="wrap" align="center" justify="space-between" {...props}>
           <Link to="/">
             <Box color={isLight ? 'primary.500' : 'purple.500'}>
@@ -45,7 +81,7 @@ export default function Header(props: FlexProps) {
               }
             />
             <Button
-              onClick={handleToggle}
+              onClick={toggleMenu}
               bg="transparent"
               color={isLight ? 'primary.500' : 'purple.500'}
             >
@@ -56,7 +92,7 @@ export default function Header(props: FlexProps) {
 
           <Box
             as="nav"
-            display={{ base: show ? 'block' : 'none', md: 'flex' }}
+            display={{ base: showMenu ? 'block' : 'none', md: 'flex' }}
             width={{ base: 'full', md: 'auto' }}
             alignItems="center"
             flexGrow={1}
