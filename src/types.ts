@@ -14,6 +14,13 @@ export type BlogPost = {
   readTime: string
 }
 
+export type PostNode = {
+  node: {
+    id: string
+    frontmatter: BlogPost
+  }
+}
+
 export type ProjectPost = {
   lang: string
   slug: string
@@ -26,6 +33,13 @@ export type ProjectPost = {
   banner: { childImageSharp: { gatsbyImageData: IGatsbyImageData } }
   bannerCredit: string
   featured?: boolean
+}
+
+export type ProjectNode = {
+  node: {
+    id: string
+    frontmatter: ProjectPost
+  }
 }
 
 export type Quote = {
