@@ -84,6 +84,14 @@ module.exports = {
       __key: 'posts',
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'projects',
+        path: './src/pages/projects',
+      },
+      __key: 'projects',
+    },
+    {
       resolve: '@chakra-ui/gatsby-plugin',
       options: {
         isResettingCSS: true,

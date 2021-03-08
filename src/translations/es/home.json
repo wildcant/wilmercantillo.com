@@ -35,7 +35,8 @@
     "buttonText": "Explorar",
     "description": "Siempre trabajando en proyectos interesantes con pasión disfrutando del proceso y logrando resultados excelentes.",
     "title": "Proyectos seleccionados.",
-    "name": "Proyectos"
+    "name": "Proyectos",
+    "seeMore": "Ver mas"
   },
   "testimonials": {
     "title": "¿Qué piensan los clientes y socios?",

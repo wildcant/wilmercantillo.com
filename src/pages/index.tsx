@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Flex,
   Grid,
   GridItem,
@@ -7,7 +8,7 @@ import {
   Icon,
   Text,
   useBreakpointValue,
-  useColorMode,
+  useColorMode
 } from '@chakra-ui/react'
 import Layout from 'components/layout'
 import { graphql, PageProps } from 'gatsby'
@@ -22,13 +23,21 @@ import BounceAnimation from 'src/components/animations/bounce'
 import BlogCard from 'src/components/blog-card'
 import SectionContent from 'src/components/landing-section'
 import Link from 'src/components/link'
+import ProjectCard from 'src/components/project-card'
 import { ComponentSizer } from 'src/components/styled/generic'
-import { BlogPost } from 'src/types'
+import { BlogPost, ProjectPost } from 'src/types'
 
 type PostNode = {
   node: {
     id: string
     frontmatter: BlogPost
+  }
+}
+
+type ProjectNode = {
+  node: {
+    id: string
+    frontmatter: ProjectPost
   }
 }
 
@@ -39,19 +48,29 @@ type Props = PageProps & {
     featuredPosts: {
       edges: PostNode[]
     }
+    featuredProjects: {
+      edges: ProjectNode[]
+    }
   }
 }
 
 export default function IndexPage(props: Props) {
-  const { personImg, personSittingImg, featuredPosts } = props.data
+  const {
+    personImg,
+    personSittingImg,
+    featuredPosts,
+    featuredProjects,
+  } = props.data
+
   const { t } = useTranslation()
   const { colorMode } = useColorMode()
   const blogCardSize = useBreakpointValue({ base: 'sm', md: 'md' }) || 'sm'
+  const hideSecondProjectCard = useBreakpointValue({ base: true, md: false })
 
   const isLight = colorMode === 'light'
   const introImage = getImage(personImg.childImageSharp.gatsbyImageData)
   const blogImage = getImage(personSittingImg.childImageSharp.gatsbyImageData)
-  console.log({ featuredPosts })
+  
   return (
     <Layout>
       {/* Home Section */}
@@ -133,7 +152,11 @@ export default function IndexPage(props: Props) {
                 buttonText={t('home.blog.buttonText')}
               />
             </GridItem>
-            <GridItem gridColumn={{ md: '2' }} gridRow={{ md: '2 / span 3' }}>
+            <GridItem
+              gridColumn={{ md: '2' }}
+              gridRow={{ md: '2 / span 3' }}
+              width="100%"
+            >
               <Heading as="h3" size="md">
                 {t('home.blog.latestPosts')}
               </Heading>
@@ -145,6 +168,7 @@ export default function IndexPage(props: Props) {
               >
                 {featuredPosts.edges.map(postNode => (
                   <BlogCard
+                    width="100%"
                     key={postNode.node.id}
                     size={blogCardSize}
                     {...postNode.node.frontmatter}
@@ -274,9 +298,53 @@ export default function IndexPage(props: Props) {
           </Grid>
         </Box>
       </ComponentSizer>
+      {/* Projects Section */}
+      <ComponentSizer
+        h="100vh"
+        minH={{ base: '400px', sm: '600px' }}
+        maxH={{ base: '700px' }}
+        pos="relative"
+      >
+        <Grid
+          as="section"
+          height="100%"
+          gridTemplateColumns={{ md: '50% 50%' }}
+        >
+          <GridItem>
+            <SectionContent
+              name={t('home.projects.name')}
+              title={t('home.projects.title')}
+              description={t('home.projects.description')}
+            />
+            <ProjectCard
+              seeMoreLabel={t('home.projects.seeMore')}
+              {...featuredProjects.edges[0].node.frontmatter}
+            />
+          </GridItem>
+          <GridItem
+            d={{ md: 'flex' }}
+            flexDir={{ md: 'column' }}
+            justifyContent={{ md: 'space-around' }}
+          >
+            <ProjectCard
+              d={hideSecondProjectCard ? 'none' : 'block'}
+              seeMoreLabel={t('home.projects.seeMore')}
+              {...featuredProjects.edges[1].node.frontmatter}
+            />
+            <Button
+              variant="solid"
+              m={{ base: '0 0 1rem 0', md: '1rem 0' }}
+              maxW={{ md: '200px' }}
+            >
+              {t('home.projects.buttonText')}
+            </Button>
+          </GridItem>
+        </Grid>
+      </ComponentSizer>
     </Layout>
   )
 }
+
 export const query = graphql`
   query LandingPage($langKey: String) {
     personImg: file(relativePath: { eq: "person.png" }) {
@@ -290,7 +358,7 @@ export const query = graphql`
       }
     }
     featuredPosts: allMdx(
-      filter: { frontmatter: { lang: { eq: $langKey } } }
+      filter: { frontmatter: { lang: { eq: $langKey }, type: { eq: "post" } } }
       sort: { order: DESC, fields: frontmatter___date }
       limit: 2
     ) {
@@ -302,6 +370,33 @@ export const query = graphql`
             slug
             date
             readTime
+            description
+            banner {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
+            }
+          }
+        }
+      }
+    }
+    featuredProjects: allMdx(
+      filter: {
+        frontmatter: {
+          lang: { eq: $langKey }
+          type: { eq: "project" }
+          featured: { eq: true }
+        }
+      }
+      limit: 2
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            slug
+            date
             description
             banner {
               childImageSharp {

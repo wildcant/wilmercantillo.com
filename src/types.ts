@@ -13,3 +13,17 @@ export type BlogPost = {
   bannerCredit: string
   readTime: string
 }
+
+export type ProjectPost = {
+  lang: string
+  slug: string
+  title: string
+  date: string
+  author: string
+  description: string
+  categories: string[]
+  keywords: string[]
+  banner: { childImageSharp: { gatsbyImageData: IGatsbyImageData } }
+  bannerCredit: string
+  featured?: boolean
+}

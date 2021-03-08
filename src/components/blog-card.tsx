@@ -30,30 +30,32 @@ type Props = BlogPost & {
 }
 
 const SmallBlogCard = (props: Props) => (
-  <Link to={`/posts/${props.slug}`}>
-    <Flex p="2" minH="6rem" boxShadow="xs" width={['100%', 'md']} minW="250px">
-      <Flex width="65%" direction="column" justify="space-between">
-        <Heading
-          as="h3"
-          size="sm"
-          _hover={{ color: props.isLight ? 'primary.500' : 'purple.500' }}
-        >
-          {props.title}
-        </Heading>
-        <Text as="span" fontWeight="light" color="gray.600">
-          {props.date} · {props.readTime} min
-        </Text>
+  <Box width="100%">
+    <Link to={`/posts/${props.slug}`}>
+      <Flex p="2" minH="6rem" boxShadow="xs" width={['100%']} minW="250px">
+        <Flex width="65%" direction="column" justify="space-between">
+          <Heading
+            as="h3"
+            size="sm"
+            _hover={{ color: props.isLight ? 'primary.500' : 'purple.500' }}
+          >
+            {props.title}
+          </Heading>
+          <Text as="span" fontWeight="light" color="gray.600">
+            {props.date} · {props.readTime} min
+          </Text>
+        </Flex>
+        <Flex width="35%" align="center">
+          <Box width="100%" height="auto">
+            <GatsbyImage
+              image={props.banner.childImageSharp.gatsbyImageData}
+              alt="Blog post feature image"
+            />
+          </Box>
+        </Flex>
       </Flex>
-      <Flex width="35%" align="center">
-        <Box width="100%" height="auto">
-          <GatsbyImage
-            image={props.banner.childImageSharp.gatsbyImageData}
-            alt="Blog post feature image"
-          />
-        </Box>
-      </Flex>
-    </Flex>
-  </Link>
+    </Link>
+  </Box>
 )
 
 const MediumBlogCard = (props: Props) => (
