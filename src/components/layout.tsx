@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/layout'
 import React, { ReactNode } from 'react'
 import Footer from './footer'
 import Header from './header'
@@ -10,7 +11,9 @@ export default function Layout({ children }: Props) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <Box as="main" marginTop="10vh">
+        {children}
+      </Box>
       <Footer />
     </>
   )

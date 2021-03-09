@@ -1,9 +1,71 @@
+import { Button } from '@chakra-ui/button'
+import { Box, Flex } from '@chakra-ui/layout'
+import Layout from 'components/layout'
+import { ComponentSizer } from 'components/styled/generic'
+import { graphql, PageProps } from 'gatsby'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+import BlogCard from 'src/components/blog-card'
+import Search from 'src/components/search'
+import { PostNode } from 'src/types'
 
-export default function Blog() {
+type Props = PageProps & {
+  data: {
+    posts: { edges: PostNode[] }
+  }
+}
+
+export default function Blog(props: Props) {
+  const { posts } = props.data
+  const { t } = useTranslation()
   return (
-    <div>
-      <div>Blog</div>
-    </div>
+    <Layout>
+      <ComponentSizer>
+        <Search {...props} />
+        <Box minH="70vh">
+          <Flex direction="column" align="center">
+            {posts.edges.map(postNode => (
+              <BlogCard
+                width="100%"
+                key={postNode.node.id}
+                size="md"
+                {...postNode.node.frontmatter}
+              />
+            ))}
+            <Button variant="outline" marginTop="4rem" marginX="auto">
+              {t('blog.seeMore')}
+            </Button>
+          </Flex>
+        </Box>
+      </ComponentSizer>
+    </Layout>
   )
 }
+
+export const query = graphql`
+  query BlogPage($langKey: String) {
+    posts: allMdx(
+      filter: { frontmatter: { lang: { eq: $langKey }, type: { eq: "post" } } }
+      sort: { order: DESC, fields: frontmatter___date }
+      limit: 2
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            slug
+            date
+            readTime
+            description
+            banner {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

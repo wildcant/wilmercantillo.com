@@ -1,3 +1,4 @@
+import blog from './blog.json'
 import footer from './footer.json'
 import header from './header.json'
 import home from './home.json'
@@ -7,5 +8,6 @@ export default {
     header,
     home,
     footer,
+    blog,
   },
 }

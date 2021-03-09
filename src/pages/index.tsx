@@ -62,11 +62,10 @@ export default function IndexPage(props: Props) {
     <Layout>
       {/* Home Section */}
       <ComponentSizer
-        h="100vh"
+        h="90vh"
         minH={{ base: '400px', lg: '600px' }}
         maxH={{ base: '650px' }}
         pos="relative"
-        marginTop="10vh"
       >
         <Box
           as="section"

@@ -62,11 +62,12 @@ const SmallBlogCard = (props: Props) => (
 const MediumBlogCard = (props: Props) => (
   <Flex
     p="2"
-    minH="6rem"
     boxShadow="xs"
     width="100%"
     minW="250px"
-    maxW="550px"
+    maxW="650px"
+    h={{ base: '120px', md: '140px' }}
+    minH="6rem"
     margin="1rem 0"
     _hover={{
       boxShadow: 'lg',
@@ -84,25 +85,28 @@ const MediumBlogCard = (props: Props) => (
           </Heading>
         </Link>
         <Link to={`/post/${props.slug}`}>
-          <Text noOfLines={3}>{props.description}</Text>
+          <Text noOfLines={{ base: 2, md: 3 }} paddingRight={{ md: '1rem' }}>
+            {props.description}
+          </Text>
         </Link>
       </Box>
       <Text as="span" fontWeight="light" color="gray.600">
         {props.date} · {props.readTime} min
       </Text>
     </Flex>
-    <Box width="35%">
-      <Link to={`/post/${props.slug}`}>
-        <Flex align="center">
-          <Box width="100%" height="auto">
+    <Flex width="35%" align="center">
+      <Box width="100%" height="100%" overflow="hidden">
+        <Link to={`/post/${props.slug}`}>
+          <Box height="100%">
             <GatsbyImage
               image={props.banner.childImageSharp.gatsbyImageData}
               alt="Blog post feature image"
+              objectFit="cover"
             />
           </Box>
-        </Flex>
-      </Link>
-    </Box>
+        </Link>
+      </Box>
+    </Flex>
   </Flex>
 )
 
