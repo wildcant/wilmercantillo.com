@@ -1,12 +1,14 @@
 import { useColorMode } from '@chakra-ui/color-mode'
 import Icon from '@chakra-ui/icon'
 import { Box, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/layout'
+import { Link as CLink } from '@chakra-ui/react'
 import VisuallyHidden from '@chakra-ui/visually-hidden'
 import { graphql, useStaticQuery } from 'gatsby'
 import Logo from 'images/svg/logo.svg'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { SiFreelancer } from 'react-icons/si'
 import { PostNode } from 'src/types'
 import Link from './link'
 import { ComponentSizer } from './styled/generic'
@@ -81,7 +83,7 @@ export default function Footer() {
                     {post.date} · {post.readTime} min
                   </Text>
                   <Box>
-                    <Link to={`/posts/${post.slug}`}>
+                    <Link to={`/post/${post.slug}`}>
                       <Text color="gray.700" textTransform="uppercase">
                         {t('footer.readMore')}
                       </Text>
@@ -96,23 +98,43 @@ export default function Footer() {
               <Flex direction={['column', 'row']}>
                 <Box margin="1rem 0">
                   <Heading size="md">{t('footer.keepConnected')}</Heading>
-                  <Flex align="center" marginTop="0.5rem">
-                    <Icon as={FaGithub} marginRight="1rem" />
-                    <Text>Github</Text>
-                  </Flex>
-                  <Flex align="center" marginTop="0.5rem">
-                    <Icon as={FaLinkedin} marginRight="1rem" />
-                    <Text>LinkedIn</Text>
-                  </Flex>
+                  <CLink href="https://github.com/CwirL" target="_blank">
+                    <Flex align="center" marginTop="0.5rem">
+                      <Icon as={FaGithub} marginRight="1rem" />
+                      <Text>Github</Text>
+                    </Flex>
+                  </CLink>
+                  <CLink
+                    href="https://www.linkedin.com/in/wilmer-cantillo-9a19b4171/"
+                    target="_blank"
+                  >
+                    <Flex align="center" marginTop="0.5rem">
+                      <Icon as={FaLinkedin} marginRight="1rem" />
+                      <Text>LinkedIn</Text>
+                    </Flex>
+                  </CLink>
+                  <CLink
+                    href="https://www.freelancer.com/u/CwirL"
+                    target="_blank"
+                  >
+                    <Flex align="center" marginTop="0.5rem">
+                      <Icon as={SiFreelancer} marginRight="1rem" />
+                      <Text>Freelancer</Text>
+                    </Flex>
+                  </CLink>
                 </Box>
                 <Box margin={['1rem 0', '1rem 2rem']}>
                   <Heading size="md">{t('footer.getInspired')}</Heading>
-                  <Flex align="center" marginTop="0.5rem">
-                    <Text>{t('header.blog')}</Text>
-                  </Flex>
-                  <Flex align="center" marginTop="0.5rem">
-                    <Text>{t('header.lib')}</Text>
-                  </Flex>
+                  <Link to="/blog">
+                    <Flex align="center" marginTop="0.5rem">
+                      <Text>{t('header.blog')}</Text>
+                    </Flex>
+                  </Link>
+                  <Link to="/library">
+                    <Flex align="center" marginTop="0.5rem">
+                      <Text>{t('header.lib')}</Text>
+                    </Flex>
+                  </Link>
                 </Box>
               </Flex>
               <Text>{t('footer.copyright')}</Text>

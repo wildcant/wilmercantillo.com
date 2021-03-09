@@ -11,49 +11,53 @@
     "description": "Take a look at my blog, here you will you will find useful information that will help you start or boost your career.",
     "title": "Want to start your career in tech?",
     "name": "Blog",
-    "messageOne": "Do you want to learn more about my career?",
+    "messageOne": "Want to learn more about my career?",
     "messageTwo": "Keep scrolling"
   },
   "contact": {
-    "buttonText": "Escribeme",
-    "description": "Tienes proyectos, ideas de negocio, preguntas?",
-    "title": "Cualquier tipo de consulta o discusión.",
-    "name": "Contacto",
+    "buttonText": "Contact me",
+    "description": "Do you have projects, business ideas, question?",
+    "title": "Any kind of query or discussion",
+    "name": "Contact",
     "quote": "I’m a greater believer in luck, and I find the harder I work the more I have of it.",
     "quoteAuthor": "Thomas Jefferson",
-    "years": "1",
-    "yearsExperience": "Años de experiencia",
+    "years": "2",
+    "yearsExperience": "Years of experience",
     "clients": "6",
-    "satisfiedClients": "Clientes satisfechos.",
-    "softwareLabel": "Desarrollo Full Stack",
-    "softwareProjects": "6 Proyectos",
-    "electronicsLabel": "Ingenieria Electronica",
-    "electronicsProjects": "1 Proyecto"
+    "satisfiedClients": "Satisfied clients.",
+    "softwareLabel": "Software",
+    "softwareProjects": "6 Projects",
+    "electronicsLabel": "Electronics",
+    "electronicsProjects": "1 Project"
   },
   "projects": {
-    "buttonText": "Explorar",
-    "description": "Siempre trabajando en proyectos interesantes con pasión disfrutando del proceso y logrando resultados excelentes.",
-    "title": "Proyectos seleccionados.",
-    "name": "Proyectos",
+    "buttonText": "Explore",
+    "description": "Always working on interesting projects with cutting edge technology achieving cool results, learning a lot and enjoying the process.",
+    "title": "Outstanding Projects",
+    "name": "Projects",
     "seeMore": "Read more"
   },
   "testimonials": {
-    "title": "¿Qué piensan los clientes y socios?",
-    "name": "Testimonios",
+    "title": "What clients and partners think?",
+    "name": "Testimonials",
     "description": "Don't trust me? See what others say"
   },
   "quotes": [
     {
       "id": "1",
-      "text": "Fue un placer trabajar con Wilmer en este proyecto urgente. Espero volver a hacerlo en el futuro.",
+      "text": "It was a pleasure working with Wilmer on this time sensitive project. Looking forward to it again in the future.",
       "author": "Kisha",
-      "occupation": "Web developer"
+      "occupation": "Software engineer",
+      "social": "Freelancer",
+      "link": "https://www.freelancer.com/u/ksdog?ref_project_id=26787283"
     },
     {
       "id": "2",
-      "text": "Lorem Ipsum",
-      "author": "John Doe",
-      "occupation": "Admin"
+      "text": "Made really good job, I would work with him again.",
+      "author": "Borja E.",
+      "occupation": "Engineer",
+      "social": "Freelancer",
+      "link": "https://www.freelancer.com/u/isoftgest?ref_project_id=25701662"
     }
   ]
 }

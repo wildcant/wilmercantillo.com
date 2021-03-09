@@ -47,4 +47,6 @@ export type Quote = {
   text: string
   author: string
   occupation: string
+  social: string
+  link: string
 }

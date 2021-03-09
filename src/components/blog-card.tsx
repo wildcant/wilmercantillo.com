@@ -31,7 +31,7 @@ type Props = BlogPost & {
 
 const SmallBlogCard = (props: Props) => (
   <Box width="100%">
-    <Link to={`/posts/${props.slug}`}>
+    <Link to={`/post/${props.slug}`}>
       <Flex p="2" minH="6rem" boxShadow="xs" width={['100%']} minW="250px">
         <Flex width="65%" direction="column" justify="space-between">
           <Heading
@@ -74,7 +74,7 @@ const MediumBlogCard = (props: Props) => (
   >
     <Flex width="65%" direction="column" justify="space-between">
       <Box>
-        <Link to={`/posts/${props.slug}`}>
+        <Link to={`/post/${props.slug}`}>
           <Heading
             as="h3"
             size="sm"
@@ -83,7 +83,7 @@ const MediumBlogCard = (props: Props) => (
             {props.title}
           </Heading>
         </Link>
-        <Link to={`/posts/${props.slug}`}>
+        <Link to={`/post/${props.slug}`}>
           <Text noOfLines={3}>{props.description}</Text>
         </Link>
       </Box>
@@ -92,7 +92,7 @@ const MediumBlogCard = (props: Props) => (
       </Text>
     </Flex>
     <Box width="35%">
-      <Link to={`/posts/${props.slug}`}>
+      <Link to={`/post/${props.slug}`}>
         <Flex align="center">
           <Box width="100%" height="auto">
             <GatsbyImage

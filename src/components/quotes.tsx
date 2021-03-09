@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/layout'
+import { Box, Flex, Link, Text } from '@chakra-ui/layout'
 import React, { useEffect, useState } from 'react'
 import { Quote } from 'src/types'
 import FadeAnimation from './animations/fade'
@@ -31,6 +31,7 @@ export default function Quotes({ quotes }: Props) {
     }
   }, [])
 
+  const quote = quotes[quoteIndex]
   return (
     <Flex maxW="100%" direction="column" align="center">
       <Box width="100%" maxWidth="3xl">
@@ -38,7 +39,7 @@ export default function Quotes({ quotes }: Props) {
         <FadeAnimation isVisible={isVisible}>
           <Box w="100%">
             <Text as="q" fontSize={{ md: '1.4rem', lg: '1.6rem' }}>
-              {quotes[quoteIndex].text}
+              {quote.text}
             </Text>
             <Text
               d="block"
@@ -46,7 +47,10 @@ export default function Quotes({ quotes }: Props) {
               color="gray.600"
               pr={{ md: '2rem' }}
             >
-              - {quotes[quoteIndex].author}
+              - {quote.author},{' '}
+              <Link href={quote.link} color="blue.400" target="_blank">
+                {quote.social}
+              </Link>
             </Text>
           </Box>
         </FadeAnimation>

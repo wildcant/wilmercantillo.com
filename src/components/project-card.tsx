@@ -14,6 +14,7 @@ const ProjectCard = ({
   title,
   description,
   seeMoreLabel,
+  slug,
   ...props
 }: Props) => (
   <Flex
@@ -30,7 +31,7 @@ const ProjectCard = ({
     {...props}
   >
     <Box h="65%" overflow="hidden">
-      <Link to="/projects">
+      <Link to={`/project/${slug}`}>
         <Box h="100%">
           <GatsbyImage
             image={banner.childImageSharp.gatsbyImageData}
@@ -42,13 +43,13 @@ const ProjectCard = ({
     </Box>
     <Box h="35%" padding="1rem">
       <Flex direction="column" h="100%" justify="space-between">
-        <Link to="/projects">
+        <Link to={`/project/${slug}`}>
           <Heading as="h3" size="sm">
             {title}
           </Heading>
           <Text noOfLines={2}>{description}</Text>
         </Link>
-        <Link to="/projects">
+        <Link to={`/project/${slug}`}>
           <Text textTransform="uppercase">{seeMoreLabel}</Text>
         </Link>
       </Flex>

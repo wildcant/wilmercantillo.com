@@ -48,13 +48,17 @@
       "id": "1",
       "text": "Fue un placer trabajar con Wilmer en este proyecto urgente. Espero volver a hacerlo en el futuro.",
       "author": "Kisha",
-      "occupation": "Web developer"
+      "occupation": "Engeniero de Software",
+      "social": "Freelancer",
+      "link": "https://www.freelancer.com/u/ksdog?ref_project_id=26787283"
     },
     {
       "id": "2",
-      "text": "Lorem Ipsum",
-      "author": "John Doe",
-      "occupation": "Admin"
+      "text": "Un buen trabajo, volvería a trabajar con el.",
+      "author": "Borja E.",
+      "occupation": "Ingeniero",
+      "social": "Freelancer",
+      "link": "https://www.freelancer.com/u/isoftgest?ref_project_id=25701662"
     }
   ]
 }

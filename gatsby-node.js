@@ -3,8 +3,11 @@
 const config = require('./gatsby-config')
 
 exports.onCreatePage = async ({ page, actions }) => {
-  if (!page.path.includes('posts') && !page.path.includes('projects')) {
-    // For pages that are not inside posts or projects, generate page for each lang
+  const { path } = page
+  const isBlogPost = path.includes('post')
+  const isProjectPost = path.includes('project') && page.path !== '/projects/'
+  // Generate pages for each lang for pages that are not inside posts or projects,
+  if (!isBlogPost && !isProjectPost) {
     const { createPage, deletePage } = actions
     await deletePage(page)
     const { supportedLanguages, langKeyDefault } = config.siteMetadata
@@ -25,5 +28,5 @@ exports.onCreatePage = async ({ page, actions }) => {
     )
   }
   // For posts and projects pages langKey and path will be alright
-  // since I'm using gatsby i18n and mdx plugins
+  // since we're using gatsby i18n and mdx plugins
 }

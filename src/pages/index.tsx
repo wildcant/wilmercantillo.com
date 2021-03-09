@@ -52,7 +52,6 @@ export default function IndexPage(props: Props) {
   const { t } = useTranslation()
   const { colorMode } = useColorMode()
   const blogCardSize = useBreakpointValue({ base: 'sm', md: 'md' }) || 'sm'
-  const hideSecondProjectCard = useBreakpointValue({ base: true, md: false })
 
   const isLight = colorMode === 'light'
   const introImage = getImage(personImg.childImageSharp.gatsbyImageData)
@@ -67,12 +66,12 @@ export default function IndexPage(props: Props) {
         minH={{ base: '400px', lg: '600px' }}
         maxH={{ base: '650px' }}
         pos="relative"
+        marginTop="10vh"
       >
         <Box
           as="section"
           d={{ md: 'flex' }}
           justifyContent={{ md: 'space-between' }}
-          marginTop="10vh"
         >
           <Heading
             fontFamily="Rouge Script"
@@ -316,7 +315,7 @@ export default function IndexPage(props: Props) {
             justifyContent={{ md: 'space-around' }}
           >
             <ProjectCard
-              d={hideSecondProjectCard ? 'none' : 'block'}
+              d={{ base: 'none', md: 'block' }}
               seeMoreLabel={t('home.projects.seeMore')}
               {...featuredProjects.edges[1].node.frontmatter}
             />
