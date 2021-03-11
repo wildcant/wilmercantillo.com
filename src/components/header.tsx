@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Flex,
   FlexProps,
   IconButton,
@@ -80,14 +79,13 @@ export default function Header(props: FlexProps) {
                 isLight ? <RiMoonFill size={25} /> : <RiSunFill size={25} />
               }
             />
-            <Button
+            <IconButton
+              aria-label="menu"
               onClick={toggleMenu}
               bg="transparent"
               color={isLight ? 'primary.500' : 'purple.500'}
-            >
-              <VisuallyHidden>Open Menu</VisuallyHidden>
-              <Menu />
-            </Button>
+              icon={<Menu />}
+            />
           </Box>
 
           <Box

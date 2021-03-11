@@ -17,6 +17,25 @@ bannerCredit: ''
 featured: true
 ---
 
-# Parabolic motion simulation
+import { graphql } from 'gatsby'
+export const ProjectQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(
+      relativePath: {
+        eq: "project/parabolic-motion-simulation/images/banner.jpeg"
+      }
+    ) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
 
 Built navigable 3D display of canon animation.

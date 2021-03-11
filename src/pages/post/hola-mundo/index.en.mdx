@@ -20,6 +20,21 @@ bannerCredit: 'Photo by [hao wang](https://unsplash.com/photos/pVq6YhmDPtk)'
 outstanding: true
 ---
 
-# Hi!, How are you doing
+import { graphql } from 'gatsby'
+export const BlogPostQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(relativePath: { eq: "post/hola-mundo/images/banner.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
 
 ## This is my blog

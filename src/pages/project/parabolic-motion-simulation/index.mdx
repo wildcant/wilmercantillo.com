@@ -19,7 +19,26 @@ bannerCredit: ''
 featured: true
 ---
 
-# Simulacion del movimiento parabolico
+import { graphql } from 'gatsby'
+export const ProjectQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(
+      relativePath: {
+        eq: "project/parabolic-motion-simulation/images/banner.jpeg"
+      }
+    ) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
 
 Construccion de un animacion en 3d de un cañon y el movimiento parabalico en
 python.

@@ -19,7 +19,24 @@ bannerCredit: ''
 featured: true
 ---
 
-# Analisis de señales Cardiacas
+import { graphql } from 'gatsby'
+export const ProjectQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(
+      relativePath: { eq: "project/cardiac-signals-analysis/images/banner.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
 
 Contruccion de un algoritmo para procesamiento y analisis de señales cardiacas
 por medio de auido.

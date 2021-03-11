@@ -1,5 +1,9 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 
+export type Image = {
+  [key: string]: { childImageSharp: { gatsbyImageData: IGatsbyImageData } }
+}
+
 export type BlogPost = {
   lang: string
   slug: string

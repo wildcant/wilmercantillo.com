@@ -17,6 +17,23 @@ bannerCredit: ''
 featured: true
 ---
 
-# Cardiac signals analysis
+import { graphql } from 'gatsby'
+export const ProjectQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(
+      relativePath: { eq: "project/cardiac-signals-analysis/images/banner.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
 
 Built algorithm to process and analyze audio cardiac signals.
