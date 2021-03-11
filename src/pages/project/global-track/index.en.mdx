@@ -1,20 +1,30 @@
 ---
-lang: es
+lang: en
 type: project
-slug: 'cardiac-signals-analysis'
-title: 'Analisis de señales Cardiacas'
-date: '2018-05-01'
+slug: 'global-track'
+title: 'Global Track'
+date: '2019-03-01'
 author: 'Wilmer Cantillo'
 description:
-  'Contruccion de un algoritmo para procesamiento y analisis de señales
-  cardiacas por medio de auido.'
+  'Built web application to visualize real time and historical geolocation data
+  of vehicles.'
 categories:
-  - 'señales'
-  - 'analisis'
+  - 'jquery'
+  - 'lamp'
+  - 'php'
+  - 'python'
+  - 'aws'
+  - 'mysql'
 keywords:
-  - 'señales y sistemas'
-  - 'algoritmos'
-banner: './images/banner.png'
+  - 'jquery'
+  - 'bootstrap'
+  - 'leaflet'
+  - 'lamp'
+  - 'php'
+  - 'python'
+  - 'aws'
+  - 'mysql'
+banner: './images/banner.jpg'
 bannerCredit: ''
 ---
 
@@ -28,7 +38,7 @@ export const ProjectQuery = graphql`
       }
     }
     banner: file(
-      relativePath: { eq: "project/cardiac-signals-analysis/images/banner.png" }
+      relativePath: { eq: "project/global-track/images/banner.jpg" }
     ) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)

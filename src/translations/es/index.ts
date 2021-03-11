@@ -2,6 +2,7 @@ import blog from './blog.json'
 import footer from './footer.json'
 import header from './header.json'
 import home from './home.json'
+import projects from './projects.json'
 
 export default {
   translation: {
@@ -9,5 +10,6 @@ export default {
     home,
     footer,
     blog,
+    projects,
   },
 }

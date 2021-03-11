@@ -1,22 +1,24 @@
 ---
 lang: es
 type: project
-slug: 'parabolic-motion-simulation'
-title: 'Simulacion del movimiento parabolico'
-date: '2015-11-10'
+slug: 'modbus-lora-communication'
+title: 'Telecomunicaciones con protocolo lora y modbus'
+date: '2018-07-12'
 author: 'Wilmer Cantillo'
 description:
-  'Construccion de un animacion en 3d de un cañon y el movimiento parabalico en
-  python.'
+  'Extraer las mediciones de un shark 100 con arduino a traves de protocolo
+  MODBUS y transmitir informacion a traves del protocolo LoRa con modules de Rf.'
 categories:
-  - 'Fisica'
-  - 'algoritmos'
+  - 'telecomunicaciones'
+  - 'protocolos'
   - 'python'
+  - 'arduino'
 keywords:
-  - 'algoritmos'
+  - 'telecomunicaciones'
+  - 'python'
+  - 'arduino'
 banner: './images/banner.jpeg'
 bannerCredit: ''
-featured: true
 ---
 
 import { graphql } from 'gatsby'
@@ -30,7 +32,7 @@ export const ProjectQuery = graphql`
     }
     banner: file(
       relativePath: {
-        eq: "project/parabolic-motion-simulation/images/banner.jpeg"
+        eq: "project/modbus-lora-communication/images/banner.jpeg"
       }
     ) {
       childImageSharp {

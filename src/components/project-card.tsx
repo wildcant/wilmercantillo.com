@@ -30,7 +30,7 @@ const ProjectCard = ({
     }}
     {...props}
   >
-    <Box h="65%" overflow="hidden">
+    <Box h={{ base: '55%', md: '65%' }} overflow="hidden">
       <Link to={`/project/${slug}`}>
         <Box h="100%">
           <GatsbyImage
@@ -41,7 +41,7 @@ const ProjectCard = ({
         </Box>
       </Link>
     </Box>
-    <Box h="35%" padding="1rem">
+    <Box h={{ base: '45%', md: '35%' }} padding="1rem">
       <Flex direction="column" h="100%" justify="space-between">
         <Link to={`/project/${slug}`}>
           <Heading as="h3" size="sm">

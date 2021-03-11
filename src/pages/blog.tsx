@@ -47,7 +47,6 @@ export const query = graphql`
     posts: allMdx(
       filter: { frontmatter: { lang: { eq: $langKey }, type: { eq: "post" } } }
       sort: { order: DESC, fields: frontmatter___date }
-      limit: 2
     ) {
       edges {
         node {

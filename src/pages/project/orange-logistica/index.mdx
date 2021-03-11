@@ -1,20 +1,19 @@
 ---
-lang: en
+lang: es
 type: project
-slug: 'parabolic-motion-simulation'
-title: 'Parabolic motion simulation'
-date: '2015-11-10'
+slug: 'orange-logistica'
+title: 'Orange Logistica'
+date: '2020-02-10'
 author: 'Wilmer Cantillo'
-description: 'Built navigable 3D display of canon animation.'
+description:
+  'Construi una aplicacion web y un bot en telegram para un servicio de entregas
+  a domicilio.'
 categories:
-  - 'Fisica'
-  - 'algoritmos'
-  - 'python'
+  - 'MERN'
 keywords:
-  - 'algoritmos'
-banner: './images/banner.jpeg'
+  - 'MERN'
+banner: './images/banner.png'
 bannerCredit: ''
-featured: true
 ---
 
 import { graphql } from 'gatsby'
@@ -27,9 +26,7 @@ export const ProjectQuery = graphql`
       }
     }
     banner: file(
-      relativePath: {
-        eq: "project/parabolic-motion-simulation/images/banner.jpeg"
-      }
+      relativePath: { eq: "project/orange-logistica/images/banner.png" }
     ) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)

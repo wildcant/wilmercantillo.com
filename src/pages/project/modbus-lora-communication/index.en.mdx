@@ -1,20 +1,24 @@
 ---
 lang: en
 type: project
-slug: 'parabolic-motion-simulation'
-title: 'Parabolic motion simulation'
-date: '2015-11-10'
+slug: 'modbus-lora-communication'
+title: 'Modbus Lora Communication'
+date: '2018-07-12'
 author: 'Wilmer Cantillo'
-description: 'Built navigable 3D display of canon animation.'
+description:
+  'Extract measurement data from shark 100 with Arduino and over MODBUS protocol
+  and transmit data over LoRa protocol with RF module.'
 categories:
-  - 'Fisica'
-  - 'algoritmos'
+  - 'telecomunication'
+  - 'protocols'
   - 'python'
+  - 'arduino'
 keywords:
-  - 'algoritmos'
+  - 'telecomunication'
+  - 'python'
+  - 'arduino'
 banner: './images/banner.jpeg'
 bannerCredit: ''
-featured: true
 ---
 
 import { graphql } from 'gatsby'
@@ -28,7 +32,7 @@ export const ProjectQuery = graphql`
     }
     banner: file(
       relativePath: {
-        eq: "project/parabolic-motion-simulation/images/banner.jpeg"
+        eq: "project/modbus-lora-communication/images/banner.jpeg"
       }
     ) {
       childImageSharp {

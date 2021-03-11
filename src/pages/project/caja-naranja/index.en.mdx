@@ -1,20 +1,19 @@
 ---
 lang: en
 type: project
-slug: 'parabolic-motion-simulation'
-title: 'Parabolic motion simulation'
-date: '2015-11-10'
+slug: 'caja-naranja'
+title: 'Caja Naranja'
+date: '2019-12-10'
 author: 'Wilmer Cantillo'
-description: 'Built navigable 3D display of canon animation.'
+description: 'Built web app for flexible warehousing.'
 categories:
-  - 'Fisica'
-  - 'algoritmos'
-  - 'python'
+  - 'Angular'
+  - 'NodeJS'
 keywords:
-  - 'algoritmos'
-banner: './images/banner.jpeg'
+  - 'Angular'
+  - 'NodeJS'
+banner: './images/banner.png'
 bannerCredit: ''
-featured: true
 ---
 
 import { graphql } from 'gatsby'
@@ -27,9 +26,7 @@ export const ProjectQuery = graphql`
       }
     }
     banner: file(
-      relativePath: {
-        eq: "project/parabolic-motion-simulation/images/banner.jpeg"
-      }
+      relativePath: { eq: "project/caja-naranja/images/banner.png" }
     ) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)

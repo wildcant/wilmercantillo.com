@@ -1,0 +1,49 @@
+---
+lang: es
+type: project
+slug: 'global-track'
+title: 'Global Track'
+date: '2019-03-01'
+author: 'Wilmer Cantillo'
+description:
+  'Construi una aplicacion web para visualizar en una mapa la geolocalizacion de
+  vehiculos en tiempo real e historicos'
+categories:
+  - 'jquery'
+  - 'lamp'
+  - 'mern'
+  - 'python'
+  - 'aws'
+keywords:
+  - 'jquery'
+  - 'bootstrap'
+  - 'leaflet'
+  - 'lamp'
+  - 'php'
+  - 'python'
+  - 'aws'
+  - 'mysql'
+banner: './images/banner.jpg'
+bannerCredit: ''
+---
+
+import { graphql } from 'gatsby'
+export const ProjectQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(
+      relativePath: { eq: "project/global-track/images/banner.jpg" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
+
+TODO - Talk about track app as a new version of this project using MERN stack
