@@ -18,7 +18,7 @@ import Footer from '../footer'
 import Header from '../header'
 import Headings from './headings'
 import { PostSizer } from './styled'
-import Text from './Text'
+import Text from './text'
 
 const components: MDXProviderComponents = {
   h1: Headings.H1,

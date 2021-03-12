@@ -25,6 +25,7 @@
     "focus-visible": "^5.2.0",
     "framer-motion": "^3.9.0",
     "gatsby": "^3.0.2",
+    "gatsby-plugin-algolia": "^0.17.0",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-image": "^1.0.0",

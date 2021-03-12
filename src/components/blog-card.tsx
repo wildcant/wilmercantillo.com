@@ -30,7 +30,7 @@ type Props = BlogPost & {
 }
 
 const SmallBlogCard = (props: Props) => (
-  <Box width="100%">
+  <Box width="100%" maxW="450px">
     <Link to={`/post/${props.slug}`}>
       <Flex p="2" minH="6rem" boxShadow="xs" width={['100%']} minW="250px">
         <Flex width="65%" direction="column" justify="space-between">
@@ -61,16 +61,18 @@ const SmallBlogCard = (props: Props) => (
 
 const MediumBlogCard = (props: Props) => (
   <Flex
-    p="2"
-    boxShadow="xs"
+    p={{ base: '2', md: '4' }}
     width="100%"
     minW="250px"
     maxW="650px"
     h={{ base: '120px', md: '140px' }}
     minH="6rem"
     margin="1rem 0"
+    transition="background .3s,box-shadow .3s ease"
+    boxShadow="xs"
+    borderRadius="6px"
     _hover={{
-      boxShadow: 'lg',
+      boxShadow: '2xl',
     }}
   >
     <Flex width="65%" direction="column" justify="space-between">

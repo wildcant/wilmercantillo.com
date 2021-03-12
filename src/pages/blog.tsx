@@ -1,4 +1,3 @@
-import { Button } from '@chakra-ui/button'
 import { Box, Flex } from '@chakra-ui/layout'
 import Layout from 'components/layout'
 import { ComponentSizer } from 'components/styled/generic'
@@ -32,9 +31,6 @@ export default function Blog(props: Props) {
                 {...postNode.node.frontmatter}
               />
             ))}
-            <Button variant="outline" marginTop="4rem" marginX="auto">
-              {t('blog.seeMore')}
-            </Button>
           </Flex>
         </Box>
       </ComponentSizer>
