@@ -6,5 +6,9 @@
     "pages": "${folder}/src/pages",
     "templates": "${folder}/src/templates"
   },
-  "cSpell.words": ["Libraria"]
+  "cSpell.words": [
+    "Libraria",
+    "algoliasearch",
+    "instantsearch"
+  ]
 }

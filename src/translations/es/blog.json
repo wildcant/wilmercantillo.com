@@ -1,5 +1,6 @@
 {
-  "searchPlaceholder": "Buscar",
-  "filters": "Filtro",
+  "searchPlaceholder": "Buscar...",
+  "filters": "Filtros",
+  "all": "Todos",
   "seeMore": "Ver mas"
 }

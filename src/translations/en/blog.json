@@ -1,5 +1,6 @@
 {
-  "searchPlaceholder": "Search",
+  "searchPlaceholder": "Search...",
   "filters": "Filters",
+  "all": "All",
   "seeMore": "See more"
 }

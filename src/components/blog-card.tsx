@@ -2,31 +2,56 @@ import { useColorMode } from '@chakra-ui/color-mode'
 import { Box, BoxProps, Flex, Heading, Text } from '@chakra-ui/layout'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
+import { Highlight } from 'react-instantsearch-dom'
 import { BlogPost } from 'src/types'
 import Link from './link'
 
 type BlogCardProps = BoxProps &
   BlogPost & {
     size: string | 'sm' | 'md' | 'lg'
+    isSearchResult?: boolean
   }
 
-export default function BlogCard({ size, ...props }: BlogCardProps) {
+export default function BlogCard({
+  size,
+  isSearchResult,
+  ...props
+}: BlogCardProps) {
   const { colorMode } = useColorMode()
   const isLightMode = colorMode === 'light'
 
   switch (size) {
     case 'lg':
-      return <LargeBlogCard isLight={isLightMode} {...props} />
+      return (
+        <LargeBlogCard
+          isLight={isLightMode}
+          isResult={isSearchResult}
+          {...props}
+        />
+      )
     case 'sm':
-      return <SmallBlogCard isLight={isLightMode} {...props} />
+      return (
+        <SmallBlogCard
+          isLight={isLightMode}
+          isResult={isSearchResult}
+          {...props}
+        />
+      )
     case 'md':
     default:
-      return <MediumBlogCard isLight={isLightMode} {...props} />
+      return (
+        <MediumBlogCard
+          isLight={isLightMode}
+          isResult={isSearchResult}
+          {...props}
+        />
+      )
   }
 }
 
 type Props = BlogPost & {
   isLight: boolean
+  isResult?: boolean
 }
 
 const SmallBlogCard = (props: Props) => (
@@ -59,7 +84,7 @@ const SmallBlogCard = (props: Props) => (
   </Box>
 )
 
-const MediumBlogCard = (props: Props) => (
+const MediumBlogCard = ({ isLight, isResult, ...props }: Props) => (
   <Flex
     p={{ base: '2', md: '4' }}
     width="100%"
@@ -81,14 +106,18 @@ const MediumBlogCard = (props: Props) => (
           <Heading
             as="h3"
             size="sm"
-            _hover={{ color: props.isLight ? 'primary.500' : 'purple.500' }}
+            _hover={{ color: isLight ? 'primary.500' : 'purple.500' }}
           >
             {props.title}
           </Heading>
         </Link>
         <Link to={`/post/${props.slug}`}>
           <Text noOfLines={{ base: 2, md: 3 }} paddingRight={{ md: '1rem' }}>
-            {props.description}
+            {!isResult ? (
+              props.description
+            ) : (
+              <Highlight attribute="description" hit={props} />
+            )}
           </Text>
         </Link>
       </Box>
