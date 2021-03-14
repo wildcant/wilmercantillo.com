@@ -63,15 +63,35 @@ const queries = [
     transformer: ({ data }) =>
       data.blogPosts.edges.map(({ node }) => pageToAlgoliaRecord(node)),
     indexName: esIndexName,
-    attributesForFaceting: ['categories'],
+    settings: {
+      searchableAttributes: ['title', 'description'],
+      attributesForFaceting: ['categories'],
+      replicas: [
+        `virtual(${esBlogPostsQuery}_date_asc)`,
+        `virtual(${esBlogPostsQuery}_date_desc)`,
+      ],
+      replicaUpdateMode: 'merge',
+    },
   },
   {
     query: enBlogPostsQuery,
     transformer: ({ data }) =>
       data.blogPosts.edges.map(({ node }) => pageToAlgoliaRecord(node)),
     indexName: enIndexName,
-    attributesForFaceting: ['categories'],
+    settings: {
+      searchableAttributes: ['title', 'description'],
+      attributesForFaceting: ['categories'],
+      replicas: [
+        `virtual(${enBlogPostsQuery}_date_asc)`,
+        `virtual(${enBlogPostsQuery}_date_desc)`,
+      ],
+      replicaUpdateMode: 'merge',
+    },
   },
 ]
+// Settings reference: https://www.algolia.com/doc/api-reference/settings-api-parameters/
+// Sort with virtual replicas approach: https://www.algolia.com/doc/guides/managing-results/refine-results/sorting/how-to/sort-by-attribute/
+// Configuring virtual replicas: https://www.algolia.com/doc/guides/managing-results/refine-results/sorting/how-to/sort-an-index-by-date/
+// More info on sort: - https://www.algolia.com/doc/guides/managing-results/refine-results/sorting/in-depth/exhaustive-sort/
 
 module.exports = queries

@@ -1,0 +1,52 @@
+---
+lang: es
+type: post
+slug: 'demo-post'
+title: 'Hola Blog '
+date: '2022-02-25'
+readTime: '6'
+author: 'Wilmer Cantillo'
+description:
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur tempora
+  ratione doloremque perspiciatis dolore omnis atque? Excepturi quas recusandae
+  pariatur molestiae distinctio, voluptas quis, corrupti sapiente, corporis
+  cumque sunt a?'
+categories:
+  - 'react'
+  - 'javascript'
+keywords:
+  - 'UI'
+banner: './images/banner.jpg'
+bannerCredit: 'Photo by [hao wang](https://unsplash.com/photos/pVq6YhmDPtk)'
+outstanding: true
+---
+
+import { graphql } from 'gatsby'
+export const BlogPostQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(relativePath: { eq: "post/demo-post/images/banner.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
+
+Hoy he decidido empezar a escritir con el objetivo de brindar un contenido de
+valor para retribuir a la sociedad por lo mucho que me ha brindado como
+individuo.
+
+```jsx{3}
+function someDemo() {
+  var test = 'Hello World!'
+  console.log(test)
+}
+
+return () => <App />
+```

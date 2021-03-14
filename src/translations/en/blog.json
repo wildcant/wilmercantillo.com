@@ -2,5 +2,9 @@
   "searchPlaceholder": "Search...",
   "filters": "Filters",
   "all": "All",
-  "seeMore": "See more"
+  "seeMore": "See more",
+  "orderBy": "Order By",
+  "uploadDate": "Upload Date",
+  "ascending": "Older",
+  "descending": "Latest"
 }
