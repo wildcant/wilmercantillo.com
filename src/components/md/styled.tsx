@@ -11,6 +11,6 @@ export const PostSizer = styled(Container)`
     padding: 1rem 3rem;
   }
   @media (min-width: ${lg}) {
-    max-width: 736px;
+    max-width: 836px;
   }
 `

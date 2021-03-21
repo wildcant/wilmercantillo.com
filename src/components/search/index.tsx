@@ -42,6 +42,7 @@ export default function Search() {
   const { colorMode } = useColorMode()
   const isLight = colorMode === 'light'
   const indexName = lang === defaultLanguage ? esIndexName : enIndexName
+
   return (
     <InstantSearch
       indexName={indexName}
@@ -68,5 +69,5 @@ type HitProps = {
 }
 
 const SearchableBlogCard = (props: HitProps) => (
-  <BlogCard isSearchResult={true} size="md" {...props.hit} />
+  <BlogCard isSearchResult={true} size="lg" {...props.hit} />
 )

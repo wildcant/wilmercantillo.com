@@ -1,4 +1,5 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image'
+import { ReactNode } from 'react'
 
 export type Image = {
   [key: string]: { childImageSharp: { gatsbyImageData: IGatsbyImageData } }
@@ -32,7 +33,9 @@ export type ProjectPost = {
   date: string
   author: string
   description: string
-  categories: string[]
+  category: string
+  projectType: string
+  tech: string
   keywords: string[]
   banner: { childImageSharp: { gatsbyImageData: IGatsbyImageData } }
   bannerCredit: string
@@ -53,4 +56,8 @@ export type Quote = {
   occupation: string
   social: string
   link: string
+}
+
+export type Children = {
+  children: ReactNode | undefined
 }

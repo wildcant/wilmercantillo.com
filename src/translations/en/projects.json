@@ -1,3 +1,6 @@
 {
-  "title": "Projects"
+  "title": "Projects",
+  "category": "Category",
+  "type": "Type",
+  "tech": "Technology/Language"
 }

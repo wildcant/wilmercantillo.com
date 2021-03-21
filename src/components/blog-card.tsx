@@ -8,7 +8,7 @@ import Link from './link'
 
 type BlogCardProps = BoxProps &
   BlogPost & {
-    size: string | 'sm' | 'md' | 'lg'
+    size: string | 'sm' | 'lg'
     isSearchResult?: boolean
   }
 
@@ -21,14 +21,6 @@ export default function BlogCard({
   const isLightMode = colorMode === 'light'
 
   switch (size) {
-    case 'lg':
-      return (
-        <LargeBlogCard
-          isLight={isLightMode}
-          isResult={isSearchResult}
-          {...props}
-        />
-      )
     case 'sm':
       return (
         <SmallBlogCard
@@ -37,10 +29,10 @@ export default function BlogCard({
           {...props}
         />
       )
-    case 'md':
+    case 'lg':
     default:
       return (
-        <MediumBlogCard
+        <LargeBlogCard
           isLight={isLightMode}
           isResult={isSearchResult}
           {...props}
@@ -84,7 +76,7 @@ const SmallBlogCard = (props: Props) => (
   </Box>
 )
 
-const MediumBlogCard = ({ isLight, isResult, ...props }: Props) => (
+const LargeBlogCard = ({ isLight, isResult, ...props }: Props) => (
   <Flex
     p={{ base: '2', md: '4' }}
     width="100%"
@@ -139,10 +131,4 @@ const MediumBlogCard = ({ isLight, isResult, ...props }: Props) => (
       </Box>
     </Flex>
   </Flex>
-)
-
-const LargeBlogCard = (props: Props) => (
-  <Box>
-    <div>LargeBlogCard</div>
-  </Box>
 )

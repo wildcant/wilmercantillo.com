@@ -1,5 +1,10 @@
 # Cool Findings in the process of building this project
 
+## Todo List
+- Subscription for blog. Research about: mailchimp.
+- contact form. https://www.gatsbyjs.com/docs/building-a-contact-form/#getform
+
+
 ## About Chakra UI
 - Easy to customize and build your own theme and give the possibility to
 scale for big projects. See [Scaling chakra](https://chakra-ui.com/docs/theming/component-style)
@@ -9,3 +14,4 @@ scale for big projects. See [Scaling chakra](https://chakra-ui.com/docs/theming/
 
 ## Algolia 
 - algoliaearch Trouble with gatsby v3, error at build, [solved using loadable library](https://github.com/algolia/algoliasearch-client-javascript/issues/1259)
+

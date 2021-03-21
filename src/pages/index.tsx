@@ -1,4 +1,15 @@
-import { Box, Button, Flex, Grid, GridItem, Heading, Icon, Text, useBreakpointValue, useColorMode } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Icon,
+  Text,
+  useBreakpointValue,
+  useColorMode,
+} from '@chakra-ui/react'
 import Layout from 'components/layout'
 import { graphql, PageProps } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -29,11 +40,16 @@ type Props = PageProps & {
 }
 
 export default function IndexPage(props: Props) {
-  const { personImg, personSittingImg, featuredPosts, featuredProjects } = props.data
+  const {
+    personImg,
+    personSittingImg,
+    featuredPosts,
+    featuredProjects,
+  } = props.data
 
   const { t } = useTranslation()
   const { colorMode } = useColorMode()
-  const blogCardSize = useBreakpointValue({ base: 'sm', md: 'md' }) || 'sm'
+  const blogCardSize = useBreakpointValue({ base: 'sm', md: 'lg' }) || 'sm'
 
   const isLight = colorMode === 'light'
   const introImage = getImage(personImg.childImageSharp.gatsbyImageData)
@@ -43,8 +59,17 @@ export default function IndexPage(props: Props) {
   return (
     <Layout>
       {/* Home Section */}
-      <ComponentSizer h="90vh" minH={{ base: '400px', lg: '600px' }} maxH={{ base: '650px' }} pos="relative">
-        <Box as="section" d={{ md: 'flex' }} justifyContent={{ md: 'space-between' }}>
+      <ComponentSizer
+        h="90vh"
+        minH={{ base: '400px', lg: '600px' }}
+        maxH={{ base: '650px' }}
+        pos="relative"
+      >
+        <Box
+          as="section"
+          d={{ md: 'flex' }}
+          justifyContent={{ md: 'space-between' }}
+        >
           <Heading
             fontFamily="Rouge Script"
             fontWeight="normal"
@@ -76,7 +101,12 @@ export default function IndexPage(props: Props) {
         </Box>
       </ComponentSizer>
       {/* Blog Section */}
-      <ComponentSizer h="100vh" minH={{ base: '400px', sm: '640px' }} maxH={{ base: '700px' }} pos="relative">
+      <ComponentSizer
+        h="100vh"
+        minH={{ base: '400px', sm: '640px' }}
+        maxH={{ base: '700px' }}
+        pos="relative"
+      >
         <Box as="section" height="100%">
           <Box
             position="absolute"
@@ -86,7 +116,9 @@ export default function IndexPage(props: Props) {
             left="0"
             transform={{ md: 'scaleX(-1)' }}
           >
-            {blogImage && <GatsbyImage image={blogImage} alt="Person sitting" />}
+            {blogImage && (
+              <GatsbyImage image={blogImage} alt="Person sitting" />
+            )}
           </Box>
           <Grid
             h={{ base: 'calc(100% - 4rem)' }}
@@ -105,13 +137,27 @@ export default function IndexPage(props: Props) {
                 buttonText={t('home.blog.buttonText')}
               />
             </GridItem>
-            <GridItem gridColumn={{ md: '2' }} gridRow={{ md: '2 / span 3' }} width="100%">
+            <GridItem
+              gridColumn={{ md: '2' }}
+              gridRow={{ md: '2 / span 3' }}
+              width="100%"
+            >
               <Heading as="h3" size="md">
                 {t('home.blog.latestPosts')}
               </Heading>
-              <Flex direction="column" width="100%" height="100%" alignItems={{ base: 'center', md: 'flex-start' }}>
+              <Flex
+                direction="column"
+                width="100%"
+                height="100%"
+                alignItems={{ base: 'center', md: 'flex-start' }}
+              >
                 {featuredPosts.edges.map(postNode => (
-                  <BlogCard width="100%" key={postNode.node.id} size={blogCardSize} {...postNode.node.frontmatter} />
+                  <BlogCard
+                    width="100%"
+                    key={postNode.node.id}
+                    size={blogCardSize}
+                    {...postNode.node.frontmatter}
+                  />
                 ))}
               </Flex>
             </GridItem>
@@ -126,11 +172,21 @@ export default function IndexPage(props: Props) {
         </Box>
       </ComponentSizer>
       {/* Contact Section */}
-      <ComponentSizer h="100vh" minH={{ base: '400px', sm: '600px' }} maxH={{ base: '700px' }} pos="relative">
+      <ComponentSizer
+        h="100vh"
+        minH={{ base: '400px', sm: '600px' }}
+        maxH={{ base: '700px' }}
+        pos="relative"
+      >
         <Box as="section" height="100%">
           <Grid height="100%" gridTemplateRows="70% 30%">
             <Flex direction={{ base: 'column', md: 'row' }}>
-              <Flex w={{ md: '50%' }} height="100%" direction="column" justify="space-around">
+              <Flex
+                w={{ md: '50%' }}
+                height="100%"
+                direction="column"
+                justify="space-around"
+              >
                 <Flex marginY="2">
                   <Flex as="p" w="50%" align="center" justify="center">
                     <Text as="span" fontSize="6xl">
@@ -155,7 +211,13 @@ export default function IndexPage(props: Props) {
                     {t('home.contact.quote')}
                     <Icon as={FaQuoteRight} fontSize="0.6em" color="gray.200" />
                   </Text>
-                  <Text as="small" d="block" textAlign="right" color="gray.600" pr={{ md: '2rem' }}>
+                  <Text
+                    as="small"
+                    d="block"
+                    textAlign="right"
+                    color="gray.600"
+                    pr={{ md: '2rem' }}
+                  >
                     - {t('home.contact.quoteAuthor')}
                   </Text>
                 </Box>
@@ -183,8 +245,12 @@ export default function IndexPage(props: Props) {
                       <Software width={56} height={56} className="inline" />
                     </Box>
                     <Box pl={{ md: '1rem' }}>
-                      <Text fontSize={{ md: '1.4rem', lg: '1.6rem' }}>{t('home.contact.softwareLabel')}</Text>
-                      <Text as="small">{t('home.contact.softwareProjects')}</Text>
+                      <Text fontSize={{ md: '1.4rem', lg: '1.6rem' }}>
+                        {t('home.contact.softwareLabel')}
+                      </Text>
+                      <Text as="small">
+                        {t('home.contact.softwareProjects')}
+                      </Text>
                     </Box>
                   </Box>
                 </Link>
@@ -203,8 +269,12 @@ export default function IndexPage(props: Props) {
                       <Electronics width={56} height={56} className="inline" />
                     </Box>
                     <Box pl={{ md: '1rem' }}>
-                      <Text fontSize={{ md: '1.4rem', lg: '1.6rem' }}>{t('home.contact.electronicsLabel')}</Text>
-                      <Text as="small">{t('home.contact.electronicsProjects')}</Text>
+                      <Text fontSize={{ md: '1.4rem', lg: '1.6rem' }}>
+                        {t('home.contact.electronicsLabel')}
+                      </Text>
+                      <Text as="small">
+                        {t('home.contact.electronicsProjects')}
+                      </Text>
                     </Box>
                   </Box>
                 </Link>
@@ -214,28 +284,61 @@ export default function IndexPage(props: Props) {
         </Box>
       </ComponentSizer>
       {/* Projects Section */}
-      <ComponentSizer h="100vh" minH={{ base: '400px', sm: '600px' }} maxH={{ base: '700px' }} pos="relative">
-        <Grid as="section" height="100%" gridTemplateColumns={{ md: '50% 50%' }}>
+      <ComponentSizer
+        h="100vh"
+        minH={{ base: '400px', sm: '600px' }}
+        maxH={{ base: '700px' }}
+        pos="relative"
+      >
+        <Grid
+          as="section"
+          height="100%"
+          gridTemplateColumns={{ md: '50% 50%' }}
+        >
           <GridItem>
-            <SectionContent name={t('home.projects.name')} title={t('home.projects.title')} description={t('home.projects.description')} />
-            <ProjectCard seeMoreLabel={t('home.projects.seeMore')} {...featuredProjects.edges[0].node.frontmatter} />
+            <SectionContent
+              name={t('home.projects.name')}
+              title={t('home.projects.title')}
+              description={t('home.projects.description')}
+            />
+            <ProjectCard
+              seeMoreLabel={t('home.projects.seeMore')}
+              {...featuredProjects.edges[0].node.frontmatter}
+            />
           </GridItem>
-          <GridItem d={{ md: 'flex' }} flexDir={{ md: 'column' }} justifyContent={{ md: 'space-around' }}>
+          <GridItem
+            d={{ md: 'flex' }}
+            flexDir={{ md: 'column' }}
+            justifyContent={{ md: 'space-around' }}
+          >
             <ProjectCard
               d={{ base: 'none', md: 'block' }}
               seeMoreLabel={t('home.projects.seeMore')}
               {...featuredProjects.edges[1].node.frontmatter}
             />
-            <Button variant="solid" m={{ base: '0 0 1rem 0', md: '1rem 0' }} maxW={{ md: '200px' }}>
+            <Button
+              variant="solid"
+              m={{ base: '0 0 1rem 0', md: '1rem 0' }}
+              maxW={{ md: '200px' }}
+            >
               {t('home.projects.buttonText')}
             </Button>
           </GridItem>
         </Grid>
       </ComponentSizer>
       {/*  Testimonials Section */}
-      <ComponentSizer h={{ base: '50vh', md: '40vh' }} minH={{ base: '200px', sm: '300px' }} maxH={{ base: '600px' }} pos="relative">
+      <ComponentSizer
+        h={{ base: '50vh', md: '40vh' }}
+        minH={{ base: '200px', sm: '300px' }}
+        maxH={{ base: '600px' }}
+        pos="relative"
+      >
         <Box as="section" height="100%">
-          <SectionContent name={t('home.testimonials.name')} title={t('home.testimonials.title')} description={t('home.testimonials.description')} />
+          <SectionContent
+            name={t('home.testimonials.name')}
+            title={t('home.testimonials.title')}
+            description={t('home.testimonials.description')}
+          />
           <Icon as={FaQuoteLeft} fontSize="2em" color="gray.200" />
           <Quotes quotes={quotes} />
         </Box>
@@ -279,7 +382,16 @@ export const query = graphql`
         }
       }
     }
-    featuredProjects: allMdx(filter: { frontmatter: { lang: { eq: $langKey }, type: { eq: "project" }, featured: { eq: true } } }, limit: 2) {
+    featuredProjects: allMdx(
+      filter: {
+        frontmatter: {
+          lang: { eq: $langKey }
+          type: { eq: "project" }
+          featured: { eq: true }
+        }
+      }
+      limit: 2
+    ) {
       edges {
         node {
           id
