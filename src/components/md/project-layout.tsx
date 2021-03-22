@@ -19,7 +19,7 @@ import { MdWrapper, PostSizer } from './styled'
 
 export default function ProjectLayout(props: ProjectPost & Children) {
   const { t } = useTranslation()
-  const repo = 'https://github.com/CwirL/parabolic-motion-simulation'
+
   return (
     <Box as="main" marginTop="10vh">
       <PostSizer>
@@ -56,8 +56,8 @@ export default function ProjectLayout(props: ProjectPost & Children) {
             {props.date}
           </Text>
           <Flex>
-            {repo && (
-              <Link target="_blank" href={repo}>
+            {props.repo && (
+              <Link target="_blank" href={props.repo}>
                 <Badge
                   variant="subtle"
                   colorScheme="black"

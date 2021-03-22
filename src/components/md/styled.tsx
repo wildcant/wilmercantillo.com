@@ -16,6 +16,7 @@ export const PostSizer = styled(Container)`
 `
 
 export const MdWrapper = styled.section`
+  margin-bottom: 2rem;
   img.gatsby-resp-image-image {
     box-shadow: none !important;
   }

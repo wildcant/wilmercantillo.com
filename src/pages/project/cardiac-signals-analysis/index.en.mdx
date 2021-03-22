@@ -3,14 +3,16 @@ lang: en
 type: project
 slug: 'cardiac-signals-analysis'
 title: 'Cardiac Signals Analysis'
-date: '2018-05-01'
+date: '2018-05-17'
 author: 'Wilmer Cantillo'
-description: 'Built algorithm to process and analyze audio cardiac signals.'
+description:
+  'Built GUI and algorithm to process and analyze cardiac signals from audio.'
 category: 'algorithm'
 projectType: 'Academic Project'
 tech: 'Matlab'
 keywords:
   - 'señales y sistemas'
+repo: 'https://github.com/CwirL/signal-processing'
 banner: './images/banner.png'
 bannerCredit: ''
 featured: true
@@ -35,4 +37,42 @@ export const ProjectQuery = graphql`
   }
 `
 
-Built algorithm to process and analyze audio cardiac signals.
+## Goal
+
+Construction of a GUI and algorithm for processing and analysis of cardiac
+signals from audio.
+
+## Context
+
+This was my final project of the seventh semester for the subject of signals and
+systems, here I put into practice everything I learned during the course of the
+semester in this career, which includes the basic and most popular techniques
+for analysis of signals and systems in the time and frequency domains, as they
+are: operations between signals, convolution, and Fourier and Laplace
+transforms.
+
+## Project Construction
+
+The algorithm which you can find on GitHub allows you to do the following
+
+**Time Domain.** Calculates the maximum, minimum and mean values of:
+
+- Duration of the interval of a cardiac cycle and of the segments S1, S2,
+  systole and diastole.
+- Relationship between systolic interval and cardiac cycle
+- Relationship between diastolic interval and cardiac cycle
+- Relationship between systolic and diastolic interval.
+- Maximum and minimum amplitude in the S1, S2, systole and diastole segments.
+- Energy in the cardiac cycle, segment S1, S2 systole and diastole.
+- Power in the cardiac cycle, segment S1, S2 systole and diastole.
+
+**Frequency domain.** Calculates the maximum, minimum and mean values of:
+
+- Determine the interval of frequencies where more energy is concentrated (Start
+  frequency, end frequency, interval width) in a recording, a cardiac cycle,
+  segment S1, S2, systole and diastole.
+- Calculate the energy in the frequency range.
+- Calculate the power in the frequency range.
+- Calculate the amplitude in the frequency interval. How often is the maximum
+  amplitude?
+- Show the Spectrogram.
