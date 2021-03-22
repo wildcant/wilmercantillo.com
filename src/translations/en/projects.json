@@ -2,5 +2,6 @@
   "title": "Projects",
   "category": "Category",
   "type": "Type",
-  "tech": "Technology/Language"
+  "tech": "Technology/Language",
+  "repo": "Project Repository"
 }

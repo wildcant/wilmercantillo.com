@@ -1,6 +1,7 @@
 {
   "title": "Proyectos",
-  "category": "Category",
+  "category": "Categoria",
   "type": "Tipo",
-  "tech": "Tecnologia/Lenguaje"
+  "tech": "Tecnologia/Lenguaje",
+  "repo": "Repositorio del proyecto"
 }

@@ -37,6 +37,7 @@ export type ProjectPost = {
   projectType: string
   tech: string
   keywords: string[]
+  repo?: string
   banner: { childImageSharp: { gatsbyImageData: IGatsbyImageData } }
   bannerCredit: string
   featured?: boolean

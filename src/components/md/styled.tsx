@@ -14,3 +14,9 @@ export const PostSizer = styled(Container)`
     max-width: 836px;
   }
 `
+
+export const MdWrapper = styled.section`
+  img.gatsby-resp-image-image {
+    box-shadow: none !important;
+  }
+`

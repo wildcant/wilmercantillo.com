@@ -1,20 +1,29 @@
-import { Badge, Box, Flex, SimpleGrid, Stack, Text } from '@chakra-ui/layout'
+import {
+  Badge,
+  Box,
+  Flex,
+  Link,
+  SimpleGrid,
+  Stack,
+  Text,
+} from '@chakra-ui/layout'
 import { MDXProvider } from '@mdx-js/react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { FaExternalLinkAlt } from 'react-icons/fa'
 import { Children, ProjectPost } from 'src/types'
 import { components } from '.'
 import Headings from './headings'
-import { PostSizer } from './styled'
+import { MdWrapper, PostSizer } from './styled'
 
 export default function ProjectLayout(props: ProjectPost & Children) {
   const { t } = useTranslation()
-
+  const repo = 'https://github.com/CwirL/parabolic-motion-simulation'
   return (
     <Box as="main" marginTop="10vh">
       <PostSizer>
-        <Headings.H2>{props.title}</Headings.H2>
+        <Headings.H1 size="3xl">{props.title}</Headings.H1>
         <SimpleGrid columns={{ md: 3 }} spacing={{ md: 2 }} marginY="1rem">
           <Stack alignItems="center" marginY="0.5rem">
             <Text as="span" fontFamily="Fira Code">
@@ -42,10 +51,26 @@ export default function ProjectLayout(props: ProjectPost & Children) {
           </Stack>
         </SimpleGrid>
 
-        <Flex justify="flex-end">
+        <Flex justify="space-between">
           <Text as="span" fontWeight="light" color="gray.600">
             {props.date}
           </Text>
+          <Flex>
+            {repo && (
+              <Link target="_blank" href={repo}>
+                <Badge
+                  variant="subtle"
+                  colorScheme="black"
+                  textTransform="capitalize"
+                  display="flex"
+                  alignItems="center"
+                >
+                  <Text marginRight="0.4rem">{t('projects.repo')}</Text>
+                  <FaExternalLinkAlt />
+                </Badge>
+              </Link>
+            )}
+          </Flex>
         </Flex>
         <Box marginBottom="1rem">
           {props.banner && (
@@ -69,8 +94,9 @@ export default function ProjectLayout(props: ProjectPost & Children) {
             </Badge>
           ))}
         </Flex>
-
-        <MDXProvider components={components}>{props.children}</MDXProvider>
+        <MdWrapper>
+          <MDXProvider components={components}>{props.children}</MDXProvider>
+        </MdWrapper>
       </PostSizer>
     </Box>
   )

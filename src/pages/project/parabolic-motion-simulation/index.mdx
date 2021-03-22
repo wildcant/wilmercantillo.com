@@ -9,11 +9,12 @@ description:
   'Construccion de un animacion en 3d de un cañon y el movimiento parabalico en
   python.'
 category: 'algoritmo'
-projectType: 'Proyecto Personal'
+projectType: 'Proyecto Academico'
 tech: 'python'
 keywords:
   - 'fisica'
   - 'python'
+repo: 'https://github.com/CwirL/parabolic-motion-simulation'
 banner: './images/banner.jpeg'
 bannerCredit: ''
 ---
@@ -38,3 +39,95 @@ export const ProjectQuery = graphql`
     }
   }
 `
+
+## Objetivo
+
+Implementar las ecuaciones del movimiento parabólico dentro de una
+animación/algoritmo en python
+
+## Contexto
+
+Este fue mi proyecto final de segundo semestre para la materia de algoritmia y
+programación en la cual aprendí a programar por primera vez. Durante este
+semestre los estudiantes de ingeniería electrónica también vemos otras materias
+como calculo y física, por lo que la intención del profesor fue articular los
+temas vistos en dichas materias con la programación.
+
+Durante este semestre descubrí mi pasión por la programación debido a la
+capacidad que me brindaba de construir herramientas, entre otras cosas, que
+tuvieran un impacto real en la vida real. Además, debido a que desde mi época de
+colegio me ha gustado la física durante la realización de este proyecto me
+encontraba muy motivado, por lo que pude realizar un muy buen proyecto el cual
+resulto el mejor de la clase.
+
+## Construcción del proyecto
+
+Después de haber definido que el tema del proyecto sería el movimiento
+parabólico, busque un tema para animación en el cual pudiera reflejar dicho
+fenómeno físico. Después de un rato buscando decidí usar como ejemplo el
+movimiento de la bala de un cañón.
+
+El profesor nos recomendó usar una librería llamada **Vpython** , la cual es una
+extensión del lenguaje de programación python que trae un modelo de gráficos en
+3D llamado _"visual"_ el cual nos ofrece la capacidad de realizar una gran
+variedad de modelos y animaciones.
+
+Debido a que había trabajado con software de modelado 3D anteriormente no me
+resulto muy complicado aprender como modelar a través de código. A continuación
+se puede observar el código para crear el cañón como tal:
+
+![Código Cañón](./images/canon_code.png) ![Cañón](./images/canon.png)
+
+Inspirado en múltiples imágenes de cañones en internet decidí construir un cañón
+con base de madera, ya que la librería también permite definir materiales y
+colores a las superficies.
+
+![Código Base del Cañón](./images/base_code.png)
+![Base del Cañón](./images/base.png)
+
+Luego las ruedas de la base, aquí desarrolle un poco mas mi orientación espacial
+y simetría.
+
+![Código Ruedas del Cañón](./images/wheels_code.png)
+![Ruedas del Cañón](./images/wheels.png)
+
+De la misma manera construí otras partes del cañón, hasta llegar a un resultado
+mucho mas realista.
+
+![Código Detalles del Cañón](./images/details_code.png)
+![Detalles del Cañón](./images/details.png)
+
+Y como resultado:
+
+![Cañón finalizado](./images/final_canon.png)
+
+Por último, implemente las ecuaciones que describen el movimiento en cuestión
+
+![Ecuaciones](./images/motion_equations.png)
+![Implementación de las ecuaciones en python](./images/motion_code.png)
+
+Aquí también implemente una lógica de modo que fuera posible configurar las
+condiciones iniciales de la simulacion, tales como: velocidad inicial del
+proyectil y ángulo de inclinación del cañón.
+
+Luego asignamos la variable de movimiento a la posición del proyectil _et voila_
+tenemos nuestro cañón simulando el movimiento parabólico.
+
+![Codigo para Bola de Cañon](./images/ball_code.png)
+
+Durante el proceso de construcción de la simulación me costo poco tiempo
+implementar las ecuaciones en un objeto por lo que tuve tiempo de iterar el
+diseño del cañón hasta lograr un resultado con el que me sintiera satisfecho, a
+continuación un par de versiones anteriores:
+
+![Cañon Version 0](./images/version0.png)
+![Cañon version 1](./images/version1.png)
+
+## Conclusión
+
+Durante la construcción de este proyecto descubri la capacidad que nos brinda la
+programación para modelar objetos del mundo real y simular fenómenos físicos.
+Considero que la metodología que uso el profesor para enseñar la materia fue muy
+buena y presento la dinámica de este proyecto como prueba. También que la mejor
+manera de aprender, por lo menos para mi, es construyendo proyectos y creciendo
+en el proceso.
