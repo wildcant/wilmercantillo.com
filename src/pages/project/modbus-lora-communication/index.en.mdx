@@ -6,16 +6,17 @@ title: 'Modbus Lora Communication'
 date: '2018-07-12'
 author: 'Wilmer Cantillo'
 description:
-  'Extract measurement data from shark 100 with Arduino and over MODBUS protocol
-  and transmit data over LoRa protocol with RF module.'
+  'Data acquisition from a shark-100 electrical analyzer over Modbus protocol
+  with Arduino and data transmission over LoRa protocol with Seeeduino LoRaWan
+  devices'
 category: 'algorithm'
 projectType: 'Academic Project'
-tech: 'Python & Arduino'
+tech: 'Arduino'
 keywords:
   - 'telecomunications'
   - 'protocols'
-  - 'python'
   - 'arduino'
+repo: 'https://github.com/CwirL/modbus-lora-communication'
 banner: './images/banner.jpeg'
 bannerCredit: ''
 ---
@@ -40,3 +41,59 @@ export const ProjectQuery = graphql`
     }
   }
 `
+
+## Goal
+
+Extract measurements from a shark 100 device with the Arduino board / platform a
+through the MODBUS protocol and then transmit the data through the LoRa protocol
+with an LoRaWAN module.
+
+## About the project
+
+This was my final project for the communications course in which I learned about
+communication protocols, many of the things learned in previous courses were
+taken into account here, such as transmission medium, signal and systems
+analysis, electromagnetic theory, circuits, among others.
+
+At the time I started working on this project, led by the teacher of the
+subject, it was already in process and consisted of the communication of the
+records of a shark 100 analyzer with a raspberry pi by means of MODBUS, however,
+the use of the raspberri pi was overkill due to the low demand for the task, so
+the objective of our project was replace it with an Arduino and start testing
+transmission by lora. Below is an image of the Shark 100 electrical signal
+analyzer used in the laboratory of the Universidad del Norte.
+
+![Shark 100](./images/shark100.png)
+
+## Project construction
+
+To perform the data acquisition, an arduino uno was used to test the possibility
+and effectiveness of the idea.
+
+![Arduino Uno](./images/arduino.png)
+
+This was a trial-and-error process, we initially ran a search and selection of
+Arduino libraries that could serve us to implement the MODBUS protocol. Finally,
+we decided to use the _ModbusRtu_ library, the script for communication you can
+find it in the GitHub repository.
+
+In addition, we have a LoRaWAN module from Seeed Studio, which It has several
+transmitting radios and a Gateway.
+
+![Seeduino Lorawan](./images/gateway.webp)
+
+This module has good documentation, so it is easy for us to communication
+between transmitting node and Gateway.
+
+## Conclusion
+
+In this way we achieve a one-way communication to obtain the data from the power
+grid as follows: The analyzer mediates the data, the which were saved in their
+registers, we used Arduino to get said data from the records and send them to
+the seeeduino device which transmitted the information to the Gateway where it
+could finally save said data in a local database or the cloud. Much like the
+following:
+
+![Data Flow](./images/data_flow.png)
+
+A very recurring data flow pattern in IOT applications.
