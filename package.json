@@ -36,10 +36,10 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^3.0.0",
     "gatsby-remark-images": "^4.0.0",
-    "gatsby-remark-prismjs": "^4.0.0",
     "gatsby-source-filesystem": "^3.0.0",
     "gatsby-transformer-sharp": "^3.0.0",
     "i18next": "^19.9.1",
+    "prism-react-renderer": "^1.2.0",
     "prismjs": "^1.23.0",
     "query-string": "^6.14.1",
     "react": "^17.0.1",
@@ -48,6 +48,7 @@
     "react-i18next": "^11.8.8",
     "react-icons": "^4.2.0",
     "react-instantsearch-dom": "^6.10.3",
+    "react-live": "^2.2.3",
     "react-use": "^17.1.1"
   },
   "devDependencies": {

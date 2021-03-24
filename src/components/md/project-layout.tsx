@@ -23,7 +23,7 @@ export default function ProjectLayout(props: ProjectPost & Children) {
   return (
     <Box as="main" marginTop="10vh">
       <PostSizer>
-        <Headings.H1 size="3xl" marginTop="0">
+        <Headings.H1 size="3xl" marginTop="0" fontWeight="bold">
           {props.title}
         </Headings.H1>
         <SimpleGrid columns={{ md: 3 }} spacing={{ md: 2 }} marginY="1rem">
@@ -82,7 +82,7 @@ export default function ProjectLayout(props: ProjectPost & Children) {
             />
           )}
         </Box>
-        <Flex margin="1rem 0">
+        <Flex margin="1rem 0" flexWrap="wrap">
           {props.keywords?.map(keyword => (
             <Badge
               key={keyword}

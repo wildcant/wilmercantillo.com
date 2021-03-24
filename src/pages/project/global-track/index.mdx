@@ -6,10 +6,10 @@ title: 'Global Track'
 date: '2019-03-01'
 author: 'Wilmer Cantillo'
 description:
-  'Construi una aplicacion web para visualizar en una mapa la geolocalizacion de
-  vehiculos en tiempo real e historicos'
+  'Construi una aplicacion web para visualizar en un mapa la geolocalizacion de
+  vehiculos en tiempo real e historicos.'
 category: 'WebApp'
-projectType: 'Proyecto Academico'
+projectType: 'Proyecto Academico y Personal'
 tech: 'LAMP & MERN'
 keywords:
   - 'mysql'
@@ -17,18 +17,24 @@ keywords:
   - 'jquery'
   - 'react'
   - 'bootstrap'
-  - 'materialUI'
+  - 'semantic UI'
   - 'leaflet'
   - 'google maps API'
   - 'python'
   - 'php'
   - 'node'
   - 'aws'
+  - 'react native'
+repo: 'https://github.com/CwirL/Global-Track'
 banner: './images/banner.jpg'
 bannerCredit: ''
 ---
 
 import { graphql } from 'gatsby'
+import { PAfterHeading } from 'components/md/text'
+import DynamicDate from './dynamic-date'
+import { Badge, Link, Text } from '@chakra-ui/layout'
+import { FaExternalLinkAlt } from 'react-icons/fa'
 export const ProjectQuery = graphql`
   {
     site {
@@ -47,4 +53,177 @@ export const ProjectQuery = graphql`
   }
 `
 
-TODO - Talk about track app as a new version of this project using MERN stack
+# Objetivos
+
+<PAfterHeading>
+  Diseñar e implementar una solución para telemetría vehicular.
+</PAfterHeading>
+
+- Programar un modem GPS/GPRS para el envío de coordenadas geográficas
+  capturadas hacia un web server.
+- Desarrollar de una página web para visualización de los datos enviados por el
+  modem GPS/GPRS.
+
+# Sobre el Proyecto
+
+<PAfterHeading>
+  Este fue el proyecto a través del cual descubrí el mundo de la programación
+  web, ya que si bien venia programando durante los últimos 4 años desde 2015,
+  siempre fue programación orientada a análisis de datos y programación de bajo
+  nivel.
+</PAfterHeading>
+
+Realice este proyecto por primera vez durante el primer semestre de 2019 usando
+el stack LAMP, y una vez finalizado dicho semestre lo volví construir con el
+propósito de aprender un stack de tecnologías moderno como lo es MERN.
+
+# Construcción del proyecto
+
+<PAfterHeading>
+
+Este proyecto tuvo tres partes:
+
+</PAfterHeading>
+
+1. Adquisición de trama GPS y envío a un web server
+2. Desarrollo de página web
+3. Integración con un sistema de adquisición de datos automático
+
+### Adquisición de trama GPS y envío a un web server
+
+<PAfterHeading>
+  En esta fase del proyecto el objetivo fue enviar y capturar data de
+  geolocalización a/en un web server. Aquí exploramos por primera vez los
+  protocolos mas importantes detrás de la web, TCP y UDP, realizamos multiples
+  pruebas para seleccionar el protocolo que mejor solucionara las necesidades
+  del caso, para esto usamos wireshark para analizar los paquetes que se
+  enviaban. Hasta llegar a la conclusión de que el protocolo mas conveniente era
+  UDP, ya que nuestro caso admitía perdida de paquetes y la frecuencia de envíos
+  seria alta.
+</PAfterHeading>
+
+Después de tener el envió de paquetes resuelto creamos nuestro propio sniffer
+para leer dichos paquetes y guardarlos en una base de datos, una RDS en AWS,
+como podrán observar en el siguiente script en python.
+
+![Sniffer Python Script](./images/sniffer.png)
+
+### Desarrollo de página web
+
+<PAfterHeading>
+  Aprendimos de manera rápida y autodidacta los fundamentos del desarrollo web:
+  HTML, css y javascript básico. Fue de gran ayuda la metodología del profesor,
+  el cual nos indicaba el camino para que nosotros realizáramos la investigación
+  y practica por nuestra cuenta, de esta manera también desarrollamos un poco
+  mas la habilidad de aprender mucho mas eficientemente. Indagamos sobre como
+  funciona el internet y el protocolo HTTP, la estructura básica de una pagina
+  web, como darle estilo y como hacerla dinámica.
+</PAfterHeading>
+
+La primera actividad que hice fue renderizar la fecha actual en una pagina web y
+que esta se actualizara automáticamente.
+
+<DynamicDate />
+<PAfterHeading>
+  Este fue mi primer acercamiento con el DOM, las APIs del navegador y los
+  procesos asíncronos.
+</PAfterHeading>
+
+```html
+<div id="date"></div>
+<script>
+  setInterval(() => {
+    document.getElementById('date').innerText = new Date().toString()
+  }, 1000)
+</script>
+```
+
+Después de haber hecho un pequeño curso de javascript para familiarizarme con la
+sintaxis y aprender algunos nuevos conceptos, y haber hecho algunos ejercicios
+prácticos para desarrollar mi habilidad con html y css me dispuse a aprender
+php, ya que a continuación debía sacar la data de geolocalización de la BD y
+mostrarla en un mapa.
+
+Ya que ni mis compañeros de equipo ni yo contábamos con tarjeta de crédito en el
+momento decidimos usar leaflet como alternativa a google maps ya que esta
+primera es open source a diferencia de esta ultima.
+
+Este fue el resultado del landing de nuestra webapp.
+
+![Landing primera version](./images/landing.png)
+
+Para la funcionalidad de ubicar un vehículo en tiempo real aprendimos a usar
+Ajax y la importancia del manejo de procesos asíncronos en el comportamiento y
+rendimiento de una aplicación.
+
+![Tiempo real primera version](./images/real-time.png)
+
+y consultar históricos.
+
+![Historicos primera version](./images/historical.png)
+
+### Integración con un sistema de adquisición de datos automático
+
+<PAfterHeading>
+  Durante esta fase se realizo la programación del modem GPS, el cual fue el
+  dispositivo Syrus 3G, este dispositivo tiene una interfaz que permite
+  conectarlo al vehículo y obtener múltiples variables como velocidad, posición,
+  entre otras.
+</PAfterHeading>
+
+![Syrus 3g](./images/syrus.png)
+
+Una vez terminada la configuración habíamos completado todas las fases del
+proyecto por lo que teníamos una primera versión funcional de la aplicación.
+
+## Segunda Versión
+
+<Link target="_blank" href="https://github.com/CwirL/TrackApp">
+  <Badge
+    variant="subtle"
+    colorScheme="black"
+    textTransform="capitalize"
+    display="flex"
+    alignItems="center"
+  >
+    <Text marginRight="0.4rem">
+      Repositorio de la segunda versión del proyecto
+    </Text>
+    <FaExternalLinkAlt />
+  </Badge>
+</Link>
+
+Como mencione anteriormente me plantee reconstruir el proyecto usando
+tecnologías modernas para estar a la vanguardia ya que realmente me gusto mucho
+proyecto y en general la programación enfocada a la web, para esta ocasión
+decidí usar el stack MERN, por lo que me dispuse a aprender las principales
+diferencias en bases de datos SQL y noSQL, con el objetivo de modelar los datos
+de mi aplicación en mongo DB. Me plantee un panorama un poco mas realista en el
+cual la aplicación tuviera autenticación de usuarios y cada usuario pudiera
+administrar una flota de vehículos, y que la aplicación sirviera como plataforma
+de rastreo para todos los vehículos de cada usuario. Este fue el resultado:
+
+![Tiempo real version 2](./images/track-app.png)
+
+Mientras desarrollaba el frontend aprendí conceptos como separación de UI en
+componentes, estado, proceso de renderizado y ciclo de vida.
+
+![Tiempo real 2 version 2](./images/track-select.png)
+
+Además, aprendí y use por primera vez el patrón MVC, y la importancia que tiene
+la estructura de un proyecto tanto para backend como frontend.
+
+También decidí desarrollar una aplicación sencilla en react native que me
+permitiera enviar la información de ubicación de un dispositivo para imitar el
+proceso realizado por la Syrus
+
+# Conclusión
+
+<PAfterHeading>
+  Este proyecto me permitió conocer el mundo de la programación web, y me mostro
+  el panorama de este interesante campo. Aborde una gran cantidad de tecnologías
+  y conceptos que me permitieron sentar las bases para luego construir mi
+  carrera en el mundo de desarrollo web. Por esta razón recomiendo realizar este
+  tipo de proyectos al momento de aprender, por mi experiencia puedo decir que
+  es una manera muy eficiente y rápida de aprender.
+</PAfterHeading>

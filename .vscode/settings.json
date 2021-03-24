@@ -9,5 +9,10 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
-  "cSpell.words": ["Libraria", "algoliasearch", "instantsearch"]
+  "cSpell.words": [
+    "Libraria",
+    "algoliasearch",
+    "instantsearch",
+    "metastring"
+  ]
 }

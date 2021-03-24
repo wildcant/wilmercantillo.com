@@ -13,6 +13,19 @@ export const Paragraph = ({ children, ...props }: TextProps) => (
   </CText>
 )
 
+export const PAfterHeading = ({ children, ...props }: TextProps) => (
+  <CText
+    as="p"
+    {...props}
+    fontSize={{ base: '18px', md: '21px' }}
+    marginTop={{ base: '0.67em', md: '0.86em' }}
+    lineHeight={{ base: '20px', md: '32px' }}
+  >
+    {children}
+  </CText>
+)
+
 export default {
   Paragraph,
+  PAfterHeading,
 }

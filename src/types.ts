@@ -60,5 +60,5 @@ export type Quote = {
 }
 
 export type Children = {
-  children: ReactNode | undefined
+  children: ReactNode | string | undefined
 }

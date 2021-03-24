@@ -7,6 +7,7 @@ export const H1 = (props: HeadingProps) => (
     fontFamily="Sf Pro Display"
     size="2xl"
     marginTop={{ base: '0.93em', md: '1.25em' }}
+    fontWeight="medium"
     {...props}
   >
     {props.children}
@@ -18,13 +19,20 @@ export const H2 = (props: HeadingProps) => (
     fontFamily="Sf Pro Display"
     size="xl"
     marginTop={{ base: '1.23em', md: '1.72em' }}
+    fontWeight="medium"
     {...props}
   >
     {props.children}
   </Heading>
 )
 export const H3 = (props: HeadingProps) => (
-  <Heading as="h3" fontFamily="Sf Pro Display" size="lg" {...props}>
+  <Heading
+    as="h3"
+    fontFamily="Sf Pro Display"
+    size="lg"
+    marginTop={{ base: '0.8em', md: '1em' }}
+    {...props}
+  >
     {props.children}
   </Heading>
 )

@@ -5,6 +5,7 @@ import { BlogPost, Image, ProjectPost } from 'src/types'
 import Footer from '../footer'
 import Header from '../header'
 import BlogPostLayout from './blog-layout'
+import CodeBlock from './code-block'
 import Headings from './headings'
 import ProjectPostLayout from './project-layout'
 import Text from './text'
@@ -17,6 +18,7 @@ export const components: MDXProviderComponents = {
   h5: Headings.H5,
   h6: Headings.H6,
   p: Text.Paragraph,
+  code: CodeBlock,
 }
 
 type Props = PageProps & {

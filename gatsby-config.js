@@ -30,12 +30,6 @@ module.exports = {
               backgroundColor: 'transparent',
             },
           },
-          {
-            resolve: 'gatsby-remark-prismjs',
-            options: {
-              inlineCodeMarker: '÷',
-            },
-          },
         ],
       },
     },

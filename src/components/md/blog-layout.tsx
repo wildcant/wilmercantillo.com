@@ -51,7 +51,7 @@ const BlogPostLayout = (props: BlogPost & Children) => {
           )}
         </Box>
 
-        <Flex margin="1rem 0">
+        <Flex margin="1rem 0" flexWrap="wrap">
           {props.categories?.map(category => (
             <Badge
               key={category}
