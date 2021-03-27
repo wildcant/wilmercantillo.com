@@ -17,6 +17,9 @@ bannerCredit: ''
 ---
 
 import { graphql } from 'gatsby'
+import { PAfterHeading } from 'components/md/text'
+import { Badge, Link, Text } from '@chakra-ui/layout'
+import { FaExternalLinkAlt } from 'react-icons/fa'
 export const ProjectQuery = graphql`
   {
     site {
@@ -34,3 +37,76 @@ export const ProjectQuery = graphql`
     }
   }
 `
+
+# Goal
+
+<PAfterHeading>
+  The objective of this project was to create a web application to offer
+  warehouse storage service. The application has the following functionalities:
+  online payment, email notifications, authentication and authorization.
+</PAfterHeading>
+
+# About the project
+
+<PAfterHeading>
+  I developed this project together with a friend, as a business idea and to
+  explore the planning and construction process of a digital venture.
+</PAfterHeading>
+
+# Project construction
+
+<PAfterHeading>
+  In the initial phase of the project, we define the requirements for an MVP and
+  we made the model of the <b> database </b> (MySQL) which would be mounted in
+  an RDS on AWS.
+</PAfterHeading>
+
+![Database model](./images/db-model.png)
+
+Then do I made the **design** of a user interface for the landing page, the
+login / register and a page to see a list of warehouses, in which you could
+search and filter results.
+
+<Link
+  target="_ blank"
+  href="https://www.figma.com/file/1SAUghYzdS9fmC4LVDnCjh/caja-Naranja?node-id=0%3A1"
+>
+  <Badge
+    variant="subtle"
+    colorScheme="black"
+    textTransform="capitalize"
+    float="right"
+    display="flex"
+    alignItems="center"
+  >
+    <Text marginRight="0.4rem">Design</Text>
+    <FaExternalLinkAlt />
+  </Badge>
+</Link>
+
+![Warehouse search page](./images/search-warehouse.png)
+
+For the **backend** of the application we use express to build a REST API, using
+the MVC pattern, which had the following characteristics:
+
+- Endpoints to bring warehouses data paginated and filtered based on query.
+- Authentication and authorization service with JWT through passport library.
+- Payment service using the mercadopago payment gateway.
+- Mail notification service using the nodemailer library.
+
+As for the **frontend** we carry out an SPA with the following characteristics:
+
+- We use the Sass 7-1 pattern to handle the styles of the application.
+- Login and registration pages.
+- Page to explore warehouses, this page offers information about the state of
+  the warehouses in real time.
+
+# Conclusion
+
+<PAfterHeading>
+  Despite not having been able to continue with the execution of the project due
+  to the situation of the global pandemic, this project was another important
+  experience to develop skills that I would later need when working in the
+  professional field. In addition to the large amount of work and effort
+  required to bring a product idea to reality.
+</PAfterHeading>
