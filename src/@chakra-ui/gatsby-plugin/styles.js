@@ -14,7 +14,7 @@ export const Fonts = () => (
       font-family: "Rouge Script";
       font-weight: 400;
       font-style: normal;
-      src: url("/fonts/Rouge_Script/400-Regular.ttf");
+      src: url("../fonts/Rouge_Script/400-Regular.ttf");
     }
 
     /* Fire Code */
@@ -22,7 +22,7 @@ export const Fonts = () => (
       font-family: "Fira Code";
       font-weight: 400;
       font-style: normal;
-      src: url("/fonts/Fira_Code/400-Regular.ttf");
+      src: url("../fonts/Fira_Code/400-Regular.ttf");
     }
 
     /* Sf Pro Display */
@@ -30,25 +30,25 @@ export const Fonts = () => (
       font-family: "Sf Pro Display";
       font-weight: 200;
       font-style: normal;
-      src: url("/fonts/Sf_Pro_Display/200-ultralight.ttf");
+      src: url("../fonts/Sf_Pro_Display/200-ultralight.ttf");
     }
     @font-face {
       font-family: "Sf Pro Display";
       font-weight: 300;
       font-style: normal;
-      src: url("/fonts/Sf_Pro_Display/300-light.ttf");
+      src: url("../fonts/Sf_Pro_Display/300-light.ttf");
     }
     @font-face {
       font-family: "Sf Pro Display";
       font-weight: 400;
       font-style: normal;
-      src: url("/fonts/Sf_Pro_Display/400-Regular.ttf");
+      src: url("../fonts/Sf_Pro_Display/400-Regular.ttf");
     }
     @font-face {
       font-family: "Sf Pro Display";
       font-weight: 700;
       font-style: normal;
-      src: url("/fonts/Sf_Pro_Display/700-bold.ttf");
+      src: url("../fonts/Sf_Pro_Display/700-bold.ttf");
     }
     
     /* Josefin Sans */
@@ -56,13 +56,13 @@ export const Fonts = () => (
       font-family: "Josefin Sans";
       font-weight: 400;
       font-style: normal;
-      src: url("/fonts/Josefin_Sans/400-Regular.ttf");
+      src: url("../fonts/Josefin_Sans/400-Regular.ttf");
     }
     @font-face {
       font-family: "Josefin Sans";
       font-weight: 400;
       font-style: italic;
-      src: url("/fonts/Josefin_Sans/400-Italic.ttf");
+      src: url("../fonts/Josefin_Sans/400-Italic.ttf");
     }
 
     /*
