@@ -44,11 +44,7 @@ export default function Search() {
   const indexName = lang === defaultLanguage ? esIndexName : enIndexName
 
   return (
-    <InstantSearch
-      indexName={indexName}
-      searchClient={searchClient}
-      onSearchStateChange={state => console.log(state)}
-    >
+    <InstantSearch indexName={indexName} searchClient={searchClient}>
       <SearchBox
         translations={{ placeholder: t('blog.searchPlaceholder') }}
         submit={<FaSearch />}

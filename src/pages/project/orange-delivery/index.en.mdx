@@ -1,0 +1,40 @@
+---
+lang: en
+type: project
+slug: 'orange-delivery'
+title: 'Orange Delivery'
+date: '2020-02-10'
+author: 'Wilmer Cantillo'
+description:
+  'Built web application and node.js telegram bot for delivery service.'
+category: 'WebApp'
+projectType: 'Proyecto Startup'
+tech: 'MERN'
+keywords:
+  - 'MySQL'
+  - 'Express'
+  - 'React'
+  - 'Node'
+banner: './images/banner.png'
+bannerCredit: ''
+featured: true
+---
+
+import { graphql } from 'gatsby'
+export const ProjectQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(
+      relativePath: { eq: "project/orange-delivery/images/banner.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
