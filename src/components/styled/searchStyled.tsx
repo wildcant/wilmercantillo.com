@@ -33,7 +33,7 @@ export const SearchBox = styled(ISearchBox)`
     height: 100%;
     width: 100%;
     padding-left: 4rem;
-    font-family: 'Josefin Sans';
+    font-family: 'Recursive';
     &:focus {
       outline: none;
     }

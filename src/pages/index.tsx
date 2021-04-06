@@ -96,6 +96,7 @@ export default function IndexPage(props: Props) {
               title={t('home.intro.title')}
               description={t('home.intro.description')}
               buttonText={t('home.intro.buttonText')}
+              buttonLink="/about"
             />
           </Box>
         </Box>
@@ -135,6 +136,7 @@ export default function IndexPage(props: Props) {
                 title={t('home.blog.title')}
                 description={t('home.blog.description')}
                 buttonText={t('home.blog.buttonText')}
+                buttonLink="/blog"
               />
             </GridItem>
             <GridItem
@@ -228,6 +230,7 @@ export default function IndexPage(props: Props) {
                 title={t('home.contact.title')}
                 description={t('home.contact.description')}
                 buttonText={t('home.contact.buttonText')}
+                buttonLink="/contact"
               />
             </Flex>
             <Flex justify="space-around">
@@ -316,13 +319,15 @@ export default function IndexPage(props: Props) {
               seeMoreLabel={t('home.projects.seeMore')}
               {...featuredProjects.edges[1].node.frontmatter}
             />
-            <Button
-              variant="solid"
-              m={{ base: '0 0 1rem 0', md: '1rem 0' }}
-              maxW={{ md: '200px' }}
-            >
-              {t('home.projects.buttonText')}
-            </Button>
+            <Link to="/projects">
+              <Button
+                variant="solid"
+                m={{ base: '0 0 1rem 0', md: '1rem 0' }}
+                maxW={{ md: '200px' }}
+              >
+                {t('home.projects.buttonText')}
+              </Button>
+            </Link>
           </GridItem>
         </Grid>
       </ComponentSizer>

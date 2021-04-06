@@ -1,12 +1,14 @@
 import { Button } from '@chakra-ui/button'
 import { Box, BoxProps, Heading, Text } from '@chakra-ui/layout'
 import React from 'react'
+import Link from './link'
 
 type Props = BoxProps & {
   name: string
   title: string
   description?: string
   buttonText?: string
+  buttonLink?: string
 }
 
 const SectionContent = ({
@@ -14,10 +16,11 @@ const SectionContent = ({
   title,
   description,
   buttonText,
+  buttonLink,
   ...props
 }: Props) => (
   <Box as="section" {...props}>
-    <Text as="small" fontFamily="Fira Code" letterSpacing="0.1em" opacity="0.5">
+    <Text as="small" fontFamily="Fira Mono" letterSpacing="0.1em" opacity="0.5">
       •{name}
     </Text>
     <Heading size="xl" m="0.5rem 0">
@@ -32,10 +35,12 @@ const SectionContent = ({
         {description}
       </Text>
     )}
-    {buttonText && (
-      <Button variant="solid" m={{ base: '0 0 1rem 0', md: '1rem 0' }}>
-        {buttonText}
-      </Button>
+    {buttonText && buttonLink && (
+      <Link to={buttonLink}>
+        <Button variant="solid" m={{ base: '0 0 1rem 0', md: '1rem 0' }}>
+          {buttonText}
+        </Button>
+      </Link>
     )}
   </Box>
 )

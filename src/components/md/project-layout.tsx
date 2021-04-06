@@ -28,7 +28,7 @@ export default function ProjectLayout(props: ProjectPost & Children) {
         </Headings.H1>
         <SimpleGrid columns={{ md: 3 }} spacing={{ md: 2 }} marginY="1rem">
           <Stack alignItems="center" marginY="0.5rem">
-            <Text as="span" fontFamily="Fira Code">
+            <Text as="span" fontFamily="Fira Mono">
               {t('projects.category')}
             </Text>
             <Headings.H6 textTransform="capitalize" marginTop="0px !important">
@@ -36,7 +36,7 @@ export default function ProjectLayout(props: ProjectPost & Children) {
             </Headings.H6>
           </Stack>
           <Stack alignItems="center" marginY="0.5rem">
-            <Text as="span" fontFamily="Fira Code">
+            <Text as="span" fontFamily="Fira Mono">
               {t('projects.type')}
             </Text>
             <Headings.H6 textTransform="capitalize" marginTop="0px !important">
@@ -44,7 +44,7 @@ export default function ProjectLayout(props: ProjectPost & Children) {
             </Headings.H6>
           </Stack>
           <Stack alignItems="center" marginY="0.5rem">
-            <Text as="span" fontFamily="Fira Code">
+            <Text as="span" fontFamily="Fira Mono">
               {t('projects.tech')}
             </Text>
             <Headings.H6 textTransform="capitalize" marginTop="0px !important">
