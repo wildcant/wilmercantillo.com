@@ -1,5 +1,6 @@
 import { Container } from '@chakra-ui/layout'
 import { theme } from '@chakra-ui/theme'
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 const { md, lg } = theme.breakpoints
@@ -12,5 +13,11 @@ export const ComponentSizer = styled(Container)`
   }
   @media (min-width: ${lg}) {
     max-width: 1536px;
+  }
+`
+
+export const GrIconStyles = css`
+  path {
+    stroke: currentColor;
   }
 `

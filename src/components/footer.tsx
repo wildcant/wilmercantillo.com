@@ -130,9 +130,9 @@ export default function Footer() {
                       <Text>{t('header.blog')}</Text>
                     </Flex>
                   </Link>
-                  <Link to="/library">
+                  <Link to="/resources">
                     <Flex align="center" marginTop="0.5rem">
-                      <Text>{t('header.lib')}</Text>
+                      <Text>{t('header.res')}</Text>
                     </Flex>
                   </Link>
                 </Box>

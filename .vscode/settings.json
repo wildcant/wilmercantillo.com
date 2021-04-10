@@ -4,7 +4,8 @@
     "images": "${folder}/src/images",
     "components": "${folder}/src/components",
     "pages": "${folder}/src/pages",
-    "templates": "${folder}/src/templates"
+    "templates": "${folder}/src/templates",
+    "hooks": "${folder}/src/hooks"
   },
   "editor.codeActionsOnSave": {
     "source.organizeImports": true

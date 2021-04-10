@@ -53,6 +53,7 @@ module.exports = {
           pages: `${__dirname}/src/pages`,
           templates: `${__dirname}/src/templates`,
           images: `${__dirname}/src/images`,
+          hooks: `${__dirname}/src/hooks`,
         },
         extensions: ['ts'],
       },
