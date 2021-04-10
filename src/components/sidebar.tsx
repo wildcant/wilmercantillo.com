@@ -29,13 +29,12 @@ const Path = (
   />
 )
 
-export const MenuToggle = ({
-  toggle,
-  color,
-}: {
+type MenuToggleProps = {
   toggle: () => void
   color: string
-}) => (
+}
+
+export const MenuToggle = ({ toggle, color }: MenuToggleProps) => (
   <IconButton aria-label="menu" onClick={toggle} color={color}>
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path

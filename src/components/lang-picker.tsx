@@ -1,9 +1,8 @@
-import { IconButton } from '@chakra-ui/react'
+import { IconButton, Text } from '@chakra-ui/react'
 import { navigate } from 'gatsby'
 import React from 'react'
 import { useLocation } from 'react-use'
 import { defaultLanguage } from 'src/translations'
-import Emoji from './emoji'
 import { useLangContext } from './lang-context'
 
 export default function LangPicker() {
@@ -21,13 +20,7 @@ export default function LangPicker() {
       onClick={toggleLang}
       bg="transparent"
       fontSize="2xl"
-      icon={
-        lang === defaultLanguage ? (
-          <Emoji symbol="🇬🇧" label="England flag" />
-        ) : (
-          <Emoji symbol="🇨🇴" label="Colombian flag" />
-        )
-      }
+      icon={lang === defaultLanguage ? <Text>EN</Text> : <Text>ES</Text>}
     />
   )
 }
