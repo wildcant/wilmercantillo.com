@@ -8,7 +8,7 @@ import {
   Icon,
   Text,
   useBreakpointValue,
-  useColorMode
+  useColorMode,
 } from '@chakra-ui/react'
 import Layout from 'components/layout'
 import { graphql, PageProps } from 'gatsby'
@@ -28,6 +28,7 @@ import ProjectCard from 'src/components/project-card'
 import Quotes from 'src/components/quotes'
 import { ComponentSizer } from 'src/components/styled/generic'
 import { Image, PostNode, ProjectNode, Quote } from 'src/types'
+
 type Props = PageProps & {
   data: Image & {
     featuredPosts: {

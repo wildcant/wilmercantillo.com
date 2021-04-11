@@ -3,7 +3,6 @@ import Icon from '@chakra-ui/icon'
 import { NavLink } from 'components/header'
 import { motion, SVGMotionProps, Variants } from 'framer-motion'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 import {
   AboutIcon,
   Background,
@@ -120,18 +119,19 @@ const menuItemAnimation: Variants = {
 type SideBarProps = {
   isOpen: boolean
   isLight: boolean
+  pathname?: string
+  navItems: {
+    to: string
+    text: string
+  }[]
 }
 
-const SideBar = ({ isOpen, isLight }: SideBarProps) => {
-  const { t } = useTranslation()
-
-  const navItems = [
-    { to: '/blog', icon: BlogIcon, text: t('header.blog') },
-    { to: '/resources', icon: ResourcesIcon, text: t('header.res') },
-    { to: '/about', icon: AboutIcon, text: t('header.about') },
-    { to: '/projects', icon: ProjectsIcon, text: t('header.projects') },
-    { to: '/contact', icon: ContactIcon, text: t('header.contact') },
-  ]
+const SideBar = ({ isOpen, isLight, pathname, navItems }: SideBarProps) => {
+  const icons = [BlogIcon, ResourcesIcon, AboutIcon, ProjectsIcon, ContactIcon]
+  const items = navItems.map((navItem, idx) => ({
+    ...navItem,
+    icon: icons[idx],
+  }))
 
   return (
     <motion.div initial={false} animate={isOpen ? 'open' : 'closed'}>
@@ -139,9 +139,9 @@ const SideBar = ({ isOpen, isLight }: SideBarProps) => {
         <Nav>
           <Background variants={backgroundAnimation} isLight={isLight} />
           <Navigation variants={navAnimation}>
-            {navItems.map(({ to, text, icon }, idx) => (
+            {items.map(({ to, text, icon }, idx) => (
               <NavItem key={idx} variants={menuItemAnimation} custom={idx}>
-                <NavLink href={to}>
+                <NavLink href={to} isLight={isLight} active={pathname === to}>
                   <Icon
                     as={icon}
                     color={isLight ? 'primary.500' : 'purple.500'}

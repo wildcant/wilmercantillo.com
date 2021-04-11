@@ -1,7 +1,6 @@
 import {
   Box,
   Flex,
-  FlexProps,
   IconButton,
   Text,
   Tooltip,
@@ -13,25 +12,38 @@ import Logo from 'images/svg/logo.svg'
 import React, { createRef, ReactNode, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { RiMoonFill, RiSunFill } from 'react-icons/ri'
-import { useWindowScroll } from 'react-use'
+import { useLockBodyScroll, useWindowScroll } from 'react-use'
 import LangPicker from './lang-picker'
 import Link from './link'
 import SideBar, { MenuToggle } from './sidebar'
 import { ComponentSizer } from './styled/generic'
 import { MenuWrapper } from './styled/sidebarStyled'
 
+type HeaderProps = {
+  pathname?: string
+}
+
 const delta = 5
-export default function Header(props: FlexProps) {
+export default function Header({ pathname }: HeaderProps) {
   const { t } = useTranslation()
   const { colorMode, toggleColorMode } = useColorMode()
   const [showHeader, setShowHeader] = useState(true)
   const [headerHeight, setHeaderHeight] = useState(0)
   const [isOpen, toggleOpen] = useCycle(false, true)
+  useLockBodyScroll(isOpen)
   const { y } = useWindowScroll()
   const lastPosition = useRef(0)
 
   const header = createRef<HTMLDivElement>()
   const isLight = colorMode === 'light'
+
+  const navItems = [
+    { to: '/blog', text: t('header.blog') },
+    { to: '/resources', text: t('header.res') },
+    { to: '/about', text: t('header.about') },
+    { to: '/projects', text: t('header.projects') },
+    { to: '/contact', text: t('header.contact') },
+  ]
 
   useEffect(() => {
     if (header.current) {
@@ -64,7 +76,7 @@ export default function Header(props: FlexProps) {
       backgroundColor={isLight ? 'white' : 'gray.800'}
     >
       <ComponentSizer>
-        <Flex wrap="wrap" align="center" justify="space-between" {...props}>
+        <Flex wrap="wrap" align="center" justify="space-between">
           <Box zIndex={5}>
             <Link to="/">
               <Box color={isLight ? 'primary.500' : 'purple.500'}>
@@ -107,11 +119,16 @@ export default function Header(props: FlexProps) {
             alignItems="center"
             flexGrow={1}
           >
-            <NavLink href="/blog">{t('header.blog')}</NavLink>
-            <NavLink href="/resources">{t('header.res')}</NavLink>
-            <NavLink href="/about">{t('header.about')}</NavLink>
-            <NavLink href="/projects">{t('header.projects')}</NavLink>
-            <NavLink href="/contact">{t('header.contact')}</NavLink>
+            {navItems.map(({ to, text }, idx) => (
+              <NavLink
+                key={idx}
+                href={to}
+                isLight={isLight}
+                active={pathname === to}
+              >
+                {text}
+              </NavLink>
+            ))}
           </Box>
           <Box display={{ base: 'none', md: 'block' }} mt={{ base: 4, md: 0 }}>
             <LangPicker />
@@ -132,7 +149,12 @@ export default function Header(props: FlexProps) {
         </Flex>
       </ComponentSizer>
       <Box display={{ md: 'none' }}>
-        <SideBar isOpen={isOpen} isLight={isLight} />
+        <SideBar
+          isOpen={isOpen}
+          isLight={isLight}
+          pathname={pathname}
+          navItems={navItems}
+        />
       </Box>
     </Box>
   )
@@ -141,12 +163,23 @@ export default function Header(props: FlexProps) {
 type NavLinkProps = {
   href: string
   children: string | ReactNode
+  active: boolean
+  isLight: boolean
 }
 
-export const NavLink = ({ href, children }: NavLinkProps) => (
-  <Link to={href}>
-    <Text mt={['4', '0']} ml={{ md: 6 }} display="block" fontSize="xl">
-      {children}
-    </Text>
-  </Link>
-)
+export const NavLink = ({ href, children, isLight, active }: NavLinkProps) => {
+  return (
+    <Link to={href}>
+      <Text
+        mt={['4', '0']}
+        ml={{ md: 6 }}
+        display="block"
+        fontSize="xl"
+        color={active ? (isLight ? 'primary.500' : 'purple.500') : ''}
+        fontWeight={active ? 'bold' : 'normal'}
+      >
+        {children}
+      </Text>
+    </Link>
+  )
+}

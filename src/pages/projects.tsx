@@ -17,7 +17,7 @@ export default function Projects(props: Props) {
   const { projects } = props.data
   const { t } = useTranslation()
   return (
-    <Layout title={t('projects.metaTitle')}>
+    <Layout title={t('projects.metaTitle')} pathname={props.location.pathname}>
       <ComponentSizer>
         <Heading textAlign="center">{t('projects.title')}</Heading>
         <Flex
