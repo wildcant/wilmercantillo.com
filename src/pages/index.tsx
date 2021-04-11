@@ -8,17 +8,18 @@ import {
   Icon,
   Text,
   useBreakpointValue,
-  useColorMode,
+  useColorMode
 } from '@chakra-ui/react'
 import Layout from 'components/layout'
 import { graphql, PageProps } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Electronics from 'images/svg/electronics.svg'
 import Software from 'images/svg/software.svg'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa'
 import { TiArrowDownThick } from 'react-icons/ti'
+import { useLocalStorage } from 'react-use'
 import BounceAnimation from 'src/components/animations/bounce'
 import BlogCard from 'src/components/blog-card'
 import SectionContent from 'src/components/landing-section'
@@ -27,7 +28,6 @@ import ProjectCard from 'src/components/project-card'
 import Quotes from 'src/components/quotes'
 import { ComponentSizer } from 'src/components/styled/generic'
 import { Image, PostNode, ProjectNode, Quote } from 'src/types'
-
 type Props = PageProps & {
   data: Image & {
     featuredPosts: {
@@ -50,11 +50,21 @@ export default function IndexPage(props: Props) {
   const { t } = useTranslation()
   const { colorMode } = useColorMode()
   const blogCardSize = useBreakpointValue({ base: 'sm', md: 'lg' }) || 'sm'
+  const [landingLoaded, setLandingLoaded] = useLocalStorage('landing-loaded')
+  const [loaded, setLoaded] = useState(false)
 
   const isLight = colorMode === 'light'
   const introImage = getImage(personImg.childImageSharp.gatsbyImageData)
   const blogImage = getImage(personSittingImg.childImageSharp.gatsbyImageData)
   const quotes: Array<Quote> = t('home.quotes', { returnObjects: true })
+
+  useEffect(() => {
+    if (landingLoaded) {
+      setLoaded(true)
+    } else {
+      setLandingLoaded(true)
+    }
+  }, [])
 
   return (
     <Layout title={t('home.metaTitle')}>
@@ -98,6 +108,7 @@ export default function IndexPage(props: Props) {
               description={t('home.intro.description')}
               buttonText={t('home.intro.buttonText')}
               buttonLink="/about"
+              animate={!loaded}
             />
           </Box>
         </Box>
@@ -138,6 +149,7 @@ export default function IndexPage(props: Props) {
                 description={t('home.blog.description')}
                 buttonText={t('home.blog.buttonText')}
                 buttonLink="/blog"
+                animate={!loaded}
               />
             </GridItem>
             <GridItem
@@ -232,6 +244,7 @@ export default function IndexPage(props: Props) {
                 description={t('home.contact.description')}
                 buttonText={t('home.contact.buttonText')}
                 buttonLink="/contact"
+                animate={!loaded}
               />
             </Flex>
             <Flex justify="space-around">
@@ -304,6 +317,7 @@ export default function IndexPage(props: Props) {
               name={t('home.projects.name')}
               title={t('home.projects.title')}
               description={t('home.projects.description')}
+              animate={!loaded}
             />
             <ProjectCard
               seeMoreLabel={t('home.projects.seeMore')}
@@ -344,6 +358,7 @@ export default function IndexPage(props: Props) {
             name={t('home.testimonials.name')}
             title={t('home.testimonials.title')}
             description={t('home.testimonials.description')}
+            animate={!loaded}
           />
           <Icon as={FaQuoteLeft} fontSize="2em" color="gray.200" />
           <Quotes quotes={quotes} />

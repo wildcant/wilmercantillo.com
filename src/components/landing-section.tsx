@@ -2,6 +2,10 @@ import { Button } from '@chakra-ui/button'
 import { Box, BoxProps, Heading, Text } from '@chakra-ui/layout'
 import { motion, Variants } from 'framer-motion'
 import React from 'react'
+import {
+  IntersectionContext,
+  IntersectionObserver,
+} from './animations/intersection-observer'
 import Link from './link'
 
 type Props = BoxProps & {
@@ -10,6 +14,7 @@ type Props = BoxProps & {
   description?: string
   buttonText?: string
   buttonLink?: string
+  animate?: boolean
 }
 
 const textAnimation: Variants = {
@@ -33,6 +38,7 @@ const SectionContent = ({
   description,
   buttonText,
   buttonLink,
+  animate,
   ...props
 }: Props) => (
   <Box as="section" {...props}>
@@ -47,14 +53,32 @@ const SectionContent = ({
         fontSize={['lg', 'xl']}
         width={{ base: '100%', lg: '80%' }}
         m="0.5rem 0 1rem 0"
+        minHeight="2rem"
       >
-        <motion.p variants={textAnimation} initial="hidden" animate="visible">
-          {description.split('').map((letter, idx) => (
-            <motion.span key={`${letter}-${idx}`} variants={letterAnimation}>
-              {letter}
-            </motion.span>
-          ))}
-        </motion.p>
+        {animate ? (
+          <IntersectionObserver>
+            <IntersectionContext.Consumer>
+              {({ inView }) => (
+                <motion.p
+                  variants={textAnimation}
+                  initial="hidden"
+                  animate={inView ? 'visible' : 'hidden'}
+                >
+                  {description.split('').map((letter, idx) => (
+                    <motion.span
+                      key={`${letter}-${idx}`}
+                      variants={letterAnimation}
+                    >
+                      {letter}
+                    </motion.span>
+                  ))}
+                </motion.p>
+              )}
+            </IntersectionContext.Consumer>
+          </IntersectionObserver>
+        ) : (
+          <p>{description}</p>
+        )}
       </Box>
     )}
     {buttonText && buttonLink && (

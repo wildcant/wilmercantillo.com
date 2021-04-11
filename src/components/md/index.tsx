@@ -4,6 +4,7 @@ import React from 'react'
 import { BlogPost, Image, ProjectPost } from 'src/types'
 import Footer from '../footer'
 import Header from '../header'
+import { SEO } from '../seo'
 import BlogPostLayout from './blog-layout'
 import CodeBlock from './code-block'
 import Headings from './headings'
@@ -34,9 +35,12 @@ type Props = PageProps & {
 export default function MdLayout(props: Props) {
   const post = props.pageContext.frontmatter
   const banner = props.data?.banner
+  const sources = banner?.childImageSharp?.gatsbyImageData?.images?.sources
+  const metaImage = sources ? sources[0].srcSet : ''
 
   return (
     <>
+      <SEO {...post} metaImage={metaImage} isPost={true} />
       <Header />
       {post.type === 'project' ? (
         <ProjectPostLayout {...post} banner={banner}>
