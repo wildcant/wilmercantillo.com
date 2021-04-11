@@ -1,3 +1,6 @@
 {
-  "underDev": "This section is under development"
+  "underDev": "This section is under development",
+  "changeLang": "Change language to spanish.",
+  "darkMode": "Swap to dark mode.",
+  "lightMode": "Swap to light mode."
 }

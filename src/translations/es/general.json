@@ -1,3 +1,6 @@
 {
-  "underDev": "Esta sección está en desarrollo"
+  "underDev": "Esta sección está en desarrollo",
+  "changeLang": "Cambiar idioma a Ingles.",
+  "darkMode": "Cambiar a tema oscuro.",
+  "lightMode": "Cambiar a tema claro."
 }

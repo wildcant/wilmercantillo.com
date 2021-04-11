@@ -62,3 +62,29 @@ export type Quote = {
 export type Children = {
   children: ReactNode | string | undefined
 }
+
+export interface SiteMetadata {
+  siteUrl: string
+  title: string
+  twitterHandle: string
+  description: string
+  keywords?: string[] | null
+  canonicalUrl: string
+  image: string
+  author: Author
+  organization: Organization
+  social: Social
+}
+export interface Author {
+  name: string
+  minibio: string
+}
+export interface Organization {
+  name: string
+  url: string
+  logo: string
+}
+export interface Social {
+  twitter: string
+  fbAppID?: string
+}

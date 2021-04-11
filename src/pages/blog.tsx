@@ -7,7 +7,7 @@ const Search = loadable(() => import('components/search'))
 
 export default function Blog() {
   return (
-    <Layout>
+    <Layout title="Blog - Wilmer Cantillo">
       <ComponentSizer minH="90vh">
         <Search fallback={<SearchSkeleton marginTop="8rem" />} />
       </ComponentSizer>

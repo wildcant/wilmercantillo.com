@@ -61,6 +61,18 @@ export const MenuToggle = ({ toggle, color }: MenuToggleProps) => (
   </IconButton>
 )
 
+const containerAnimation: Variants = {
+  open: {
+    height: `100vh`,
+  },
+  closed: {
+    height: `0px`,
+    transition: {
+      delay: 1,
+    },
+  },
+}
+
 const backgroundAnimation: Variants = {
   open: {
     clipPath: `circle(2200px at 100vw 0px)`,
@@ -122,25 +134,26 @@ const SideBar = ({ isOpen, isLight }: SideBarProps) => {
   ]
 
   return (
-    <Container>
-      <Nav initial={false} animate={isOpen ? 'open' : 'closed'}>
-        <Background variants={backgroundAnimation} isLight={isLight} />
-
-        <Navigation variants={navAnimation}>
-          {navItems.map(({ to, text, icon }, idx) => (
-            <NavItem key={idx} variants={menuItemAnimation} custom={idx}>
-              <NavLink href={to}>
-                <Icon
-                  as={icon}
-                  color={isLight ? 'primary.500' : 'purple.500'}
-                />{' '}
-                {text}
-              </NavLink>
-            </NavItem>
-          ))}
-        </Navigation>
-      </Nav>
-    </Container>
+    <motion.div initial={false} animate={isOpen ? 'open' : 'closed'}>
+      <Container variants={containerAnimation}>
+        <Nav>
+          <Background variants={backgroundAnimation} isLight={isLight} />
+          <Navigation variants={navAnimation}>
+            {navItems.map(({ to, text, icon }, idx) => (
+              <NavItem key={idx} variants={menuItemAnimation} custom={idx}>
+                <NavLink href={to}>
+                  <Icon
+                    as={icon}
+                    color={isLight ? 'primary.500' : 'purple.500'}
+                  />{' '}
+                  {text}
+                </NavLink>
+              </NavItem>
+            ))}
+          </Navigation>
+        </Nav>
+      </Container>
+    </motion.div>
   )
 }
 export default SideBar

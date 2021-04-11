@@ -57,7 +57,7 @@ export default function IndexPage(props: Props) {
   const quotes: Array<Quote> = t('home.quotes', { returnObjects: true })
 
   return (
-    <Layout>
+    <Layout title={t('home.metaTitle')}>
       {/* Home Section */}
       <ComponentSizer
         h="90vh"
@@ -83,6 +83,7 @@ export default function IndexPage(props: Props) {
           <Box
             position="absolute"
             bottom="0px"
+            visibility={{ base: 'hidden', sm: 'visible' }}
             width={{ base: '200px', md: '300px', lg: '400px' }}
             height="auto"
             right={{ base: '0', md: '50%', lg: '40%' }}

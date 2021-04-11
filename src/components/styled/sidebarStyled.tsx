@@ -9,12 +9,16 @@ import {
 } from 'react-icons/gr'
 import { GrIconStyles } from './generic'
 
+type Props = {
+  isLight?: boolean
+  isOpen?: boolean
+}
+
 export const Container = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
   overflow: hidden;
   padding: 0;
   margin: 0;
@@ -26,8 +30,7 @@ export const Background = styled(motion.div)`
   left: 0;
   bottom: 0;
   width: 100vw;
-  background: ${(props: { isLight: boolean }) =>
-    props?.isLight ? '#edf2f7' : '#171923'};
+  background: ${(props: Props) => (props?.isLight ? '#edf2f7' : '#171923')};
   z-index: 3;
 `
 

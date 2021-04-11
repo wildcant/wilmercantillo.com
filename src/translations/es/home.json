@@ -1,14 +1,15 @@
 {
+  "metaTitle": "Home Page - Wilmer Cantillo",
   "myName": "Wilmer Cantillo",
   "intro": {
     "buttonText": "Mi Historia",
-    "description": "Te ayudare a comprender conceptos sobre tecnología e ingeniería a través de mi blog con publicaciones concretas y fáciles de entender.",
+    "description": "Hola 👋, soy Wilmer. He trabajado un tiempo considerable en el campo de la programación. Y he creado esta pagina con el proposito de mostrar los proyectos que he realizado y compartir los conocimientos que he adquirido. Con la esperanza de que le sirva a alguien! 😄",
     "title": "Ingenierio y Desarrollador, Establecido en Colombia.",
     "name": "Intro"
   },
   "blog": {
     "buttonText": "Blog",
-    "description": "Echa un vistazo al contenido de mi blog, aquí encontrarás información útil para comenzar o mejorar tu carrera.",
+    "description": "Echa un vistazo al contenido de mi blog, aquí encontrarás información útil para comenzar o mejorar tu carrera. 👇",
     "title": "¿Quieres comenzar tu propia carrera tecnologíca?",
     "name": "Blog",
     "latestPosts": "Publicaciones mas recientes",
@@ -17,7 +18,7 @@
   },
   "contact": {
     "buttonText": "Escribeme",
-    "description": "Tienes proyectos, ideas de negocio, preguntas?",
+    "description": "Tienes proyectos, ideas de negocio, preguntas? ✍️",
     "title": "Cualquier tipo de consulta o discusión.",
     "name": "Contacto",
     "quote": "Yo creo bastante en la suerte. Y he constatado que, cuanto más duro trabajo, más suerte tengo.",
@@ -33,7 +34,7 @@
   },
   "projects": {
     "buttonText": "Explorar",
-    "description": "Siempre trabajando en proyectos interesantes con pasión disfrutando del proceso y logrando resultados excelentes.",
+    "description": "Siempre estoy trabajando en proyectos que me parescan interesantes 😎 con mucho entusiasmo, disfrutando del proceso y logrando resultados excelentes.",
     "title": "Proyectos destacados.",
     "name": "Proyectos",
     "seeMore": "Ver mas"
@@ -41,7 +42,7 @@
   "testimonials": {
     "title": "¿Qué piensan los clientes y socios?",
     "name": "Testimonios",
-    "description": "¿No confías en mi? Mira lo que otros dicen"
+    "description": "¿No confías en mi? 🤔 Mira lo que otros dicen"
   },
   "quotes": [
     {

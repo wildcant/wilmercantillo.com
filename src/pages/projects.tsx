@@ -17,7 +17,7 @@ export default function Projects(props: Props) {
   const { projects } = props.data
   const { t } = useTranslation()
   return (
-    <Layout>
+    <Layout title={t('projects.metaTitle')}>
       <ComponentSizer>
         <Heading textAlign="center">{t('projects.title')}</Heading>
         <Flex

@@ -4,6 +4,7 @@ import {
   FlexProps,
   IconButton,
   Text,
+  Tooltip,
   useColorMode,
   VisuallyHidden,
 } from '@chakra-ui/react'
@@ -77,14 +78,19 @@ export default function Header(props: FlexProps) {
               <LangPicker />
             </Box>
             <Box zIndex={2}>
-              <IconButton
-                aria-label="theme-mode"
-                onClick={toggleColorMode}
-                bg="transparent"
-                icon={
-                  isLight ? <RiMoonFill size={25} /> : <RiSunFill size={25} />
-                }
-              />
+              <Tooltip
+                label={isLight ? t('general.darkMode') : t('general.lightMode')}
+                aria-label="toggle-theme"
+              >
+                <IconButton
+                  aria-label="theme-mode"
+                  onClick={toggleColorMode}
+                  bg="transparent"
+                  icon={
+                    isLight ? <RiMoonFill size={25} /> : <RiSunFill size={25} />
+                  }
+                />
+              </Tooltip>
             </Box>
             <MenuWrapper animate={isOpen ? 'open' : 'closed'}>
               <MenuToggle
@@ -109,14 +115,19 @@ export default function Header(props: FlexProps) {
           </Box>
           <Box display={{ base: 'none', md: 'block' }} mt={{ base: 4, md: 0 }}>
             <LangPicker />
-            <IconButton
-              aria-label="theme-mode"
-              onClick={toggleColorMode}
-              bg="transparent"
-              icon={
-                isLight ? <RiMoonFill size={25} /> : <RiSunFill size={25} />
-              }
-            />
+            <Tooltip
+              label={isLight ? t('general.darkMode') : t('general.lightMode')}
+              aria-label="toggle-theme"
+            >
+              <IconButton
+                aria-label="theme-mode"
+                onClick={toggleColorMode}
+                bg="transparent"
+                icon={
+                  isLight ? <RiMoonFill size={25} /> : <RiSunFill size={25} />
+                }
+              />
+            </Tooltip>
           </Box>
         </Flex>
       </ComponentSizer>
