@@ -1,0 +1,8 @@
+{
+  "name": "Nombre",
+  "lastName": "Apellido",
+  "subject": "Tema",
+  "message": "Mensaje",
+  "submit": "Enviar",
+  "subjects": ["Just to say hi"]
+}

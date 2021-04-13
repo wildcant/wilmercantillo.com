@@ -1,4 +1,5 @@
 import blog from './blog.json'
+import contact from './contact.json'
 import footer from './footer.json'
 import general from './general.json'
 import header from './header.json'
@@ -13,5 +14,6 @@ export default {
     blog,
     projects,
     general,
+    contact,
   },
 }
