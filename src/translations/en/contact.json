@@ -1,8 +1,9 @@
 {
   "name": "Name",
-  "lastName": "Last Name",
+  "email": "Email Address",
   "subject": "Subject",
   "message": "Message",
   "submit": "Send",
-  "subjects": ["Solo para decir hola"]
+  "reason": "Reason",
+  "reasons": ["Just to say hi", "Business", "Software", "Electronics", "Other"]
 }

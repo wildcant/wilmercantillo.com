@@ -1,8 +1,15 @@
 {
   "name": "Nombre",
-  "lastName": "Apellido",
-  "subject": "Tema",
+  "email": "Correo Electronico",
+  "subject": "Asunto",
   "message": "Mensaje",
   "submit": "Enviar",
-  "subjects": ["Just to say hi"]
+  "reason": "Motivo",
+  "reasons": [
+    "Solo para decir hola",
+    "Negocio",
+    "Software",
+    "Electronica",
+    "Otro"
+  ]
 }
