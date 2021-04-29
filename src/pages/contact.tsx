@@ -24,17 +24,23 @@ export default function Library(props: PageProps) {
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<ContactFormData>()
   const { colorMode } = useColorMode()
   const isLight = colorMode === 'light'
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log({ data })
+  const onSubmit = async (data: ContactFormData) => {
+    await fetch('https://tan-porcupine-3372.twil.io/send-email', {
+      method: 'post',
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      },
+      body: new URLSearchParams(data).toString(),
+    })
   }
 
   const reasons: string[] = t('contact.reasons', { returnObjects: true })
-  console.log(errors)
+
   return (
     <Layout pathname={props.location.pathname}>
       <ComponentSizer minHeight="90vh">
@@ -42,24 +48,26 @@ export default function Library(props: PageProps) {
           <Box width="90%" maxW="450px">
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
               <Input
+                defaultValue="Wilmer"
                 label={t('contact.name')}
                 isLight={isLight}
                 error={errors.name}
                 {...register('name', {
                   required: {
                     value: true,
-                    message: 'This field is required.',
+                    message: t('contact.requiredField'),
                   },
                 })}
               />
               <Input
+                defaultValue="will.canti2697@gmail.com"
                 label={t('contact.email')}
                 isLight={isLight}
                 error={errors.email}
                 {...register('email', {
                   required: {
                     value: true,
-                    message: 'This field is required.',
+                    message: t('contact.requiredField'),
                   },
                 })}
               />
@@ -71,7 +79,7 @@ export default function Library(props: PageProps) {
                 {...register('reason', {
                   required: {
                     value: true,
-                    message: 'This field is required.',
+                    message: t('contact.requiredField'),
                   },
                 })}
               />
@@ -79,12 +87,7 @@ export default function Library(props: PageProps) {
                 label={t('contact.subject')}
                 isLight={isLight}
                 error={errors.subject}
-                {...register('subject', {
-                  required: {
-                    value: true,
-                    message: 'This field is required.',
-                  },
-                })}
+                {...register('subject')}
               />
               <TextArea
                 label={t('contact.message')}
@@ -92,7 +95,13 @@ export default function Library(props: PageProps) {
                 {...register('message')}
               />
               <Stack align="center">
-                <Button variant="outline" type="submit" marginTop="1.5rem">
+                <Button
+                  variant="outline"
+                  type="submit"
+                  marginTop="1.5rem"
+                  isLoading={isSubmitting}
+                  disabled={isSubmitting}
+                >
                   {t('contact.submit')}
                 </Button>
               </Stack>

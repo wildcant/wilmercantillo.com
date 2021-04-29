@@ -21,6 +21,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {label}
         <CInput
           ref={ref}
+          autoComplete="false"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck="false"
           borderColor={!!error ? 'tomato' : isLight ? 'black' : 'white'}
           _hover={{ borderColor: isLight ? 'primary.500' : 'purple.500' }}
           _focus={{
