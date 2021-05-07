@@ -6,5 +6,10 @@
   "submit": "Send",
   "reason": "Reason",
   "reasons": ["Just to say hi", "Business", "Software", "Electronics", "Other"],
-  "requiredField": "This field is required."
+  "requiredField": "This field is required.",
+  "successTitle": "Message Sent!",
+  "successMessage": "Thanks for contacting me. I'll reply to you as soon as I reach your message.",
+  "failMessage": "Not able to send your message. Please try again later.",
+  "anotherMessage": "Want to send another message?",
+  "clickHere": "Click here."
 }

@@ -12,5 +12,10 @@
     "Electronica",
     "Otro"
   ],
-  "requiredField": "Este campo es requerido."
+  "requiredField": "Este campo es requerido.",
+  "successTitle": "¡Mensaje Enviado!",
+  "successMessage": "Gracias por escribirme. Le responderé tan pronto como vea a su mensaje.",
+  "failMessage": "No fue posible enviar su mensaje. Por favor intente de nuevo mas tarde.",
+  "anotherMessage": "Quiere enviar otro mensaje?",
+  "clickHere": "Haz click aqui."
 }

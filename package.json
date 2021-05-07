@@ -23,6 +23,7 @@
     "@loadable/component": "^5.14.1",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@sendgrid/mail": "^7.4.4",
     "algoliasearch": "^4.8.6",
     "focus-visible": "^5.2.0",
     "framer-motion": "^4.1.2",
@@ -63,6 +64,7 @@
     "@types/react-instantsearch-dom": "^6.10.0",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
+    "@vercel/node": "^1.10.0",
     "eslint": "^7.23.0",
     "eslint-plugin-react": "^7.23.1"
   }
