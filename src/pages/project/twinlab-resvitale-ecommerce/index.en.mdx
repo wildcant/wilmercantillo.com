@@ -1,0 +1,52 @@
+---
+lang: en
+type: project
+slug: 'twinlab-resvitale-ecommerce'
+title: 'Twinlab Resvitale Ecommerce'
+date: '2021-05-09'
+author: 'Wilmer Cantillo'
+description:
+  'Built a headless ecommerce for vitamins and minereals with Next js, Shopify y
+  Contentful.'
+category: 'ecommerce'
+projectType: 'Sancrisoft Project'
+tech: 'Next js - Shopify - Contentful'
+keywords:
+  - 'Next js'
+  - 'Shopify'
+  - 'Contentful'
+  - 'Google Tag Managaer'
+  - 'Google Analytics'
+banner: './images/banner.png'
+projectUrl: 'https://tcc-one.vercel.app/'
+bannerCredit: ''
+---
+
+import { graphql } from 'gatsby'
+export const ProjectQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(
+      relativePath: {
+        eq: "project/twinlab-resvitale-ecommerce/images/banner.png"
+      }
+    ) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
+
+## Goal
+
+## Context
+
+## Project construction
+
+## Conclution

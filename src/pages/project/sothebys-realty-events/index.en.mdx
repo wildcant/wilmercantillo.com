@@ -1,9 +1,9 @@
 ---
 lang: en
 type: project
-slug: 'orange-delivery'
+slug: 'sothebys-realty-events'
 title: "Sotherby's Realty"
-date: '2020-02-10'
+date: '2020-10-25'
 author: 'Wilmer Cantillo'
 description: 'Built web page for bidding stream event with sancrisoft team.'
 category: 'WebApp'
@@ -16,5 +16,29 @@ projectUrl: 'https://registration.sothebysrealtyevents.com/'
 bannerCredit: ''
 ---
 
-- Landingpage
-- Resgistro
+import { graphql } from 'gatsby'
+export const ProjectQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(
+      relativePath: { eq: "project/sothebys-realty-events/images/banner.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
+
+## Goal
+
+## Context
+
+## Project construction
+
+## Conclution

@@ -10,7 +10,8 @@ export default function LangPicker() {
   const location = useLocation()
   const { t } = useTranslation()
   const lang = useLangContext()
-  const newPath = location.pathname?.includes('en')
+
+  const newPath = location.pathname?.includes('/en/')
     ? '/' + location.pathname.split('/').splice(2).join('/') || '/'
     : `/en${location.pathname}`
 

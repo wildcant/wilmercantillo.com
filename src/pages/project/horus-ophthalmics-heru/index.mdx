@@ -3,7 +3,7 @@ lang: es
 type: project
 slug: 'horus-ophthalmics-heru'
 title: 'Horus Ophthalmics - Heru'
-date: '2020-02-10'
+date: '2021-03-23'
 author: 'Wilmer Cantillo'
 description:
   'Portal para acceder a informacion y servicios de evaluacion en tiempo real de
@@ -18,6 +18,25 @@ banner: './images/banner.png'
 projectUrl: 'https://registration.sothebysrealtyevents.com/'
 bannerCredit: ''
 ---
+
+import { graphql } from 'gatsby'
+export const ProjectQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(
+      relativePath: { eq: "project/horus-ophthalmics-heru/images/banner.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
 
 https://www.seeheru.com/technology/
 

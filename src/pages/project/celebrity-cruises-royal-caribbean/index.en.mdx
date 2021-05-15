@@ -3,17 +3,48 @@ lang: en
 type: project
 slug: 'celebrity-cruises-royal-caribbean'
 title: 'Celebrity Cruises - Royal Caribbean App'
-date: '2020-02-10'
+date: '2021-03-16'
 author: 'Wilmer Cantillo'
 description: 'Built web page to show Celebrity cruises brochure.'
 category: 'WebApp'
 projectType: 'Sancrisoft Project'
-tech: 'React'
+tech: 'Gatsby'
 keywords:
-  - 'React'
+  - 'Gatsby'
+  - 'Contentful'
+  - 'React Native'
 banner: './images/banner.png'
 projectUrl: 'http://celebrity-v2-web-dev.s3-website-us-east-1.amazonaws.com/'
 bannerCredit: ''
 ---
 
+import { graphql } from 'gatsby'
+export const ProjectQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(
+      relativePath: {
+        eq: "project/celebrity-cruises-royal-caribbean/images/banner.png"
+      }
+    ) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
+
 http://celebrity-v2-web-dev.s3-website-us-east-1.amazonaws.com/
+
+## Goal
+
+## Context
+
+## Project construction
+
+## Conclution

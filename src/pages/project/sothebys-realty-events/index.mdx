@@ -1,9 +1,9 @@
 ---
 lang: es
 type: project
-slug: 'orange-delivery'
+slug: 'sothebys-realty-events'
 title: "Sotherby's Realty"
-date: '2020-02-10'
+date: '2020-10-25'
 author: 'Wilmer Cantillo'
 description:
   'Construcción de una pagina web para evento tipo subasta streaming.'
@@ -17,5 +17,29 @@ projectUrl: 'https://registration.sothebysrealtyevents.com/'
 bannerCredit: ''
 ---
 
-- Landingpage
-- Resgistro
+import { graphql } from 'gatsby'
+export const ProjectQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(
+      relativePath: { eq: "project/sothebys-realty-events/images/banner.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
+
+## Objetivo
+
+## Contexto
+
+## Construcción del proyecto
+
+## Conclusión
