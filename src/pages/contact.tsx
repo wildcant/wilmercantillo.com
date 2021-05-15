@@ -49,15 +49,15 @@ export default function Library(props: PageProps) {
   const onSubmit = async (data: ContactFormData) => {
     try {
       const response = await fetch('/api/send-mail', {
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Content-type': 'application/json',
         },
-        body: JSON.stringify(data),
+        // body: JSON.stringify(data),
       })
       if (response.ok) {
-        setMessageSent(true)
-        setContactSent(true)
+        // setMessageSent(true)
+        // setContactSent(true)
       } else {
         setMessage(t('contact.failMessage'))
         setTimeout(() => setMessage(''), 5000)
@@ -119,6 +119,7 @@ export default function Library(props: PageProps) {
               <Box width="90%" maxW="450px">
                 <form onSubmit={handleSubmit(onSubmit)} noValidate>
                   <Input
+                    defaultValue="Wilmer"
                     label={t('contact.name')}
                     isLight={isLight}
                     error={errors.name}
@@ -130,6 +131,7 @@ export default function Library(props: PageProps) {
                     })}
                   />
                   <Input
+                    defaultValue="testing.apps.wc@gmail.com"
                     label={t('contact.email')}
                     isLight={isLight}
                     error={errors.email}
@@ -153,12 +155,14 @@ export default function Library(props: PageProps) {
                     })}
                   />
                   <Input
+                    defaultValue="Advice"
                     label={t('contact.subject')}
                     isLight={isLight}
                     error={errors.subject}
                     {...register('subject')}
                   />
                   <TextArea
+                    defaultValue="Good job!"
                     label={t('contact.message')}
                     isLight={isLight}
                     {...register('message')}
