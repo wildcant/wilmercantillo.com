@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
 require('dotenv').config()
 const config = require('./config/website')
@@ -9,7 +10,9 @@ const {
 } = process.env
 
 const siteUrl =
-  GATSBY_VERCEL_ENV === 'production' ? SITE_URL : 'http://localhost:8000'
+  GATSBY_VERCEL_ENV === 'production'
+    ? SITE_URL ?? 'https://wilmercantillo.vercel.app/'
+    : 'http://localhost:8000'
 
 const langKeyDefault = 'es'
 module.exports = {
