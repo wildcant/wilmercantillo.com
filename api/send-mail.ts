@@ -61,8 +61,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   if (!name || !email || !reason || !subject || !message) {
     return res.status(400).json({ message: 'Missing parameters.' })
   }
+  const apiKey = process.env.SENDGRID_API_KEY
+  if (!apiKey) return res.status(400).json({ message: 'Missing Api Key.' })
 
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+  sgMail.setApiKey(apiKey)
   const msg: MailDataRequired = {
     from: 'wil.canti2697@gmail.com',
     replyTo: email,
@@ -72,7 +74,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         dynamicTemplateData: { name, email, reason, subject, message },
       },
     ],
-    templateId: process.env.EMAIL_TEMPLATE_ID,
+    templateId: process.env.EMAIL_TEMPLATE_ID ?? '',
   }
   try {
     await limiter.check({ res, limit: 2, token: 'CACHE_TOKEN' })

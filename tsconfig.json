@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "baseUrl": ".",
     "target": "ESNext",
-    "jsx": "preserve",
     "lib": ["dom", "es2015", "es2017"],
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "jsx": "preserve",
     "strict": true,
     "noEmit": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "removeComments": false,
-    "baseUrl": ".",
     "paths": {
       "src/*": ["src/*"],
       "components/*": ["src/components/*"],
@@ -23,5 +23,6 @@
       "hooks/*": ["src/hooks/*"]
     }
   },
-  "include": ["./src/**/*", "index.d.ts", "mdx.d.ts"]
+  "include": ["./src/**/*", "index.d.ts", "mdx.d.ts"],
+  "exclude": ["node_modules"]
 }
