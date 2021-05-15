@@ -63,23 +63,21 @@ export default function ContactForm() {
       }
 
       const token = await executeRecaptcha('contact')
-      const reCaptchaVerificationResponse = await window.fetch(
+      const reCaptchaVerificationResponse = await fetch(
         '/api/validate-captcha',
         {
           method: 'POST',
           body: JSON.stringify({ token }),
         },
       )
+      const reCaptchaVerification: ReCaptchaVerification = await reCaptchaVerificationResponse.json()
+      const { success, score = 0 } = reCaptchaVerification
 
-      const {
-        success,
-        score = 0,
-      }: ReCaptchaVerification = await reCaptchaVerificationResponse.json()
       if (!success || score < 0.5) {
         setMessage(t('contact.captchaFail'))
+        setTimeout(() => setMessage(''), 5000)
         return
       }
-
       const response = await fetch('/api/send-mail', {
         method: 'POST',
         headers: {
@@ -96,6 +94,7 @@ export default function ContactForm() {
       }
     } catch (error) {
       setMessage(t('contact.failMessage'))
+      setTimeout(() => setMessage(''), 5000)
     }
   }
 
@@ -131,7 +130,12 @@ export default function ContactForm() {
               {t('contact.successMessage')}
             </AlertDescription>
           </Alert>
-          <Text fontSize="sm" position="absolute" bottom="0" right="0">
+          <Text
+            fontSize="sm"
+            position="absolute"
+            bottom="0"
+            right={{ md: '6rem' }}
+          >
             {t('contact.anotherMessage')}{' '}
             <Button
               fontSize="sm"

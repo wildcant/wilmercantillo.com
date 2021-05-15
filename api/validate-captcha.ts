@@ -9,22 +9,19 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const captchaSecret = process.env.RECAPTCHA_SECRET_KEY
   if (!captchaSecret)
     return res.status(400).json({ message: 'Missing Secret Key.' })
-
-  if (!captchaSecret)
-    if (token) {
-      try {
-        const response = await fetch(
-          `https://www.google.com/recaptcha/api/siteverify?secret=${captchaSecret}&response=${token}`,
-          { method: 'POST' },
-        )
-
-        res.status(response.status).json(await response.json())
-      } catch (error) {
-        res.status(400).json({ message: 'Error making request to recaptcha.' })
-      }
-    } else {
-      res.status(400)
-      res.json({ message: 'Token not found.' })
+  if (token) {
+    try {
+      const response = await fetch(
+        `https://www.google.com/recaptcha/api/siteverify?secret=${captchaSecret}&response=${token}`,
+        { method: 'POST' },
+      )
+      const message = await response.json()
+      res.status(response.status).json(message)
+    } catch (error) {
+      res.status(400).json({ message: 'Error making request to recaptcha.' })
     }
+  } else {
+    res.status(400).json({ message: 'Token not found.' })
+  }
   res.end()
 }
