@@ -7,7 +7,7 @@ import Layout from 'src/components/layout'
 export default function Contact(props: PageProps) {
   return (
     <GoogleReCaptchaProvider
-      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+      reCaptchaKey={process.env.GATSBY_RECAPTCHA_SITE_KEY}
     >
       <Layout pathname={props.location.pathname}>
         <ContactForm />
