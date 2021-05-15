@@ -54,14 +54,12 @@ const limiter = rateLimit({
   uniqueTokenPerInterval: 500,
 })
 
-export default async function (
-  req: VercelRequest,
-  res: VercelResponse,
-): Promise<void> {
+export default async function (req: VercelRequest, res: VercelResponse) {
+  if (req.method !== 'POST') return res.status(404).send('Not found')
   const { name, email, reason, subject, message }: Contact = req.body
 
   if (!name || !email || !reason || !subject || !message) {
-    res.status(400).json({ message: 'Missing parameters.' }).end()
+    return res.status(400).json({ message: 'Missing parameters.' })
   }
 
   sgMail.setApiKey(process.env.SENDGRID_API_KEY)

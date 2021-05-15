@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
   siteTitle: 'Wilmer Cantillo',
   siteTitleAlt: 'The personal website of Wilmer Cantillo',

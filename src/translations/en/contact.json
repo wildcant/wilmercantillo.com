@@ -10,6 +10,7 @@
   "successTitle": "Message Sent!",
   "successMessage": "Thanks for contacting me. I'll reply to you as soon as I reach your message.",
   "failMessage": "Not able to send your message. Please try again later.",
+  "captchaFail": "ReCaptcha validation failed. Please try again later.",
   "anotherMessage": "Want to send another message?",
   "clickHere": "Click here."
 }

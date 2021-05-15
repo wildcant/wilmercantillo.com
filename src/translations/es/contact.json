@@ -16,6 +16,7 @@
   "successTitle": "¡Mensaje Enviado!",
   "successMessage": "Gracias por escribirme. Le responderé tan pronto como vea a su mensaje.",
   "failMessage": "No fue posible enviar su mensaje. Por favor intente de nuevo mas tarde.",
+  "captchaFail": "La validation recaptcha ha fallado. Por favor intente de nuevo mas tarde.",
   "anotherMessage": "Quiere enviar otro mensaje?",
   "clickHere": "Haz click aqui."
 }
