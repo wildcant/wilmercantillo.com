@@ -4,14 +4,11 @@ require('dotenv').config()
 const config = require('./config/website')
 
 // See Vercel environment variables for more - https://vercel.com/docs/environment-variables
-const {
-  GATSBY_VERCEL_ENV,
-  GATSBY_VERCEL_URL: SITE_URL = config.siteUrl,
-} = process.env
+const { GATSBY_VERCEL_ENV } = process.env
 
 const siteUrl =
   GATSBY_VERCEL_ENV === 'production'
-    ? SITE_URL ?? 'https://wilmercantillo.vercel.app/'
+    ? 'https://wilmercantillo.vercel.app'
     : 'http://localhost:8000'
 
 const langKeyDefault = 'es'
