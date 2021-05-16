@@ -266,9 +266,8 @@ export default function IndexPage(props: Props) {
                       <Text fontSize={{ md: '1.4rem', lg: '1.6rem' }}>
                         {t('home.contact.softwareLabel')}
                       </Text>
-                      <Text as="small">
-                        {t('home.contact.softwareProjects')}
-                      </Text>
+                      {/* TODO - make query and replace with dynamic data */}
+                      <Text as="small">7 {t('home.contact.projects')}</Text>
                     </Box>
                   </Box>
                 </Link>
@@ -290,9 +289,7 @@ export default function IndexPage(props: Props) {
                       <Text fontSize={{ md: '1.4rem', lg: '1.6rem' }}>
                         {t('home.contact.electronicsLabel')}
                       </Text>
-                      <Text as="small">
-                        {t('home.contact.electronicsProjects')}
-                      </Text>
+                      <Text as="small">2 {t('home.contact.projects')}</Text>
                     </Box>
                   </Box>
                 </Link>
