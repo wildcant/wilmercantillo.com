@@ -3,22 +3,22 @@
   "myName": "Wilmer Cantillo",
   "intro": {
     "buttonText": "My Story",
-    "description": "Help you understand engineering and tech concepts through my blog with concrete and easy to read posts.",
+    "description": "Hi 👋, I'm Wilmer. I have worked a considerable amount of time in programming and I have created this page with the purpose of showing the projects that I have worked on and share the knowledge that I have acquired. Hopefully this will help someone out there! 😄",
     "title": "Engineer and developer based in Colombia.",
     "name": "Intro"
   },
   "blog": {
     "buttonText": "Blog",
-    "description": "Take a look at my blog, here you will you will find useful information that will help you start or boost your career.",
-    "title": "Want to start your career in tech?",
+    "description": "Take a look at my blog, here you will find useful information that will help you start or boost your career. 👇",
+    "title": "Do you want to start your own career in tech?",
     "name": "Blog",
     "latestPosts": "Most recent posts",
-    "messageOne": "Want to learn more about my career?",
+    "messageOne": "Do you want to know more about my career?",
     "messageTwo": "Keep scrolling"
   },
   "contact": {
     "buttonText": "Contact me",
-    "description": "Do you have projects, business ideas, question?",
+    "description": "Do you have projects, business ideas? Drop me a line ✍️",
     "title": "Any kind of query or discussion",
     "name": "Contact",
     "quote": "I’m a greater believer in luck, and I find the harder I work the more I have of it.",
@@ -28,13 +28,13 @@
     "clients": "6",
     "satisfiedClients": "Satisfied clients.",
     "softwareLabel": "Software",
-    "softwareProjects": "6 Projects",
     "electronicsLabel": "Electronics",
-    "electronicsProjects": "1 Project"
+    "projects": "Projects",
+    "project": "Project"
   },
   "projects": {
     "buttonText": "Explore",
-    "description": "Always working on interesting projects with cutting edge technology achieving cool results, learning a lot and enjoying the process.",
+    "description": "I am always working on projects that, in my opinion, are interesting 😎  with great enthusiasm and great people, enjoying the process and achieving excellent results.",
     "title": "Outstanding Projects",
     "name": "Projects",
     "seeMore": "Read more"
@@ -42,7 +42,7 @@
   "testimonials": {
     "title": "What clients and partners think?",
     "name": "Testimonials",
-    "description": "Don't trust me? See what others say"
+    "description": "Don't trust me? 🤔 See what others say"
   },
   "quotes": [
     {
@@ -55,7 +55,7 @@
     },
     {
       "id": "2",
-      "text": "Made really good job, I would work with him again.",
+      "text": "He did a really good job, I would work with him again.",
       "author": "Borja E.",
       "occupation": "Engineer",
       "social": "Freelancer",

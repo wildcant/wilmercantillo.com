@@ -153,7 +153,7 @@ export default function ContactForm() {
           <Box width="90%" maxW="450px">
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
               <Input
-                defaultValue="Wilmer"
+                // defaultValue="Wilmer"
                 label={t('contact.name')}
                 isLight={isLight}
                 error={errors.name}
@@ -165,7 +165,7 @@ export default function ContactForm() {
                 })}
               />
               <Input
-                defaultValue="testing.apps.wc@gmail.com"
+                // defaultValue="testing.apps.wc@gmail.com"
                 label={t('contact.email')}
                 isLight={isLight}
                 error={errors.email}
@@ -189,14 +189,14 @@ export default function ContactForm() {
                 })}
               />
               <Input
-                defaultValue="Advice"
+                // defaultValue="Advice"
                 label={t('contact.subject')}
                 isLight={isLight}
                 error={errors.subject}
                 {...register('subject')}
               />
               <TextArea
-                defaultValue="Good job!"
+                // defaultValue="Good job!"
                 label={t('contact.message')}
                 isLight={isLight}
                 {...register('message')}

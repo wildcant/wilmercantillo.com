@@ -3,7 +3,7 @@
   "myName": "Wilmer Cantillo",
   "intro": {
     "buttonText": "Mi Historia",
-    "description": "Hola 👋, soy Wilmer. He trabajado un tiempo considerable en el campo de la programación. Y he creado esta pagina con el proposito de mostrar los proyectos que he realizado y compartir los conocimientos que he adquirido. Con la esperanza de que le sirva a alguien! 😄",
+    "description": "Hola 👋, soy Wilmer. He trabajado un tiempo considerable en el campo de la programación y he creado esta pagina con el proposito de mostrar los proyectos que he realizado y compartir los conocimientos que he adquirido. Con la esperanza de que le sirva a alguien! 😄",
     "title": "Ingenierio y Desarrollador, Establecido en Colombia.",
     "name": "Intro"
   },
@@ -18,19 +18,19 @@
   },
   "contact": {
     "buttonText": "Escribeme",
-    "description": "Tienes proyectos, ideas de negocio, preguntas? ✍️",
+    "description": "Tienes proyectos, ideas de negocio, preguntas? Dejame una linea ✍️",
     "title": "Cualquier tipo de consulta o discusión.",
     "name": "Contacto",
     "quote": "Yo creo bastante en la suerte. Y he constatado que, cuanto más duro trabajo, más suerte tengo.",
     "quoteAuthor": "Thomas Jefferson",
-    "years": "1",
+    "years": "2",
     "yearsExperience": "Años de experiencia",
     "clients": "6",
     "satisfiedClients": "Clientes satisfechos.",
     "softwareLabel": "Software",
-    "softwareProjects": "6 Proyectos",
     "electronicsLabel": "Electronica",
-    "electronicsProjects": "1 Proyecto"
+    "projects": "Proyectos",
+    "project": "Proyecto"
   },
   "projects": {
     "buttonText": "Explorar",
