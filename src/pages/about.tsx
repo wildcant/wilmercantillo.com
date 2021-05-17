@@ -1,4 +1,4 @@
-import { Flex, Heading } from '@chakra-ui/layout'
+import { Heading, Text } from '@chakra-ui/layout'
 import { PageProps } from 'gatsby'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
@@ -10,11 +10,13 @@ export default function Library(props: PageProps) {
   return (
     <Layout pathname={props.location.pathname}>
       <ComponentSizer height="90vh">
-        <Flex height="100%" align="center" justify="center">
-          <Heading fontFamily="Rouge Script" size="xl">
-            {t('general.underDev')}.
-          </Heading>
-        </Flex>
+        <Heading as="h1" size="xl">
+          {t('about.title')}
+        </Heading>
+        <br />
+        <Text fontSize="2xl">{t('about.p1')}</Text>
+        <br />
+        <Text fontSize="2xl">{t('about.p2')}</Text>
       </ComponentSizer>
     </Layout>
   )
