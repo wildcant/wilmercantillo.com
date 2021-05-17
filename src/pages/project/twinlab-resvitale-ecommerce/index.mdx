@@ -13,10 +13,18 @@ projectType: 'Proyecto Sancrisoft'
 tech: 'Next js - Shopify - Contentful'
 keywords:
   - 'Next js'
-  - 'Shopify'
+  - 'Vercel'
   - 'Contentful'
-  - 'Google Tag Managaer'
-  - 'Google Analytics'
+  - 'Shopify'
+  - 'Celigo'
+  - 'Klaviyo'
+  - 'ReCharge Subscriptions'
+  - 'Reviews.io'
+  - 'Zendesk'
+  - 'Algolia'
+  - 'VWO Testing'
+  - 'Google APIs'
+  - 'CirclCi'
 projectUrl: 'https://tcc-one.vercel.app/'
 banner: './images/banner.png'
 bannerCredit: ''
@@ -43,10 +51,64 @@ export const ProjectQuery = graphql`
   }
 `
 
-## Objetivo
+Twinlab Consolidated Corporation es una empresa estadounidense que fabrica y
+comercializa vitaminas, minerales y suplementos para el culturismo. El año
+pasado twinlab celebró un acuerdo con Bonne Sante Group que conllevo a una
+asociación con marcas como Reserveage, REAAL, ResVitale y Metabolife. El
+objetivo de la asociación es entregar productos innovadores de twinlab de forma
+rápida mientras se mantienen los compromisos de la empresa con la calidad basada
+en la ciencia, suplementos nutricionales, que incluyen una línea completa de
+vitaminas, minerales y productos de nutrición deportiva.
 
-## Contexto
+## Equipo de desarrollo
 
-## Construcción del proyecto
+Este proyecto fue desarrollado principalmente por un equipo de 6 personas
+talentosas de los equipos codelab303 y sancrisoft, un techlead, una
+desarrolladora creativa, 2 líderes de equipo y 2 desarrolladores full stack (yo
+incluido aquí).
 
-## Conclusión
+## Proceso de diseño y arquitectura del ecommerce
+
+Aunque no formé parte de este proceso, aprendí mucho de las decisiones que se
+tomaron aquí. Los líderes del equipo decidieron construir un headless ecommerce
+con next js, shopify y contentful para aprovechar todas las ventajas que ofrece
+next js.
+
+![Application Architecture](./images/schema.png)
+
+Como podemos ver en el diagrama, la mayoría de las funcionalidades de backend
+provienen de terceros, lo cual permite un mejor rendimiento, escalabilidad y
+trae todos los beneficios del jamstack.
+
+## Proceso de desarrollo de comercio electrónico
+
+Una vez que el equipo de UX / UI terminó su trabajo, nos entregaron un diseño
+muy organizado y limpio en figma, lo que permitió que el proceso de desarrollo
+fuera más rápido y mucho más agradable.
+
+Durante el proceso de creación de esta aplicación obtuve muchos conocimientos
+nuevos ya que era la primera vez que trabajaba con la mayoría de estas
+tecnologías y APIs. Decidimos usar un par de templates para el boilerplate antes
+de comenzar el proyecto: el vercel commerce y el ejemplo de integración de
+NextJs y Contentful, por lo que el lo primero que debía hacer era familiarizarme
+con el boilerplate y cómo realizar consultas para obtención de datos. Contentful
+se utilizó principalmente para contenido dinámico de páginas y Shopify para
+manejar funcionalidades comercio electrónico y datos de productos.
+
+Como mi primera tarea realice la primera página dinámica para mostrar los
+artículos del blog provenientes de contenful. Para esto, investigué un poco y
+aprendí sobre las rutas dinámicas y funciones _getStaticProps_ y
+_getStaticPaths_ de next js. Después de haber completado el enrutamiento, me
+concentré en plasmar el diseño de la página y el estilo usando paquete de
+contentful richtext renderer y el paquete sharethis los botones para compartir
+en redes sociales. Esta fue la interfaz de usuario solicitada por los
+diseñadores:
+
+![Application Architecture](./images/article.png)
+
+## Obstáculos
+
+La storefront API de Shopify nos limitó porque no contaba con los endpoints para
+algunas funcionalidades. Por ejemplo, no fue posible construir un página de
+administración de suscripciones personalizada, por eso decidimos utilizar el
+portal de clientes de ReCharge.

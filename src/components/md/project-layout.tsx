@@ -72,6 +72,20 @@ export default function ProjectLayout(props: ProjectPost & Children) {
                 </Badge>
               </Link>
             )}
+            {props.projectUrl && (
+              <Link target="_blank" href={props.projectUrl}>
+                <Badge
+                  variant="subtle"
+                  colorScheme="black"
+                  textTransform="capitalize"
+                  display="flex"
+                  alignItems="center"
+                >
+                  <Text marginRight="0.4rem">{t('projects.project')}</Text>
+                  <FaExternalLinkAlt />
+                </Badge>
+              </Link>
+            )}
           </Flex>
         </Flex>
         <Box marginBottom="1rem">

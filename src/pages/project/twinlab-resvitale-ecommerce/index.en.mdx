@@ -6,17 +6,25 @@ title: 'Twinlab Resvitale Ecommerce'
 date: '2021-05-09'
 author: 'Wilmer Cantillo'
 description:
-  'Built a headless ecommerce for vitamins and minereals with Next js, Shopify y
-  Contentful.'
+  'Built a headless ecommerce for Twinlab Consolidated Corporation with Next js,
+  Shopify and Contentful.'
 category: 'ecommerce'
 projectType: 'Sancrisoft Project'
 tech: 'Next js - Shopify - Contentful'
 keywords:
   - 'Next js'
-  - 'Shopify'
+  - 'Vercel'
   - 'Contentful'
-  - 'Google Tag Managaer'
-  - 'Google Analytics'
+  - 'Shopify'
+  - 'Celigo'
+  - 'Klaviyo'
+  - 'ReCharge Subscriptions'
+  - 'Reviews.io'
+  - 'Zendesk'
+  - 'Algolia'
+  - 'VWO Testing'
+  - 'Google APIs'
+  - 'CirclCi'
 banner: './images/banner.png'
 projectUrl: 'https://tcc-one.vercel.app/'
 bannerCredit: ''
@@ -43,10 +51,61 @@ export const ProjectQuery = graphql`
   }
 `
 
-## Goal
+Twinlab Consolidated Corporation is an American company which manufactures and
+markets vitamins, minerals, and bodybuilding supplements. Last year twinlab
+entered into an agreement with Bonne Sante Group which means a partnership with
+brands such as Reserveage, REAAL, ResVitale and Metabolife. The partnership aims
+to deliver twinlab innovative products on an expedited basis while still
+maintaining the company’s overarching commitments to quality science-based,
+nutritional supplements, including a complete line of vitamins, minerals and
+sports nutrition products.
 
-## Context
+## Development team
 
-## Project construction
+This project was developed mainly by a team of 6 talented people from codelab303
+and sancrisoft teams, one techlead, one creative technologist (who focused on
+the ui building blocks and styles), 2 team leaders and 2 full stack developers
+(me included here).
 
-## Conclution
+## E Commerce Architecture & Design Process
+
+Even though I was not part of this process I learnt a lot from the decisions
+that were made here. The team leaders decided to built a headless ecommerce with
+next js, shopify and contentful to take advantage of the powerful serving
+strategies of next js.
+
+![Application Architecture](./images/schema.png)
+
+As we can see in the diagram most of the backend functionalities comes from
+third party services which allows better performance, scalability and bring all
+the benefits of the jamstack.
+
+## Ecommerce development process
+
+Once the UX/UI team finished their work they end up with a very organized and
+clean design in figma, which allowed the development process to be faster and
+much more enjoyable.
+
+A lof of learning took place throughout the process of building this application
+since it was the first time working with all these technologies and APIs for me.
+We decided to use a couple of templates for the boilerplate to get started with
+the project: vercel commerce and next contentful integration example, so the
+first thing to do was to get to know the boilerplate and how to make queries for
+data fetching. Contentful was mainly used for web page dynamic content and
+shopify to handle commerce functionalities and products data.
+
+I was in charge of making the first dynamic page to handle blog articles coming
+from contentful. For this I did a bit of research and learnt about next js
+dynamic routes and next js functions _getStaticProps_ and _getStaticPaths_.
+After getting routing up and working I focused on page template and style using
+contentful richtext renderer package and sharethis package for the social
+network share buttons. This was the ui requested by designers:
+
+![Application Architecture](./images/article.png)
+
+## Obstacles
+
+We got limited by the shopify storefront API because it did not have endpoints
+yet to make some functionalities. For example it was not possible to build a
+custom subscriptions management page, because of this we decided to utilize
+recharge customer portal.
