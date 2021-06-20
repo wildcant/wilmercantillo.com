@@ -8,6 +8,7 @@ import { SEO } from '../seo'
 import BlogPostLayout from './blog-layout'
 import CodeBlock from './code-block'
 import Headings from './headings'
+import Lists from './lists'
 import ProjectPostLayout from './project-layout'
 import Text from './text'
 
@@ -20,6 +21,9 @@ export const components: MDXProviderComponents = {
   h6: Headings.H6,
   p: Text.Paragraph,
   code: CodeBlock,
+  ul: Lists.UL,
+  li: Lists.LI,
+  ol: Lists.OL,
 }
 
 type Props = PageProps & {
