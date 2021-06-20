@@ -30,6 +30,7 @@ banner: './images/banner.png'
 bannerCredit: ''
 ---
 
+import { Link } from '@chakra-ui/react'
 import { graphql } from 'gatsby'
 export const ProjectQuery = graphql`
   {
@@ -58,19 +59,23 @@ asociación con marcas como Reserveage, REAAL, ResVitale y Metabolife. El
 objetivo de la asociación es entregar productos innovadores de twinlab de forma
 rápida mientras se mantienen los compromisos de la empresa con la calidad basada
 en la ciencia, suplementos nutricionales, que incluyen una línea completa de
-vitaminas, minerales y productos de nutrición deportiva.
+vitaminas, minerales y productos de nutrición deportiva. Para cumplir con estos
+dichos planes se llevó a cabo una remodelación de las aplicaciones web para cada
+tienda utilizando tecnología de punta que ofrece las mejores índices de
+rendimiento, satisfacción al cliente y conversión.
 
 ## Equipo de desarrollo
 
-Este proyecto fue desarrollado principalmente por un equipo de 6 personas
-talentosas de los equipos codelab303 y sancrisoft, un techlead, una
-desarrolladora creativa, 2 líderes de equipo y 2 desarrolladores full stack (yo
-incluido aquí).
+Como desarrollador full stack de la empresa Sancrisoft participe en la
+construcción del ecommerce de una de las tiendas, Resvitale, en la cual se
+basarán las otras 3. Este proyecto fue desarrollado en su mayoría por un equipo
+de 4 personas talentosas de los equipos codelab303 y sancrisoft, un teclead, una
+desarrolladora creativa y 2 desarrolladores full stack (yo incluido aquí).
 
-## Proceso de diseño y arquitectura del ecommerce
+## Proceso de diseño y arquitectura
 
 Aunque no formé parte de este proceso, aprendí mucho de las decisiones que se
-tomaron aquí. Los líderes del equipo decidieron construir un headless ecommerce
+tomaron aquí. Los líderes de equipo decidieron construir un headless ecommerce
 con next js, shopify y contentful para aprovechar todas las ventajas que ofrece
 next js.
 
@@ -80,7 +85,7 @@ Como podemos ver en el diagrama, la mayoría de las funcionalidades de backend
 provienen de terceros, lo cual permite un mejor rendimiento, escalabilidad y
 trae todos los beneficios del jamstack.
 
-## Proceso de desarrollo de comercio electrónico
+## Proceso de desarrollo
 
 Una vez que el equipo de UX / UI terminó su trabajo, nos entregaron un diseño
 muy organizado y limpio en figma, lo que permitió que el proceso de desarrollo
@@ -88,23 +93,49 @@ fuera más rápido y mucho más agradable.
 
 Durante el proceso de creación de esta aplicación obtuve muchos conocimientos
 nuevos ya que era la primera vez que trabajaba con la mayoría de estas
-tecnologías y APIs. Decidimos usar un par de templates para el boilerplate antes
-de comenzar el proyecto: el vercel commerce y el ejemplo de integración de
-NextJs y Contentful, por lo que el lo primero que debía hacer era familiarizarme
-con el boilerplate y cómo realizar consultas para obtención de datos. Contentful
-se utilizó principalmente para contenido dinámico de páginas y Shopify para
-manejar funcionalidades comercio electrónico y datos de productos.
+tecnologías y APIs. Decidimos usar el boilerplate de vercel commerce y usamos
+como guía el ejemplo de integración de NextJs y Contentful, por lo que lo
+primero que hice fue familiarizarme con dicho boilerplate y conocer la
+estructura del proyecto, de esta manera aprendí cómo realizar consultas para
+obtención de datos con SWR un paquete para data fetching también de vercel.
+Contentful se utilizó principalmente para contenido dinámico y Shopify para
+manejar funcionalidades y data del comercio.
 
 Como mi primera tarea realice la primera página dinámica para mostrar los
-artículos del blog provenientes de contenful. Para esto, investigué un poco y
-aprendí sobre las rutas dinámicas y funciones _getStaticProps_ y
-_getStaticPaths_ de next js. Después de haber completado el enrutamiento, me
-concentré en plasmar el diseño de la página y el estilo usando paquete de
-contentful richtext renderer y el paquete sharethis para los botones para
-compartir en redes sociales. Esta fue la interfaz de usuario solicitada por los
-diseñadores:
+artículos del blog provenientes de contentful. Para esto aprendí sobre las rutas
+dinámicas y los distintos métodos de renderizado de next js; las funciones más
+importantes al momento de usar next js: _getStaticProps_ y _getStaticPaths_.
+Después de haber completado el enrutamiento, me concentré en plasmar el diseño
+de la página y el estilo utilizando el paquete de contentful richtext renderer y
+el paquete sharethis para los botones para compartir en redes sociales. Esta fue
+la interfaz de usuario solicitada por los diseñadores:
 
-![Application Architecture](./images/article.png)
+![Blog Article](./images/article.png)
+
+De la misma manera realice el enrutamiento y layout para las páginas de
+colecciones y productos, este proceso fue relativamente sencillo debido a que mi
+compañera ya había construido los building blocks de las páginas, es decir, ya
+que el diseño fue realizado con un enfoque a componentes el desarrollo se
+realizó de una manera más eficiente y rápida.
+
+![Product Detail Page Page](./images/PDP.png)
+
+También me encargue de implementar gran parte de la funcionalidad del carrito de
+compra, para esto realice algunos ajustes a los hooks que estaban conectados al
+CRUD de carrito de la api graphql de shopify: <Link href="https://shopify.dev/docs/storefront-api" target="_blank">Storefront API</Link> Este fue el resultado de dicha página:
+
+![Cart Page](./images/cart.png)
+
+También trabajé en múltiples páginas para las configuraciones del perfil de
+usuario y formularios, para esto recomende usar react-hook-form y que he sido un
+gran fan de dicha librería por su simplicidad y efectividad al momento de
+manejar formularios en React js.
+
+![Cart Page](./images/addresses.png)
+
+A pesar de ser un proyecto complejo y extenso pudimos finalizarlo en tiempo
+record gracias a la coordinacion y organizacion que tuvimos, asi como tambien la
+gran labor de los líderes del proyecto.
 
 ## Obstáculos
 
