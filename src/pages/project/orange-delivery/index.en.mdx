@@ -11,10 +11,14 @@ category: 'Retail'
 projectType: 'Personal, Startup'
 tech: 'MERN'
 keywords:
-  - 'MySQL'
-  - 'Express'
   - 'React'
+  - 'Redux'
+  - 'Material UI'
+  - 'Google Maps API'
   - 'Node'
+  - 'MySQL'
+  - 'Telegram bot API'
+  - 'Socket io'
 projectUrl: 'https://orange-delivery.vercel.app/'
 banner: './images/banner.png'
 bannerCredit: ''
@@ -40,10 +44,90 @@ export const ProjectQuery = graphql`
   }
 `
 
-## Goal
+Orange was a project that I carried out with 3 colleagues at the beginning of
+2020 as an initiative to innovate in the field of logistics and supply chain.
+However, due to the pandemic I was unable to continue working on it as I saw the
+need to look for a job that would allow me and my family to have a greater
+economic stability. Despite this during the construction of this project I
+gained a lot of new knowledge and skills.
 
-## Context
+Personally I was in charge of both the design and the construction of the app.
+My colleagues were in charge of marketing the service through social networks
+and delivery guys recruitment.
 
-## Project construction
+# Goal
 
-## Conclution
+<PAfterHeading>
+  The objective of this project was to build the company's landing page and a
+  web app that would allow the management of packages transport, that is, an
+  optimized service for the last mile.
+</PAfterHeading>
+
+The application consists of an interface, with authentication functionality,
+that allows the end user and SMEs request shipments, as well as a bot that
+receives the request and sends it to the telegram group, in which a delivery guy
+can accept and receive details of that request. In addition, the interface of
+users allows them to observe the location in real time of the delivery guy,
+estimated delivery time and notifies when the delivery guy reaches the
+destination.
+
+# Project construction
+
+<PAfterHeading>
+  During this period I was very interested in learning about how to improve the
+  user experience so I take an online UX / UI course where I learned about the
+  process of designing a user interface. Based on these principles and after
+  looking at multiple designs for inspiration I started doing the wireframes and
+  then I was iterating based on the feedback of my colleagues.
+</PAfterHeading>
+
+![Wireframes](./images/wireframes.png)
+
+The goal of wireframes is to build the UI layout in black and white, play with
+the contrast in the content so that the sections more important highlights more.
+After being satisfied with the result of this section the fonts, colors and
+images were added. I did most of the icons and some of the illustrations which I
+designed using adobe illustrator. This was the result of the design:
+
+![Design](./images/design.png)
+
+<Link
+  target="_ blank"
+  href="https://www.figma.com/file/t8t5Ik3f0PMjvITNDDoZbs/orange-web-app?node-id=212667%3A914"
+>
+  <Badge
+    variant="subtle"
+    colorScheme="black"
+    textTransform="capitalize"
+    float="right"
+    display="flex"
+    alignItems="center"
+  >
+    <Text marginRight="0.4rem">Design</Text>
+    <FaExternalLinkAlt />
+  </Badge>
+</Link>
+
+Then I started to do the development, using the libraries React Js and Redux.
+When making the design, I also used the documentation of the design system
+_material_ by google so I also used material ui library for frontend. Also used
+the react hook form library for handling forms and build my own components for
+the functionalities of the map with google maps api. To manage the status of the
+request, I used the database (mysql) and a real-time connection to the backend
+with the library socket io.
+
+The backend is a typical expressjs application with the MVC structure, using
+express-session and passport to handle authentication by sessions. The bot in
+telegram has the functionalities of registration of devery guys and change of
+the status of a shipping, it also has a connection in real time with the user
+interface via socket.
+
+I deployed the application to an AWS EC2 instance, which serves the application
+inside a reverse proxy and the database on AWS RDS.
+
+# Conclution
+
+<PAfterHeading>
+  Carrying out this project was a very challenging and enriching experience
+  since I was charge of the complete development cycle of a web application.
+</PAfterHeading>
