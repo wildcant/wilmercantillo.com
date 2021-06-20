@@ -8,19 +8,21 @@ author: 'Wilmer Cantillo'
 description:
   'Construcción de página web para mostrar catlogo de servicios de Celebrity
   cruises .'
-category: 'Static Website'
+category: 'Static, Mobile'
 projectType: 'Sancrisoft'
-tech: 'Gatsby'
+tech: 'React Native, Gatsby'
 keywords:
   - 'Gatsby'
   - 'Contentful'
   - 'React Native'
+  - 'React Native WebView'
 banner: './images/banner.png'
 projectUrl: 'http://celebrity-v2-web-dev.s3-website-us-east-1.amazonaws.com/'
 bannerCredit: ''
 ---
 
 import { graphql } from 'gatsby'
+import { Link } from '@chakra-ui/react'
 export const ProjectQuery = graphql`
   {
     site {
@@ -41,12 +43,103 @@ export const ProjectQuery = graphql`
   }
 `
 
-http://celebrity-v2-web-dev.s3-website-us-east-1.amazonaws.com/
-
-## Objetivo
+Celebrity Cruises es una compañía que ofrece viajes en cruceros premium
+alrededor del mundo. Sus cruceros están muy bien preparados con las mejores
+experiencias culinarias y cuentan viajes a más de 300 destinos en los siete
+continentes.
 
 ## Contexto
 
+Cada crucero cuenta con múltiples Ipads localizadas estratégicamente para el
+fácil acceso de los usuarios, para el 2021 Celebrity decidió incorporar una
+aplicación moderna que le permitiera a los usuario conocer el catálogo con todos
+los servicios e información que este necesite, como por ejemplo: información de
+los diferentes viajes, destinos, itinerarios, servicios a bordo, etc. Además que
+permita realizar reservas, como parte de la estrategia de marketing y ventas a
+bordo.
+
+Estos son algunos requerimientos exigidos por el cliente:
+
+- El contenido del catálogo debe ser fácil de editar en el futuro.
+- Las Ipads a bordo no cuentan con conexión a internet.
+- El catalogo debe ser accesible desde la web asi como tambien desde
+  dispositivos móviles de forma nativa.
+
+Debido a que el tamaño del contenido es muy grande no se pudo realizar la
+aplicación con un enfoque a PWA. Por esta razón se decidió realizar una api que
+tomará la data desde un cms, en este caso contentful, y lo pusiera en formato
+json dentro del proyecto web, basado en gatsby. Después de tener el website
+construido en gatsby se usaria el paquete react native web para mostrar dicha
+app dentro de una aplicación móvil híbrida.
+
 ## Construcción del proyecto
 
+Mi compañero <Link href="https://github.com/carlosjgonza" target="_blank">
+Carlos </Link> ya había trabajado en la api, de manera que cuando empecé a
+trabajar en este proyecto ya estaba implementada la lógica para convertir la
+data de contentful a json y guardarla en aws, por lo que en el futuro del backend
+del proyecto solo tendría que realizar algunas actualizaciones a los modelos en
+contentful y los esquemas de los json. La mayor parte del trabajo fue UI dev,
+para esto utilice styled components, css grid y react table.
+
+![Alaska itinerary page](./images/alaska.png)
+
+<br/>
+
+![Galapagos page](./images/galapagos.png)
+
+Como podrá notar en la imagen del homepage en la esquina superior derecha hay un
+botón que aparece al momento de que una nueva versión del contenido es
+desplegada en el bucket, de esta manera se puede actualizar el contenido del
+catálogo. Debido a este requerimiento de actualización de contenido no pudimos
+utilizar graphql para la obtención de la data para cada página debido a que
+gatsby cachea la data de cada petición durante el build de la aplicación para
+mejorar el rendimiento del website.
+
+```jsx
+const fetchData = jsonFileNames => {
+  const requestStatements = jsonFileNames.map(jsonFileName =>
+    request(generateJsonUri(jsonFileName)),
+  )
+  const jsonNames = jsonFileNames.map(
+    fileName => `${toCamelCase(fileName).replace(/\-+/g, '')}Json`,
+  )
+  return Promise.all(requestStatements)
+    .then(data => _.zipObject(jsonNames, data))
+    .catch(err => err)
+}
+```
+
+Usando esta función y un el hook para procesos asíncronos useAsync, logre
+simplificar de manera notable la cantidad de líneas de código para obtención de
+data en cada página. Por ejemplo en la página de itinerario era necesario
+consultar la data de destinos, itinerarios, fechas de navegación, viajes,
+puertos y cruceros lo cual se realiza las siguientes líneas de código.
+
+```jsx
+const { loading, value } = useAsync(
+  async () =>
+    await fetchData([
+      'destinations',
+      'itineraries',
+      'sail-dates',
+      'voyages',
+      'ports-of-call',
+      'ships',
+    ]),
+)
+```
+
+Así como este, hubo otros obstáculos debido a los requerimientos tan específicos
+de esta aplicación. Pero logramos resolverlos de manera eficiente siguiente el
+principio de <Link href="https://kentcdodds.com/blog/aha-programming" target="_blank">programación AHA</Link>, es
+decir, sin sacar abstracciones demasiado temprano para no aumentar la complejidad 
+del código de manera innecesaria pero tratando de reconocer los patrones más 
+recurrentes de los cuales valiera la pena hacer abstracciones.
+
+
 ## Conclusión
+
+En este proyecto pude profundizar un poco más sobre el proceso de build de
+gatsby, las limitaciones que aún posee PWA y adquirí más experiencia en frontend
+dev y las librerías más usadas en la comunidad de React.

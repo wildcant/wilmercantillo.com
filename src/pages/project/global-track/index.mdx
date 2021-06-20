@@ -31,7 +31,6 @@ bannerCredit: ''
 ---
 
 import { graphql } from 'gatsby'
-import { PAfterHeading } from 'components/md/text'
 import DynamicDate from './dynamic-date'
 import { Badge, Link, Text } from '@chakra-ui/layout'
 import { FaExternalLinkAlt } from 'react-icons/fa'
@@ -55,9 +54,7 @@ export const ProjectQuery = graphql`
 
 # Objetivos
 
-<PAfterHeading>
-  Diseñar e implementar una solución para telemetría vehicular.
-</PAfterHeading>
+Diseñar e implementar una solución para telemetría vehicular.
 
 - Programar un modem GPS/GPRS para el envío de coordenadas geográficas
   capturadas hacia un web server.
@@ -66,12 +63,9 @@ export const ProjectQuery = graphql`
 
 # Sobre el Proyecto
 
-<PAfterHeading>
-  Este fue el proyecto a través del cual descubrí el mundo de la programación
-  web, ya que si bien venia programando durante los últimos 4 años desde 2015,
-  siempre fue programación orientada a análisis de datos y programación de bajo
-  nivel.
-</PAfterHeading>
+Este fue el proyecto a través del cual descubrí el mundo de la programación web,
+ya que si bien venia programando durante los últimos 4 años desde 2015, siempre
+fue programación orientada a análisis de datos y programación de bajo nivel.
 
 Realice este proyecto por primera vez durante el primer semestre de 2019 usando
 el stack LAMP, y una vez finalizado dicho semestre lo volví construir con el
@@ -79,11 +73,7 @@ propósito de aprender un stack de tecnologías moderno como lo es MERN.
 
 # Construcción del proyecto
 
-<PAfterHeading>
-
 Este proyecto tuvo tres partes:
-
-</PAfterHeading>
 
 1. Adquisición de trama GPS y envío a un web server
 2. Desarrollo de página web
@@ -91,16 +81,13 @@ Este proyecto tuvo tres partes:
 
 ### Adquisición de trama GPS y envío a un web server
 
-<PAfterHeading>
-  En esta fase del proyecto el objetivo fue enviar y capturar data de
-  geolocalización a/en un web server. Aquí exploramos por primera vez los
-  protocolos mas importantes detrás de la web, TCP y UDP, realizamos multiples
-  pruebas para seleccionar el protocolo que mejor solucionara las necesidades
-  del caso, para esto usamos wireshark para analizar los paquetes que se
-  enviaban. Hasta llegar a la conclusión de que el protocolo mas conveniente era
-  UDP, ya que nuestro caso admitía perdida de paquetes y la frecuencia de envíos
-  seria alta.
-</PAfterHeading>
+En esta fase del proyecto el objetivo fue enviar y capturar data de
+geolocalización a/en un web server. Aquí exploramos por primera vez los
+protocolos mas importantes detrás de la web, TCP y UDP, realizamos multiples
+pruebas para seleccionar el protocolo que mejor solucionara las necesidades del
+caso, para esto usamos wireshark para analizar los paquetes que se enviaban.
+Hasta llegar a la conclusión de que el protocolo mas conveniente era UDP, ya que
+nuestro caso admitía perdida de paquetes y la frecuencia de envíos seria alta.
 
 Después de tener el envió de paquetes resuelto creamos nuestro propio sniffer
 para leer dichos paquetes y guardarlos en una base de datos, una RDS en AWS,
@@ -110,24 +97,21 @@ como podrán observar en el siguiente script en python.
 
 ### Desarrollo de página web
 
-<PAfterHeading>
-  Aprendimos de manera rápida y autodidacta los fundamentos del desarrollo web:
-  HTML, css y javascript básico. Fue de gran ayuda la metodología del profesor,
-  el cual nos indicaba el camino para que nosotros realizáramos la investigación
-  y practica por nuestra cuenta, de esta manera también desarrollamos un poco
-  mas la habilidad de aprender mucho mas eficientemente. Indagamos sobre como
-  funciona el internet y el protocolo HTTP, la estructura básica de una pagina
-  web, como darle estilo y como hacerla dinámica.
-</PAfterHeading>
+Aprendimos de manera rápida y autodidacta los fundamentos del desarrollo web:
+HTML, css y javascript básico. Fue de gran ayuda la metodología del profesor, el
+cual nos indicaba el camino para que nosotros realizáramos la investigación y
+practica por nuestra cuenta, de esta manera también desarrollamos un poco mas la
+habilidad de aprender mucho mas eficientemente. Indagamos sobre como funciona el
+internet y el protocolo HTTP, la estructura básica de una pagina web, como darle
+estilo y como hacerla dinámica.
 
 La primera actividad que hice fue renderizar la fecha actual en una pagina web y
 que esta se actualizara automáticamente.
 
 <DynamicDate />
-<PAfterHeading>
-  Este fue mi primer acercamiento con el DOM, las APIs del navegador y los
-  procesos asíncronos.
-</PAfterHeading>
+
+Este fue mi primer acercamiento con el DOM, las APIs del navegador y los
+procesos asíncronos.
 
 ```html
 <div id="date"></div>
@@ -164,12 +148,9 @@ y consultar históricos.
 
 ### Integración con un sistema de adquisición de datos automático
 
-<PAfterHeading>
-  Durante esta fase se realizo la programación del modem GPS, el cual fue el
-  dispositivo Syrus 3G, este dispositivo tiene una interfaz que permite
-  conectarlo al vehículo y obtener múltiples variables como velocidad, posición,
-  entre otras.
-</PAfterHeading>
+Durante esta fase se realizo la programación del modem GPS, el cual fue el
+dispositivo Syrus 3G, este dispositivo tiene una interfaz que permite conectarlo
+al vehículo y obtener múltiples variables como velocidad, posición, entre otras.
 
 ![Syrus 3g](./images/syrus.png)
 
@@ -219,11 +200,9 @@ proceso realizado por la Syrus
 
 # Conclusión
 
-<PAfterHeading>
-  Este proyecto me permitió conocer el mundo de la programación web, y me mostro
-  el panorama de este interesante campo. Aborde una gran cantidad de tecnologías
-  y conceptos que me permitieron sentar las bases para luego construir mi
-  carrera en el mundo de desarrollo web. Por esta razón recomiendo realizar este
-  tipo de proyectos al momento de aprender, por mi experiencia puedo decir que
-  es una manera muy eficiente y rápida de aprender.
-</PAfterHeading>
+Este proyecto me permitió conocer el mundo de la programación web, y me mostro
+el panorama de este interesante campo. Aborde una gran cantidad de tecnologías y
+conceptos que me permitieron sentar las bases para luego construir mi carrera en
+el mundo de desarrollo web. Por esta razón recomiendo realizar este tipo de
+proyectos al momento de aprender, por mi experiencia puedo decir que es una
+manera muy eficiente y rápida de aprender.

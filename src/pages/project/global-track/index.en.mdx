@@ -31,7 +31,6 @@ bannerCredit: ''
 ---
 
 import { graphql } from 'gatsby'
-import { PAfterHeading } from 'components/md/text'
 import DynamicDate from './dynamic-date'
 import { Badge, Link, Text } from '@chakra-ui/layout'
 import { FaExternalLinkAlt } from 'react-icons/fa'
@@ -55,9 +54,7 @@ export const ProjectQuery = graphql`
 
 # Goals
 
-<PAfterHeading>
-  Design and implement a solution for vehicular telemetry.
-</PAfterHeading>
+Design and implement a solution for vehicular telemetry.
 
 - Program a GPS / GPRS modem to send geographic coordinates captured to a web
   server.
@@ -65,11 +62,9 @@ export const ProjectQuery = graphql`
 
 # About the project
 
-<PAfterHeading>
-  This was the project through which I discovered the world of programming web,
-  since although it had been programming for the last 4 years since 2015, it was
-  always oriented to data analysis and programming at low level.
-</PAfterHeading>
+This was the project through which I discovered the world of programming web,
+since although it had been programming for the last 4 years since 2015, it was
+always oriented to data analysis and programming at low level.
 
 I built this project for the first time during the first half of 2019 using the
 LAMP stack, and once this semester was over I built it again with the purpose of
@@ -77,11 +72,7 @@ learning a modern technology stack such as MERN.
 
 # Project construction
 
-<PAfterHeading>
-
 This project had three parts:
-
-</PAfterHeading>
 
 1. Acquisition of GPS frame and sending to a web server
 2. Website development
@@ -89,15 +80,13 @@ This project had three parts:
 
 ### GPS frame acquisition and sending to a web server
 
-<PAfterHeading>
-  In this phase of the project, the objective was to send and capture data from
-  geolocation to / on a web server. Here we explore for the first time the most
-  important protocols behind the web, TCP and UDP, we made a bunch of tests to
-  select the protocol that best solves the needs of the case, for this we use
-  wireshark to analyze the packets that were sent. Until reaching the conclusion
-  that the most convenient protocol was UDP, since our case admitted loss of
-  packages and the data rate would be high.
-</PAfterHeading>
+In this phase of the project, the objective was to send and capture data from
+geolocation to / on a web server. Here we explore for the first time the most
+important protocols behind the web, TCP and UDP, we made a bunch of tests to
+select the protocol that best solves the needs of the case, for this we use
+wireshark to analyze the packets that were sent. Until reaching the conclusion
+that the most convenient protocol was UDP, since our case admitted loss of
+packages and the data rate would be high.
 
 After having the package dispatch resolved we create our own sniffer to read
 such packages and save them in a database, an RDS in AWS, as you can see in the
@@ -107,23 +96,19 @@ following python script.
 
 ### Website development
 
-<PAfterHeading>
-  We quickly and self-taught the basics of web development: HTML, css and basic
-  javascript. The teacher's methodology was of great help, which showed us the
-  way for us to carry out the investigation and practice on our own, in this way
-  we also develop a little bit more the ability to learn much more effectively.
-  We did a research on how the internet works, HTTP protocol, the basic
-  structure of a page web, how to style it and how to make it dynamic.
-</PAfterHeading>
+We quickly and self-taught the basics of web development: HTML, css and basic
+javascript. The teacher's methodology was of great help, which showed us the way
+for us to carry out the investigation and practice on our own, in this way we
+also develop a little bit more the ability to learn much more effectively. We
+did a research on how the internet works, HTTP protocol, the basic structure of
+a page web, how to style it and how to make it dynamic.
 
 The first activity I did was render the current date on a web page and that this
 would be updated automatically.
 
 <DynamicDate />
-<PAfterHeading>
-  This was my first approach to the DOM, browser APIs, and asynchronous
-  processes.
-</PAfterHeading>
+
+This was my first approach to the DOM, browser APIs, and asynchronous processes.
 
 ```html
 <div id="date"></div>
@@ -159,12 +144,9 @@ and consult historical data.
 
 ### Integration with an automatic data acquisition system
 
-<PAfterHeading>
-  During this phase, the programming of the GPS modem was carried out, which was
-  the Syrus 3G device, this device has an interface that allows connect it to
-  the vehicle and obtain multiple variables such as speed, position, among
-  other.
-</PAfterHeading>
+During this phase, the programming of the GPS modem was carried out, which was
+the Syrus 3G device, this device has an interface that allows connect it to the
+vehicle and obtain multiple variables such as speed, position, among other.
 
 ![Syrus 3g](./images/syrus.png)
 
@@ -213,11 +195,9 @@ Syrus
 
 # Conclution
 
-<PAfterHeading>
-  This project allowed me know the world of web programming, and it showed me
-  the panorama of this interesting field. I addressed a large number of
-  technologies and concepts that allowed me to lay the foundations to later
-  build my career in the world of web development. For this reason I recommend
-  doing this type of projects when learning, from my experience I can say that
-  it is a very efficient and fast way to learn.
-</PAfterHeading>
+This project allowed me know the world of web programming, and it showed me the
+panorama of this interesting field. I addressed a large number of technologies
+and concepts that allowed me to lay the foundations to later build my career in
+the world of web development. For this reason I recommend doing this type of
+projects when learning, from my experience I can say that it is a very efficient
+and fast way to learn.
