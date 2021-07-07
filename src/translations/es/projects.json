@@ -4,5 +4,6 @@
   "category": "Categoria",
   "type": "Tipo",
   "tech": "Tecnologia/Lenguaje",
-  "repo": "Repositorio del proyecto"
+  "repo": "Repositorio del proyecto",
+  "project": "Proyecto desplegado"
 }
