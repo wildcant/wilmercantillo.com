@@ -1,0 +1,79 @@
+---
+lang: es
+type: project
+slug: 'cardiac-signals-analysis'
+title: 'Analisis de señales Cardiacas'
+date: '2018-05-17'
+author: 'Wilmer Cantillo'
+description:
+  'Contruccion de una GUI y un algoritmo para procesamiento y analisis de
+  señales cardiacas por medio de audio.'
+category: 'Estructura de datos, Algoritmos'
+projectType: 'Academico'
+tech: 'Matlab'
+keywords:
+  - 'señales y sistemas'
+repo: 'https://github.com/CwirL/signal-processing'
+banner: './images/banner.png'
+bannerCredit: ''
+featured: true
+---
+
+import { graphql } from 'gatsby'
+export const ProjectQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+    banner: file(
+      relativePath: { eq: "project/cardiac-signals-analysis/images/banner.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
+
+## Objetivo
+
+Realizar la construcción de una GUI y un algoritmo para procesamiento y análisis
+de señales cardiacas por medio de audio.
+
+## Contexto
+
+Este fue mi proyecto final de séptimo semestre para la materia de señales y
+sistemas, aquí puse en practica todo lo aprendido durante el transcurso del
+semestre en esta carrera, lo cual comprende las técnicas básicas y mas populares
+para análisis de señales y sistemas en los dominios del tiempo y la frecuencia,
+como lo son: operaciones entre señales, consolación, y transformadas de Fourier
+y Laplace.
+
+## Construcción del Proyecto
+
+El algoritmo el cual podrán encontrar en GitHub permite hacer lo siguiente
+
+**Dominio del Tiempo.** Calcula los valores máximos, mínimos y media de:
+
+- Duración del intervalo de un ciclo cardiaco y de los segmentos S1, S2, sístole
+  y diástole.
+- Relación entre el intervalo sistólico y ciclo cardiaco
+- Relación entre el intervalo diastólico y ciclo cardiaco
+- Relación entre el intervalo sistólico y diastólico.
+- Amplitud máxima y mínima en los segmentos S1, S2, sístole y diástole.
+- Energía en el ciclo cardiaco, segmento S1, S2 sístole y diástole.
+- Potencia en el ciclo cardiaco, segmento S1, S2 sístole y diástole.
+
+**Dominio de la frecuencia.** Calcula los valores máximos, mínimos y media de:
+
+- Determinar el intervalo de las frecuencias en donde mayor energía se concentra
+  (Frecuencia inicial, frecuencia final, ancho del intervalo) en una grabación,
+  un ciclo cardiaco, segmento S1, S2, sístole y diástole.
+- Calcular la energía en el intervalo de frecuencias.
+- Calcular la potencia en el intervalo de frecuencias.
+- Calcular la amplitud en el intervalo de frecuencia. ¿En qué frecuencia está la
+  amplitud máxima?
+- Mostrar el Espectrograma.

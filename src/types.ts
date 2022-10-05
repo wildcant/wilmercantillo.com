@@ -42,6 +42,7 @@ export type ProjectPost = {
   banner: { childImageSharp: { gatsbyImageData: IGatsbyImageData } }
   bannerCredit: string
   featured?: boolean
+  hidden?: boolean
 }
 
 export type ProjectNode = {
