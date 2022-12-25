@@ -21,6 +21,6 @@ module.exports = {
   themeColor: '#cc1a27',
   backgroundColor: '#ffffff',
 
-  github: 'https://github.com/CwirL',
+  github: 'https://github.com/wildcant',
   linkedin: 'https://www.linkedin.com/in/wilmer-cantillo-9a19b4171/',
 }

@@ -98,7 +98,7 @@ export default function Footer() {
               <Flex direction={['column', 'row']}>
                 <Box margin="1rem 0">
                   <Heading size="md">{t('footer.keepConnected')}</Heading>
-                  <CLink href="https://github.com/CwirL" target="_blank">
+                  <CLink href="https://github.com/wildcant" target="_blank">
                     <Flex align="center" marginTop="0.5rem">
                       <Icon as={FaGithub} marginRight="1rem" />
                       <Text>Github</Text>

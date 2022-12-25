@@ -24,7 +24,7 @@ const BlogPostLayout = (props: BlogPost & Children) => {
           </Flex>
 
           <Flex>
-            <Link href="https://github.com/CwirL" target="_blank">
+            <Link href="https://github.com/wildcant" target="_blank">
               <IconButton
                 aria-label="Facebook Link"
                 icon={<Icon as={FaGithub} />}
@@ -69,7 +69,7 @@ const BlogPostLayout = (props: BlogPost & Children) => {
         <MDXProvider components={components}>{props.children}</MDXProvider>
 
         <Flex justify="flex-end">
-          <Link href="https://github.com/CwirL" target="_blank">
+          <Link href="https://github.com/wildcant" target="_blank">
             <IconButton
               aria-label="Facebook Link"
               icon={<Icon as={FaGithub} />}
