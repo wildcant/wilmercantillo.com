@@ -82,7 +82,7 @@ const LargeBlogCard = ({ isLight, isResult, ...props }: Props) => (
     width="100%"
     minW="250px"
     maxW="650px"
-    h={{ base: '120px', md: '140px' }}
+    h={{ base: '120px', md: '180px' }}
     minH="6rem"
     margin="1rem 0"
     transition="background .3s,box-shadow .3s ease"

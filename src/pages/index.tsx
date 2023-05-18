@@ -71,9 +71,9 @@ export default function IndexPage(props: Props) {
     <Layout title={t('home.metaTitle')}>
       {/* Home Section */}
       <ComponentSizer
-        h="90vh"
+        h={{ lg: "90vh" }}
         minH={{ base: '400px', lg: '600px' }}
-        maxH={{ base: '650px' }}
+        maxH={{ lg: '750px' }}
         pos="relative"
       >
         <Box
@@ -116,9 +116,9 @@ export default function IndexPage(props: Props) {
       </ComponentSizer>
       {/* Blog Section */}
       <ComponentSizer
-        h="100vh"
+        h={{ lg: "100vh" }}
         minH={{ base: '400px', sm: '640px' }}
-        maxH={{ base: '700px' }}
+        maxH={{ lg: '700px' }}
         pos="relative"
       >
         <Box as="section" height="100%">
@@ -135,11 +135,9 @@ export default function IndexPage(props: Props) {
             )}
           </Box>
           <Grid
-            h={{ base: 'calc(100% - 4rem)' }}
+            h={{ lg: 'calc(100% - 4rem)' }}
             templateColumns={{ md: '50% 50%' }}
             templateRows={{
-              base: '60% 40%',
-              sm: '50% 50%',
               md: 'repeat(4, 25%)',
             }}
           >
@@ -189,13 +187,13 @@ export default function IndexPage(props: Props) {
       </ComponentSizer>
       {/* Contact Section */}
       <ComponentSizer
-        h="100vh"
+        h={{ lg: "100vh" }}
         minH={{ base: '400px', sm: '600px' }}
-        maxH={{ base: '700px' }}
+        maxH={{ lg: '700px' }}
         pos="relative"
       >
         <Box as="section" height="100%">
-          <Grid height="100%" gridTemplateRows="70% 30%">
+          <Grid height="100%" gridTemplateRows={{ md: "70% 30%" }}>
             <Flex direction={{ base: 'column', md: 'row' }}>
               <Flex
                 w={{ md: '50%' }}
@@ -300,9 +298,9 @@ export default function IndexPage(props: Props) {
       </ComponentSizer>
       {/* Projects Section */}
       <ComponentSizer
-        h="100vh"
+        h={{md: "100vh"}}
         minH={{ base: '400px', sm: '600px' }}
-        maxH={{ base: '700px' }}
+        maxH={{ md: '900px' }}
         pos="relative"
       >
         <Grid
@@ -347,8 +345,8 @@ export default function IndexPage(props: Props) {
       {/*  Testimonials Section */}
       <ComponentSizer
         h={{ base: '50vh', md: '40vh' }}
-        minH={{ base: '200px', sm: '300px' }}
-        maxH={{ base: '600px' }}
+        minH={{ base: '500px', sm: '300px' }}
+        maxH={{ base: '600px' }}  
         pos="relative"
       >
         <Box as="section" height="100%">
