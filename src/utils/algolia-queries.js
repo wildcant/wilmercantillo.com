@@ -67,8 +67,8 @@ const queries = [
       searchableAttributes: ['title', 'description'],
       attributesForFaceting: ['categories'],
       replicas: [
-        `virtual(${esBlogPostsQuery}_date_asc)`,
-        `virtual(${esBlogPostsQuery}_date_desc)`,
+        `virtual(es_blog_post_virtual_date_asc)`,
+        `virtual(es_blog_post_virtual_date_desc)`,
       ],
       replicaUpdateMode: 'merge',
     },
@@ -82,13 +82,14 @@ const queries = [
       searchableAttributes: ['title', 'description'],
       attributesForFaceting: ['categories'],
       replicas: [
-        `virtual(${enBlogPostsQuery}_date_asc)`,
-        `virtual(${enBlogPostsQuery}_date_desc)`,
+        `virtual(en_blog_post_virtual_date_asc)`,
+        `virtual(en_blog_post_virtual_date_desc)`,
       ],
       replicaUpdateMode: 'merge',
     },
   },
 ]
+
 // Settings reference: https://www.algolia.com/doc/api-reference/settings-api-parameters/
 // Sort with virtual replicas approach: https://www.algolia.com/doc/guides/managing-results/refine-results/sorting/how-to/sort-by-attribute/
 // Configuring virtual replicas: https://www.algolia.com/doc/guides/managing-results/refine-results/sorting/how-to/sort-an-index-by-date/
