@@ -345,7 +345,7 @@ export default function IndexPage(props: Props) {
       {/*  Testimonials Section */}
       <ComponentSizer
         h={{ base: '50vh', md: '40vh' }}
-        minH={{ base: '500px', sm: '300px' }}
+        minH={{ base: '500px', sm: '400px' }}
         maxH={{ base: '600px' }}  
         pos="relative"
       >
