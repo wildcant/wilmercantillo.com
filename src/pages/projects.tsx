@@ -28,7 +28,6 @@ export default function Projects(props: Props) {
         >
           {projects.edges.map(
             (project, idx) =>
-              !project.node.frontmatter.hidden && (
                 <Flex
                   key={idx}
                   justify="center"
@@ -43,7 +42,6 @@ export default function Projects(props: Props) {
                     />
                   </Box>
                 </Flex>
-              ),
           )}
         </Flex>
       </ComponentSizer>
@@ -67,7 +65,6 @@ export const query = graphql`
             slug
             date
             description
-            hidden
             banner {
               childImageSharp {
                 gatsbyImageData(layout: FULL_WIDTH)
